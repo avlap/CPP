@@ -39,7 +39,7 @@ int main()
 	} else if (val3 < smaller) {
 		middle = smaller;
 		smaller = val3;
-	} else if (val3 == smaller || val3 == large) {
+	} else if (val3 == smaller || val3 == larger) {
 		middle = val3;
 	}
 
