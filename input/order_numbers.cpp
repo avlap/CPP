@@ -19,9 +19,7 @@ int main()
 	smaller = val1;
 	middle = val2;
 	larger = val3;
-	//if (val1 == val2) {
-	//		smaller = val1;
-	//		larger = val2;
+
 	if (val1 > val2) {
 		smaller = val2;
 		larger = val1;
@@ -29,13 +27,12 @@ int main()
 		smaller = val1;
 		larger = val2;
 	} else if (val1 == val2) {
-			smaller = val1;
-			larger = val2;
-			middle = val2;
+		smaller = val1;
+		larger = val2;
+		middle = val2;
 	}
 
 	if (val3 > larger) {
-		//smaller = middle;
 		middle = larger;
 		larger = val3;
 	} else if (val3 < smaller) {
@@ -46,10 +43,6 @@ int main()
 	} else if (val3 == larger) {
 		middle = val3;
 	}
-	//else {
-	//	middle = val3;
-	//}
-
 
 	cout << smaller << "," << middle << "," << larger << '\n';
 
