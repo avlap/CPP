@@ -17,38 +17,41 @@ int main()
 	cout << "Enter value 3: \n";
 	cin >> val3;
 	//if (val1 == val2) {
-//		smaller = val1;
-//		larger = val2;
+	//		smaller = val1;
+	//		larger = val2;
 	if (val1 > val2) {
 		smaller = val2;
 		larger = val1;
 	} else if (val1 < val2) {
 		smaller = val1;
 		larger = val2;
-	} else if (val1 == val2) {
+	} else if (val1 == val2) 
 		if (val1 == val3 || val3 > val1) {
-		smaller = val1;
-		middle = val2;
-		larger = val3;
+			smaller = val1;
+			middle = val2;
+			larger = val3;
 		} else if (val3 < val1) {
 			smaller = val3;
 			middle = val1;
 			larger = val2;
+		}
 
 	if (val3 > larger) {
 		middle = larger;
 		larger = val3;
-		else if (val3 < smaller) {
-			middle = smaller;
-			smaller = val3;
+	} else if (val3 < smaller) {
+		middle = smaller;
+		smaller = val3;
 		else 
 			middle = val3;
+	}
+
 
 	cout << smaller << "," << middle << "," << larger << '\n';
-	
 
-	
-  
+
+
+
 }
 
 
