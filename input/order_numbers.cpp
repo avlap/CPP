@@ -42,15 +42,13 @@ int main()
 	} else if (val3 < smaller) {
 		middle = smaller;
 		smaller = val3;
-		else 
-			middle = val3;
-	}
+	} 
+	//else {
+	//	middle = val3;
+	//}
 
 
 	cout << smaller << "," << middle << "," << larger << '\n';
-
-
-
 
 }
 
