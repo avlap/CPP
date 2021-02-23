@@ -2,9 +2,11 @@
 
 int val1;
 int val2;
-int difference;
-int product;
-double ratio;
+int val3;
+
+int larger;
+int middle;
+int smaller;
 
 int main()
 {
@@ -12,18 +14,41 @@ int main()
 	cin >> val1;
 	cout << "Enter value 2: \n";
 	cin >> val2;
-	difference = abs(val1 - val2);
-	product = (val1 * val2);
-    	
-	if (val1 == val2)
-		cout << val1 << " and " << val2 << " are of the same size!\n";
-	else if (val1 > val2) {
-	    //difference = (val1 - val2); 	
-		ratio = (val1 / val2);
-		cout << val1 << " is larger then " << val2 << "\ndifference = " << difference << "\nand the ratio is " << ratio << '\n';
-	} else if (val1 < val2)
-		//difference = (val2 - val1);
-		cout << val1 << " is smaller then " << val2 << " difference = " << difference << '\n';
+	cout << "Enter value 3: \n";
+	cin >> val3;
+	//if (val1 == val2) {
+//		smaller = val1;
+//		larger = val2;
+	if (val1 > val2) {
+		smaller = val2;
+		larger = val1;
+	} else if (val1 < val2) {
+		smaller = val1;
+		larger = val2;
+	} else if (val1 == val2) {
+		if (val1 == val3 || val3 > val1) {
+		smaller = val1;
+		middle = val2;
+		larger = val3;
+		} else if (val3 < val1) {
+			smaller = val3;
+			middle = val1;
+			larger = val2;
+
+	if (val3 > larger) {
+		middle = larger;
+		larger = val3;
+		else if (val3 < smaller) {
+			middle = smaller;
+			smaller = val3;
+		else 
+			middle = val3;
+
+	cout << smaller << "," << middle << "," << larger << '\n';
+	
+
+	
+  
 }
 
 
