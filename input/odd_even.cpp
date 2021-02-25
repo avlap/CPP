@@ -11,7 +11,6 @@ int main ()
 	else
 		cout << "The number " << val << " is even!\n";
 
-
 }
 
 
