@@ -3,7 +3,7 @@
 int main ()
 {
 	double val0;
-	double val1;
+	//double val1;
 	double small;
 	double large;
 	//int temp;
