@@ -6,6 +6,7 @@ int main ()
 	double val1;
 	//int temp;
 	//int i = 0;
+	//cout << "Please enter 2 values: \n";
 	while(cin >> val0 >> val1) {
 		//cin >> val0 >> val1;
 		if(val0 > val1) { 
