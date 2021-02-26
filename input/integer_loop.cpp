@@ -1,7 +1,5 @@
 #include "../include/std_lib_facilities.h"
 
-//char a = 1;
-
 int main ()
 {
 	int i = 0;
