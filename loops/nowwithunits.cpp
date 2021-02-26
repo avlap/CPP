@@ -15,6 +15,8 @@ int main ()
 
 	string unit;
 
+	vector<double>values;
+
 	while(cin >> val0 >> unit) {
 		//cin >> val0 >> val1;
 		++number;
@@ -43,11 +45,19 @@ int main ()
 			large = val0;
 			
 		}
+
 		//val0 /= meter;
 		sum += val0;
+		values.push_back(val0);
+
+		
 
 	}
 	cout << "Number of numbers: " << number << '\n';
+	cout << "The entered numbers are: \n";
+	for(int x:values)
+		cout << x << ", ";
+	cout << '\n';
 	cout << "The number " << small << "m is the smallest number.\n";
 	cout << "The number " << large << "m is the largest number.\n";
 	cout << "Sum: " << sum << "m\n";
