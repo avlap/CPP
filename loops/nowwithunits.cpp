@@ -54,9 +54,10 @@ int main ()
 
 	}
 	cout << "Number of numbers: " << number << '\n';
-	cout << "The entered numbers are: \n";
-	for(int x:values)
-		cout << x << ", ";
+	sort(values);
+	cout << "The entered values are: \n";
+	for(double x:values)
+		cout << x << "m, ";
 	cout << '\n';
 	cout << "The number " << small << "m is the smallest number.\n";
 	cout << "The number " << large << "m is the largest number.\n";
