@@ -15,11 +15,11 @@ int main ()
 	if (temps.size() % 2 != 0) 
 		cout << "Median temperature: " << temps[temps.size()/2] << '\n';
 	else {
-		double median = (temps[temps.size()/2] + temps[(temps.size()/2) - 1])/2.0;
+		double median = (temps[temps.size()/2] + temps[(temps.size()/2) - 1])/2.0; //index begint bij 0
 		cout << "Median temperature: " << median << '\n';
 	}
 	
-	cout << "Temps size: " << temps.size()/2 << '\n';
+//	cout << "Temps size: " << temps.size()/2 << '\n';
 }
 
  
