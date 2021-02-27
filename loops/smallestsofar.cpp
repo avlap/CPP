@@ -6,10 +6,11 @@ int main ()
 	//double val1;
 	double small;
 	double large;
+	char unit = ' ';
 	//int temp;
 	//int i = 0;
 	//cout << "Please enter 2 values: \n";
-	while(cin >> val0) {
+	while(cin >> val0 >> unit) {
 		//cin >> val0 >> val1;
 		cout << "Entered number is: " << val0 << '\n';
 		if (val0 <= small) {
