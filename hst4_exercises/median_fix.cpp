@@ -3,7 +3,7 @@
 
 int main ()
 {
-	vector<double> temps;
+	vector<double> ;
 	for (double temp; cin>>temp;)
 		temps.push_back(temp);
 
