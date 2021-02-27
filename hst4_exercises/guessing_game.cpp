@@ -306,6 +306,38 @@ int main ()
 					out_number = 19;
 			else if (in_number < 12)
 				out_number = 1;
+				if (in_number > 6)
+					out_number = 7;
+					if (in_number > 10)
+						out_number = 11;
+					else if (in_number < 10)
+						out_number = 7;
+						if (in_number > 8)
+							out_number = 9;
+						else if (in_number < 8)
+							out_number = 7;
+						else
+							out_number = 8;
+					else
+						out_number = 10;
+				else if (in_number < 6)
+					out_number = 1;
+					if (in_number > 3)
+						out_number = 4;
+						if (in_number > 4)
+							out_number = 5;
+						else 
+							out_number = 4;
+					else if (in_number < 3)
+						out_number = 1;
+						if (in_number > 1)
+							out_number = 2;
+						else
+							out_number = 1;
+					else
+						out_number = 3;
+				else
+					out_number = 6;
 			else
 				out_number = 12;
 		else
