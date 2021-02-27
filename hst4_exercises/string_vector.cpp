@@ -10,16 +10,22 @@ int main ()
 
 	cin >> val1;
 
-if (val1 == values[])
+	for (int i = 0; i <= values.size(); ++i) {
+		if (val1 == values[i]) {
+			output = values[i];
+		}
+		i++;
+	}
 
 
 
 
 
-	
+
+
 	cout << val1 << '\n';
 
-//	for(int x:values) ++1;
+	//	for(int x:values) ++1;
 
 }
 
