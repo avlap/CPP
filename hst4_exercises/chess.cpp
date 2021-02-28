@@ -8,10 +8,10 @@ int main ()
 		if (square > 1){
 			grain = grain * 2;
 			totalgrain += grain;
-			cout << "square: " << square << '\t' << "grain: " << grain << '\t' << '\t' << "totalgrain: " << totalgrain << '\n';
+			if (totalgrain >= 1000)
+				cout << "Square: " << square << '\t' << '\t' << "Grain: " << totalgrain << '\n';
 		} else {
 			totalgrain += grain;
-			cout << "square: " << square << '\t' << "grain: " << grain << '\t' << '\t' << "totalgrain: " << totalgrain << '\n';
 		}
 
 	}
