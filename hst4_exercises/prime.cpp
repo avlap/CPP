@@ -5,17 +5,18 @@ int main ()
 	vector<int> primes = {2};
 	int n;
 
-	for (int i = 2; i<100; ++i)
+	for(int i=3; i < 100; ++i) {
 		n = i;
-	{
-		for (int i =0; i <= n; ++i) {
-			if (n % primes[i] != 0)
+		for (int j =0; j < primes.size(); ++j) {
+			if (n % primes[j] == 0) {
 				primes.push_back(n);
+			}
+			//write a function to check prime number
 		}
-		cout << primes[n] << '\n';
 	}
 
-}	
-//write a function to check prime number
-
+	for (int i=0; i < primes.size(); ++i) {
+		cout << primes[i] << '\n';
+	}
+}
 
