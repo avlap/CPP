@@ -2,15 +2,17 @@
 
 int main ()
 {
-	vector<int>primes = {2};
+	vector<int>primes = {2, 3};
 	int n;
 
 	for(int i=0; i < 100; ++i) {
-		for (int j =0; j < i; ++j) {
-			if (i % primes[j] == 0) {
-				primes.push_back(i);
+		if (i > 3) {
+			for (int j =0; j < i/2; ++j) {
+				if (i / primes[j] != 0) {
+					primes.push_back(i);
+				}
+				//write a function to check prime number
 			}
-			//write a function to check prime number
 		}
 	}
 
