@@ -3,19 +3,19 @@
 int main ()
 {
 	vector<int> primes = {2};
+	int n;
 
-	int root = sqrt(8);
-	cout << root << '\n';
-
-	for (i = 2; i<100; ++i)
+	for (int i = 2; i<100; ++i)
+		n = i;
 	{
-		for (int n =2; i <= sqrt(n); ++n) {
-			if (i % primes[n] != 0)
+		for (int i =0; i <= n; ++i) {
+			if (n % primes[i] != 0)
 				primes.push_back(n);
+		}
+		cout << primes[n] << '\n';
 	}
 
 }	
 //write a function to check prime number
-
 
 
