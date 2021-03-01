@@ -4,18 +4,19 @@ int main ()
 {
 	vector<int>primes = {2};
 	int n;
-	bool prime = 0;
+	bool not_prime = false;
 
 	for(int i=3; i < 100; ++i) {
 		for(int j=0; j < primes.size(); ++j) {
 			if(i % primes[j] == 0) {
-				prime = 1;	
+				not_prime = true;	
 			}
 		}
-		if(prime == 0) 
+
+		if(not_prime == false) 
 			primes.push_back(i);
 		else
-			prime = 0;
+			not_prime = false;
 	}
 
 	for(int i=0; i < primes.size(); ++i) {
