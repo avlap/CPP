@@ -7,14 +7,14 @@ int main ()
 	bool prime = 0;
 
 	for(int i=3; i < 100; ++i) {
-		for(int j =0; j < primes.size(); ++j) {
+		for(int j=0; j < primes.size(); ++j) {
 			if(i % primes[j] == 0) {
 				prime = 1;	
 			}
 		}
-		if(prime == 0) {
+		if(prime == 0) 
 			primes.push_back(i);
-		} else
+		else
 			prime = 0;
 	}
 
