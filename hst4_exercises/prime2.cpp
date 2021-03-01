@@ -8,8 +8,8 @@ int main ()
 
 	for(int i=0; i < 100; ++i) {
 		if (i > 3) {
-			for (int j =0; j < i/2; ++j) {
-				if (i % primes[j] != 0) {
+			for (int j =0; j < primes.size(); ++j) {
+				if (i % primes[j] == 0) {
 					prime = 1;	
 				}
 				//write a function to check prime number
