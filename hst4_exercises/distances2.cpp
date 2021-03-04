@@ -4,6 +4,7 @@ int main ()
 {
 	vector<double>distances;
 	double sum, mean, large, small;
+	
 
 	for(double distance; cin >> distance;)
 		distances.push_back(distance);
@@ -14,12 +15,11 @@ int main ()
 	mean = sum / distances.size();
 
 	sort(distances);
-
 	small = distances[0];
 	large = distances[distances.size() - 1];
 
 	for(double x:distances)	cout << x << '\n';
-
+	
 	cout << "Sum: " << sum << '\n';
 	cout << "Mean: " << mean << '\n';
 	cout << "Largest: " << large << '\n';
