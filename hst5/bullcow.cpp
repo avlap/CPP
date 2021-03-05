@@ -1,13 +1,27 @@
-
 #include "../include/std_lib_facilities.h"
 
 void bullcow()
 {
 
-	vector<int>numbers = {5,2,7,1};
-	vector<int>guess_numbers;
+	int bull=0;
+	int cow=0;
+	int a, b, c, d;
 
-	//cout << numbers.size() << '\n';
+	bool newgame = true;
+	
+	if(newgame) {
+		a = randint(10);
+		b = randint(10);
+		c = randint(10);
+		d = randint(10);
+		newgame = false;
+	}
+
+	
+
+
+	vector<int>numbers = {a,b,c,d};
+	vector<int>guess_numbers(0);
 
 	cout << "Enter 4 different numbers please, followed with a '|' sign: \n";
 
@@ -33,8 +47,6 @@ void bullcow()
 	}
 
 	//check for bulls and cows
-	int bull=0;
-	int cow=0;
 	for(int i=0; i < numbers.size(); ++i) {
 		for(int j=0; j < numbers.size(); ++j) {
 			if(i == j){
@@ -51,6 +63,9 @@ void bullcow()
 	//Check if 4 bulls
 	if(bull == 4)
 		cout << "Four bulls! Congratulations!\n";
+		newgame = true;
+
+	
 
 
 }
