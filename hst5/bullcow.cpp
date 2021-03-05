@@ -16,12 +16,14 @@ void bullcow()
 		guess_numbers.push_back(g);
 	}
 
+	//check for too many numbers
 	if(guess_numbers.size()  > numbers.size()) error("You entered more then 4 values!\n");
 
 	cout << "Numbers size: " << numbers.size() << '\n';
 	cout << "Guess numbers size: " << guess_numbers.size() << '\n';
 
-
+	//check for the same numbers 
+	// try the for range loop!
 	for(int i=0; i < guess_numbers.size(); ++i) {
 		for(int j=0; j <guess_numbers.size(); ++j){
 			if (i != j) 
@@ -31,12 +33,22 @@ void bullcow()
 	}
 
 
-
-
 	int bull=0;
 	int cow=0;
-	int wrong=0;
-	//for(int i=0; i < numbers.size(); ++i) {
+	for(int i=0; i < numbers.size(); ++i) {
+		for(int j=0; j < numbers.size(); ++j) {
+			if(i == j){
+				if(guess_numbers[i] == numbers[j]) ++bull;
+			} else {
+				if(guess_numbers[i] == numbers[j]) ++cow;
+			}
+		}
+	}
+
+	if(bull == 4)
+		cout << "Four bulls! Congratulations!\n";
+
+
 	//}
 	//for(int j=0; j < guess_numbers.size(); ++j)
 	//if(guess_numbers[i] == numbers[i]) ++bull;
@@ -47,8 +59,8 @@ void bullcow()
 	//	}
 
 
-	cout << "wrong: " << wrong << "cow: " << cow << "bull: " << bull << '\n';	
-	}
+cout << "Cow: " << cow << " Bull: " << bull << '\n';	
+}
 
 int main()
 {
