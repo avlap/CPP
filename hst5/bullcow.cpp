@@ -32,7 +32,7 @@ void bullcow()
 		}
 	}
 
-
+	//check for bulls and cows
 	int bull=0;
 	int cow=0;
 	for(int i=0; i < numbers.size(); ++i) {
@@ -45,21 +45,14 @@ void bullcow()
 		}
 	}
 
+	//Print the amount of cows and bulls
+	cout << "Cow: " << cow << " Bull: " << bull << '\n';	
+
+	//Check if 4 bulls
 	if(bull == 4)
 		cout << "Four bulls! Congratulations!\n";
 
 
-	//}
-	//for(int j=0; j < guess_numbers.size(); ++j)
-	//if(guess_numbers[i] == numbers[i]) ++bull;
-	//	else if (guess_numbers[i] != numbers[i]) {
-	//		if(guess_numbers[j] == numbers[i]) ++cow;
-	//	} else
-	//		++wrong;
-	//	}
-
-
-cout << "Cow: " << cow << " Bull: " << bull << '\n';	
 }
 
 int main()
