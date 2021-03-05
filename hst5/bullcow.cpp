@@ -1,27 +1,32 @@
 #include "../include/std_lib_facilities.h"
 
-void bullcow()
+bool bullcow()
 {
 
-	int bull=0;
-	int cow=0;
-	int a, b, c, d;
-
-	bool newgame = true;
+	bool gameon = true;
 	
-	if(newgame) {
+
+//	int bull = 4;
+//	if(bull >= 4){
+//		gameon = true;
+//		bull = 0;
+//	} else
+//		gameon = false;
+
+	
+//	int bull = 4;	
+	if(gameon) {
+		int a, b, c, d;
 		a = randint(10);
 		b = randint(10);
 		c = randint(10);
 		d = randint(10);
-		newgame = false;
+		int bull=0;
+		int cow=0;
+		vector<int>numbers = {a,b,c,d};
+		vector<int>guess_numbers;
+		gameon = false;
 	}
-
-	
-
-
-	vector<int>numbers = {a,b,c,d};
-	vector<int>guess_numbers(0);
 
 	cout << "Enter 4 different numbers please, followed with a '|' sign: \n";
 
@@ -61,12 +66,13 @@ void bullcow()
 	cout << "Cow: " << cow << " Bull: " << bull << '\n';	
 
 	//Check if 4 bulls
-	if(bull == 4)
+	if(bull == 4) {
 		cout << "Four bulls! Congratulations!\n";
-		newgame = true;
+		gameon = true;
+	}
 
 	
-
+	return gameon;
 
 }
 
