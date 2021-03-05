@@ -3,22 +3,27 @@
 
 void sum_doubles(double x, double y)
 {
-	//funtion for calculating sum from entered integers
+	//funtion for calculating sum from entered numbers
 	//exercises chapter 5
 	
-	cout << "Please enter the number of values you want to sum: \n";
-	cin >> x; //enter number from console
 
+	//enter number from console
+	cout << "Please enter the number of values you want to sum: \n";
+	cin >> x; 
+
+	//ask for entering numbers
 	vector<double>doubles;
 	cout << "Please enter some numbers (press '|' to stop): \n";
 	for(y; cin >> y;)
-		doubles.push_back(y); //add integers to a vector
+		doubles.push_back(y); 
+	
+	//if there are not enough integers, error
+	if(x>doubles.size()) error("You didn't enter enough numbers!\n"); 
 
-	if(x>doubles.size()) error("You didn't enter enough numbers!\n"); //if there are not enough integers, error
-
+	//calculate sum
 	double sum = 0;
 	for(int i =0; i<x; ++i) 
-		sum +=doubles[i]; //calculate the sum
+		sum +=doubles[i]; 
 
 	//calculate difference adjacent values and store them in a vector
 	vector<double>differences;
@@ -27,9 +32,10 @@ void sum_doubles(double x, double y)
 		 differences.push_back(difference);
 	}
 
+	//print out the sum
+	cout << "The sum of the first " << x << " numbers is: " << sum << '\n'; 
 
-	cout << "The sum of the first " << x << " numbers is: " << sum << '\n'; //print out the sum
-
+	//print out differences
 	cout << "Differences: \n"; 
 	for(double x:differences)
 		cout <<  x << ", "; 
