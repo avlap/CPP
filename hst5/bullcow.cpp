@@ -3,9 +3,8 @@
 bool bullcow()
 {
 
-	bool gameon = true;
 	
-
+bool gameon = true;
 //	int bull = 4;
 //	if(bull >= 4){
 //		gameon = true;
@@ -13,9 +12,12 @@ bool bullcow()
 //	} else
 //		gameon = false;
 
-	
+int bull;
+int cow;
+vector<int>numbers; 
+vector<int>guess_numbers;
 //	int bull = 4;	
-	if(gameon) {
+	if(gameon == true) {
 		int a, b, c, d;
 		a = randint(10);
 		b = randint(10);
@@ -78,9 +80,8 @@ bool bullcow()
 
 int main()
 {
-
-	bullcow();
-
+    if(bullcow())
+		bullcow();
 }
 
 
