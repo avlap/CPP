@@ -24,14 +24,12 @@ void bullcow()
 
 	for(int i=0; i < guess_numbers.size(); ++i) {
 		for(int j=0; j <guess_numbers.size(); ++j){
-			if(i == j) {
-			} else if (i != j) {
+			if (i != j) 
 				if (guess_numbers[i] == guess_numbers[j]) error("You should not enter the same value twice!\n");
-				else {
-				}
-			}
+
 		}
 	}
+
 
 
 
