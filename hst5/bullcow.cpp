@@ -14,7 +14,7 @@ bool gameon = true;
 
 int bull;
 int cow;
-vector<int>numbers; 
+vector<int>numbers(4); 
 vector<int>guess_numbers;
 //	int bull = 4;	
 	if(gameon == true) {
@@ -26,7 +26,6 @@ vector<int>guess_numbers;
 		int bull=0;
 		int cow=0;
 		vector<int>numbers = {a,b,c,d};
-		vector<int>guess_numbers;
 		gameon = false;
 	}
 
