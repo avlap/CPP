@@ -7,7 +7,7 @@ void bullcow()
 	vector<int>numbers = {5,2,7,1};
 	vector<int>guess_numbers;
 
-	cout << numbers.size() << '\n';
+	//cout << numbers.size() << '\n';
 
 	cout << "Enter 4 different numbers please, followed with a '|' sign: \n";
 
@@ -15,29 +15,40 @@ void bullcow()
 		if(g < 0 || g > 9) error("Only numbers between 0 - 9 please!\n");
 		guess_numbers.push_back(g);
 	}
-	
 
 	if(guess_numbers.size()  > numbers.size()) error("You entered more then 4 values!\n");
 
-	for(int i=1; i < guess_numbers.size(); ++i)
-		for(int x:guess_numbers)
-			if(guess_numbers[i] == guess_numbers[x]) error("You should not enter the same value twice!\n");
-
-	if(numbers == guess_numbers)
-		cout << "Congrats!\n";
-	else
-		cout << "not equal!\n";
-
-	for(int x:numbers)
-		cout << x << '\n';
-
-	cout << "guess_numbers: \n";
-
-	for(int x:guess_numbers)
-		cout << x << '\n';
+	cout << "Numbers size: " << numbers.size() << '\n';
+	cout << "Guess numbers size: " << guess_numbers.size() << '\n';
 
 
-}
+	for(int i=0; i < guess_numbers.size(); ++i) {
+		for(int j=0; j <guess_numbers.size(); ++j){
+			if(guess_numbers[i] == guess_numbers[i]) {
+			} else if (guess_numbers[i] == guess_numbers[j]) error("You should not enter the same value twice!\n");
+			else {
+			}
+		}
+	}
+
+
+
+	int bull=0;
+	int cow=0;
+	int wrong=0;
+	//for(int i=0; i < numbers.size(); ++i) {
+	//}
+	//for(int j=0; j < guess_numbers.size(); ++j)
+	//if(guess_numbers[i] == numbers[i]) ++bull;
+	//	else if (guess_numbers[i] != numbers[i]) {
+	//		if(guess_numbers[j] == numbers[i]) ++cow;
+	//	} else
+	//		++wrong;
+	//	}
+
+
+	cout << "wrong: " << wrong << "cow: " << cow << "bull: " << bull << '\n';	
+	}
 
 int main()
 {
