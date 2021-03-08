@@ -154,9 +154,8 @@ int factorial()
 		switch(t.kind) {
 			case '!':
 				{
-				int l = left;
-				//left / d;
-				if(l >= 0 && l <= 1) //left, t or new variable?
+				int l = left; //convert double to integer
+				if(l == 0 || l == 1) //left, t or new variable?
 					l = 1;
 				else
 					for(int i = l -1 ; i >= 1; --i)
