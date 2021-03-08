@@ -154,12 +154,14 @@ int factorial()
 		switch(t.kind) {
 			case '!':
 				{
-				left / 1;
-				if(left >= 0 && left <= 1) //left, t or new variable?
-					left = 1;
+				int l = left;
+				//left / d;
+				if(l >= 0 && l <= 1) //left, t or new variable?
+					l = 1;
 				else
-					for(int i = left -1 ; i >= 1; --i)
-					left *= i;
+					for(int i = l -1 ; i >= 1; --i)
+					l *= i;
+				left = l;
 				t = ts.get();	
 				break;
 				}
