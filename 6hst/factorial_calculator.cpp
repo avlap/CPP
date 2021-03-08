@@ -145,7 +145,7 @@ double primary()
 
 //Edit Dirk
 //
-int factorial()
+double factorial()
 {
 	double left = primary();
 	Token t = ts.get();
