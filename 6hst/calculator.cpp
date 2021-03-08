@@ -1,3 +1,6 @@
+
+
+
 #include "../include/std_lib_facilities.h"
 
 int main()
@@ -25,4 +28,8 @@ int main()
 
 }
 
-
+//Expression: a mathematical or logical symbol or a meaningful combination of symbols
+//
+//Term: In Algebra a term is either a single number or variable, or numbers and variables multiplied together. Terms are separated by + or − signs, or sometimes by divide.
+//
+//Primary: elementair?
