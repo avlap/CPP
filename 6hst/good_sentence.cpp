@@ -1,5 +1,19 @@
 #include "../include/std_lib_facilities.h"
 
+bool is_lidwoord(string s)
+{
+	switch() {
+	case 'the': 
+
+	}
+
+}
+
+bool is_good_sentence(string s)
+{
+	is_lidwoord(s[0])
+
+}
 
 
 int main()
@@ -9,6 +23,21 @@ int main()
 	vector<string> s;
 	for(string tmp_s; cin >>tmp_s;) 
 		s.push_back(tmp_s);
+
+	for(string x:s)
+		switch(x) {
+			case 'the':
+				if(x+1 == noun)
+					ok;
+				else
+					not ok;
+
+			default:
+				ok;
+
+
+		}
+	is_good_sentence(s);
 
 	for(string x:s)
 		cout << x << ' ';
