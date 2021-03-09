@@ -60,6 +60,24 @@ int main()
 		s.push_back(tmp_s);
 
 	for(int i=0; i < s.size(); ++i) {
+
+	if(is_lidwoord)
+		if(volgende woord is niet noun)
+			sentence = false;
+		else if (volgen woord is noun)
+			if (volgende woord is verb)
+				dan is er sprake van een zin
+			else
+				ook
+
+
+
+
+
+
+
+
+
 		if(is
 		switch(s[i]) {
 			case "the":
