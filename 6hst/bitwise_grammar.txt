@@ -1,0 +1,37 @@
+BITWISE Operation
+
+NOT !  prefix 
+Complement ~   prefix
+AND &    0
+OR |	2
+XOR 	^ (logical exclusive OR) 1
+
+
+------------------------------------------------------------------
+
+
+Statement
+Prefix primary Operator Prefix Primary
+
+Operations:
+AND
+And
+
+XOR
+
+Xor
+
+OR
+or
+
+
+
+Prefix
+	~
+	!
+
+
+Primary
+	
+	xyz
+

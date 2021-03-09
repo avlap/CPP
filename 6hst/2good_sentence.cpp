@@ -1,7 +1,14 @@
 #include "../include/std_lib_facilities.h"
-
-bool is_sentence()
+//waarschijnlijk geen bool. Char or string.
+string is_sentence()
 {
+	string s;
+	cin >> s;
+
+	string left = conjunction();
+
+	if (true)
+
 	if noun and verb
 
 	if sentence conjunction sentence
@@ -18,7 +25,6 @@ bool is_conjunction(string s)
 }
 
 
-}
 
 bool is_noun(string s)
 {
@@ -36,16 +42,16 @@ bool is_verb(string s)
 		return true;
 	else
 		return false;
-	
-
 }
 
 bool is_lidwoord(string s)
 {
+    string s = cin >> s;	
 	if(s == "the")
-		return true;
+		//return s;
+		s = cin >> s;
 	else
-		return false;
+	 	return s;
 
 }
 
@@ -55,6 +61,26 @@ int main()
 {
 	bool sentence = false;
 	//read words into a string vector
+	//
+	//ik denk dat er geen vector gebruikt moet worden.
+	//Dat het woord per woord gelezen en behandeld moet worden?
+	//De vraag is uiteindelijk of het een (goede) zin is.
+	//
+	//
+	Kijken welk woord het is.
+	if(noun(woord1))
+
+
+	sentence();
+
+
+
+
+
+
+
+
+
 	vector<string> s;
 	for(string tmp_s; cin >>tmp_s;) 
 		s.push_back(tmp_s);
