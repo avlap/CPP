@@ -2,7 +2,7 @@
 
 class Digit {
 	public:
-		char digit; 
+		int digit; 
 		int number;
 };
 
