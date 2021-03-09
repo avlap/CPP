@@ -1,11 +1,29 @@
 #include "../include/std_lib_facilities.h"
 
+bool is_noun(string s)
+{
+	if(s == "birds" || s == "fish") {
+		return true;
+	else
+		return false;
+	}
 
+}
+
+bool is_verb(string s)
+{
+	if(s == "fly" || s = "swim") {
+		return true;
+	else
+		return false;
+	}
+
+}
 
 
 int main()
 {
-	//bool = is_ok = false;
+	bool sentence = false;
 	//read words into a string vector
 	vector<string> s;
 	for(string tmp_s; cin >>tmp_s;) 
@@ -13,38 +31,41 @@ int main()
 
 	for(int i=0; i < s.size(); ++i) {
 		switch(s[i]) {
-			case 'the':
-				if(s[i+1] = is_noun()) {
-					sentence = ok;
+			case "the":
+				if(is_noun(s[i+1])) {
+					sentence = true;
 				else
-					sentence != ok;
+					sentence = false; error("sentence is not OK");
 				}
 				break;
-			case 'fly': 'swim':
-					if (s[i-1] != is_noun()) {
-						sentence = ok;
+			case "fly": "swim":
+					if !(is_noun(s[i-1])) {
+						sentence = true;
 					else
-						sentence != ok;
+						sentence = false; error("sentence is not OK");
 					}
 				break;
-			case 'bird': 'fish':
-					if (s[i+1] != is_verb()) {
-						sentence != ok;
+			case "birds": "fish":
+					if !(is_verb(s[i+1] )) {
+						sentence = false; error("sentence is not OK");
+
 					else
-						sentence = ok;
+						sentence = true;
 					}
 				break;
-			case 'and': 'or': 'but':
-						if (s[i +1] == is_sentence())
+			case "and": "or": "but":
+				break;
+					//	if (s[i +1] == is_sentence())
+			default:
+						error("wrong word");
 
 		}
 	}
 
 
-	for(string x:s)
-		cout << x << ' ';
-	
-	cout << '\n';
+	if(sentence)
+		cout << "Sentence is OK!\n";
+
 
 	
 }
