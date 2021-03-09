@@ -2,21 +2,21 @@
 
 bool is_noun(string s)
 {
-	if(s == "birds" || s == "fish") {
+	if(s == "birds" || s == "fish") 
 		return true;
 	else
 		return false;
-	}
+	
 
 }
 
 bool is_verb(string s)
 {
-	if(s == "fly" || s = "swim") {
+	if(s == "fly" || s == "swim") 
 		return true;
 	else
 		return false;
-	}
+	
 
 }
 
