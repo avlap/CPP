@@ -1,5 +1,25 @@
 #include "../include/std_lib_facilities.h"
 
+bool is_sentence()
+{
+	if noun and verb
+
+	if sentence conjunction sentence
+
+}
+
+bool is_conjunction(string s)
+{
+
+	if(s == "and" || s == "but" || s == "or")
+		return true;
+	else
+		return false;
+}
+
+
+}
+
 bool is_noun(string s)
 {
 	if(s == "birds" || s == "fish") 
@@ -20,6 +40,16 @@ bool is_verb(string s)
 
 }
 
+bool is_lidwoord(string s)
+{
+	if(s == "the")
+		return true;
+	else
+		return false;
+
+}
+
+
 
 int main()
 {
@@ -30,6 +60,7 @@ int main()
 		s.push_back(tmp_s);
 
 	for(int i=0; i < s.size(); ++i) {
+		if(is
 		switch(s[i]) {
 			case "the":
 				if(is_noun(s[i+1])) {
