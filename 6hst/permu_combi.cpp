@@ -1,7 +1,13 @@
 #include "../include/std_lib_facilities.h"
 
-double factorial() 
+double factorial(int f) 
 {
+	int factorial = f;
+	for(int i = f -1 ; i >= 1; --i)
+		f *= i;
+	
+	cerr << "factorial " << factorial << " -> " << f << '\n';
+
 
 }
 
@@ -23,21 +29,19 @@ int permu_or_combi()
 	char input;
 	int a, b;
 	double outcome;
+
 	cout << "This application does permutations (p) or combinations (c). Please enter two values first, value 'a' and value 'b': \n";
 	cin >> a >> b;
 	cout << "Do you want permuations 'p' or combinations 'c'? Please enter 'p' or 'c':\n";
 	cin >> input;
 
-	cout << a << '\t' << b << '\t' << input << '\n';
+	cerr << a << '\t' << b << '\t' << input << '\n';
 
 	if(!a)
 		error("Something went wrong when you entered value a");
 	if(!b)
 		error("Something went wrong when you entered value b");
 
-
-
-	
 	switch(input) {
 		case 'p':
 			outcome = permutation(a, b);
@@ -48,10 +52,7 @@ int permu_or_combi()
 		default:
 			error("You didn't enter 'p' or 'c'");
 
-
 	}
-
-	cout << input << '\n';
 
 }
 
@@ -61,6 +62,8 @@ int main()
 {
 
 	permu_or_combi();
+
+	return 0;
 
 
 
