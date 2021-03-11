@@ -2,7 +2,7 @@
 
 class Digit {
 	public:
-		int digit; 
+		int dig; 
 		int number;
 };
 
@@ -12,18 +12,30 @@ int main()
 	char nul = '0';
 	int amount = 0;
 
-	vector<Digit>digit;
+	vector<int>digit;
 	for(char tmp_digit; cin >> tmp_digit;) {
-		++amount;
 		tmp_digit -=nul;
-		digit.push_back({tmp_digit, amount});
+		digit.push_back(tmp_digit);
+	}
+
+	for(int i=0; i < digit.size(); ++i) {
+		switch(i) {
+			case 0:
+				int zero = digit[i];
+				break;
+		
+		}
+
+
+		
+
 	}
 
 		//for(char x:digit)
 		//x -=nul;
 
-	//for(int x:digit)
-	//	cout << x;
+	//for(Digit x:digit)
+	//	cout << digit.dig << " , " << digit.number << '\n';
 
 	//for(int i= amount; i >= 0; --i) 
 	//cout << 
