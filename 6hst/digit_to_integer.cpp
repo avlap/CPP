@@ -5,11 +5,7 @@ int main()
 
 	char nul = '0';
 
-	int zero = 0;
-	int one = 0;
-	int two = 0;
-	int three = 0; 
-
+	int zero, one, two, three;
 
 	vector<int>digit;
 	for(char tmp_digit; cin >> tmp_digit;) {
