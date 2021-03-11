@@ -1,16 +1,9 @@
 #include "../include/std_lib_facilities.h"
 
-class Digit {
-	public:
-		int dig; 
-		int number;
-};
-
 int main()
 {
 
 	char nul = '0';
-	int amount = 0;
 
 	int zero = 0;
 	int one = 0;
@@ -31,7 +24,7 @@ int main()
 		switch(i) {
 			case 0:
 				zero = digit[digit.size()-1];
-				cout << " is " << zero << " zeros";
+				cout << " is " << zero << " ones";
 				break;
 			case 1:
 				one = digit[digit.size()-2];
@@ -39,45 +32,19 @@ int main()
 				break;
 			case 2:
 				two = digit[digit.size()-3];
-				cout << ", " << two << " hundreds";
+				cout << ", " << two << " hundred";
 				break;
 			case 3:
 				three = digit[digit.size()-4];
- 				cout << ", " << three << " thousands";
+				cout << ", " << three << " thousand";
 				break;
 			default:
 				error("No number entered");
 				break;
 		}
-			
+
 	}
-	//	if(i == digit.size()-1)
-	//zero = digit[digit.size() -1];
-		
-		
-
-
-		
-
-	
-
-	
-
-//	cout << ' ' << "is " << zero << " zeros " << one << " tens, ";
 
 	cout << ".\n";
-
-		//for(char x:digit)
-		//x -=nul;
-
-	//for(Digit x:digit)
-	//	cout << digit.dig << " , " << digit.number << '\n';
-
-	//for(int i= amount; i >= 0; --i) 
-	//cout << 
-	
-	//cout << '\n';
-
-	//cout << amount << '\n';
 
 }
