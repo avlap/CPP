@@ -1,6 +1,6 @@
 #include "../include/std_lib_facilities.h"
 
-double factorial(int f) 
+int factorial(int f) 
 {
 	int factorial = f;
 	for(int i = f -1 ; i >= 1; --i)
@@ -8,31 +8,42 @@ double factorial(int f)
 	
 	cerr << "factorial " << factorial << " -> " << f << '\n';
 
-
+	return f;
 }
 
 
-double permutation(int a, int b) 
+int permutation(int a, int b) 
 {
+	int fact_a = factorial(a);
+	int a_minus_b = (a-b);
+	int fact_a_minus_b = factorial(a_minus_b);
+	int outcome = fact_a/fact_a_minus_b;
 
+	return outcome;
 }
 
-double combination(int a, int b)
+int combination(int a, int b)
 {
-	//x = permutation(a, b);
+	int permu_a_b = permutation(a, b);
+	int fact_b = factorial(b);
+	int result = permu_a_b/fact_b;
 
-	//Pab / b!
+	return result;
 }
 
-int permu_or_combi()
+void permu_or_combi()
 {
 	char input;
 	int a, b;
-	double outcome;
+	double result;
 
-	cout << "This application does permutations (p) or combinations (c). Please enter two values first, value 'a' and value 'b': \n";
+	string welcome = "This application does permutations (p) or combinations (c). Please enter two values first, value 'a' and value 'b':\n";
+	string c_or_p = "Do you want permuations 'p' or combinations 'c'? Please enter 'p' or 'c':\n";
+
+
+	cout << welcome; 
 	cin >> a >> b;
-	cout << "Do you want permuations 'p' or combinations 'c'? Please enter 'p' or 'c':\n";
+	cout << c_or_p;
 	cin >> input;
 
 	cerr << a << '\t' << b << '\t' << input << '\n';
@@ -44,15 +55,17 @@ int permu_or_combi()
 
 	switch(input) {
 		case 'p':
-			outcome = permutation(a, b);
+			result = permutation(a, b);
 			break;
 		case 'c':
-			outcome = combination(a, b);
+			result = combination(a, b);
 			break;
 		default:
 			error("You didn't enter 'p' or 'c'");
 
 	}
+
+	cout << "Result: " << result << '\n';
 
 }
 
