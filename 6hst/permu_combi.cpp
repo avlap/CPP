@@ -1,9 +1,9 @@
 #include "../include/std_lib_facilities.h"
 
-int factorial(int f) 
+double factorial(double f) 
 {
 	int factorial = f;
-	for(int i = f -1 ; i >= 1; --i)
+	for(int i = f -1; i >= 1; --i)
 		f *= i;
 	
 	cerr << "factorial " << factorial << " -> " << f << '\n';
@@ -12,21 +12,21 @@ int factorial(int f)
 }
 
 
-int permutation(int a, int b) 
+double permutation(int a, int b) 
 {
-	int fact_a = factorial(a);
-	int a_minus_b = (a-b);
-	int fact_a_minus_b = factorial(a_minus_b);
-	int outcome = fact_a/fact_a_minus_b;
+	double fact_a = factorial(a);
+	double a_minus_b = (a-b);
+	double fact_a_minus_b = factorial(a_minus_b);
+	double outcome = fact_a/fact_a_minus_b;
 
 	return outcome;
 }
 
-int combination(int a, int b)
+double combination(double a, double b)
 {
-	int permu_a_b = permutation(a, b);
-	int fact_b = factorial(b);
-	int result = permu_a_b/fact_b;
+	double permu_a_b = permutation(a, b);
+	double fact_b = factorial(b);
+	double result = permu_a_b/fact_b;
 
 	return result;
 }
@@ -34,7 +34,7 @@ int combination(int a, int b)
 void permu_or_combi()
 {
 	char input;
-	int a, b;
+	double a, b;
 	double result;
 
 	string welcome = "This application does permutations (p) or combinations (c). Please enter two values first, value 'a' and value 'b':\n";
