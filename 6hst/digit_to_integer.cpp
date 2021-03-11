@@ -16,9 +16,7 @@ int main()
 	int one = 0;
 	int two = 0;
 	int three = 0; 
-	int four = 0;
 
-	int number;
 
 	vector<int>digit;
 	for(char tmp_digit; cin >> tmp_digit;) {
@@ -41,13 +39,15 @@ int main()
 				break;
 			case 2:
 				two = digit[digit.size()-3];
+				cout << ", " << two << " hundreds";
+				break;
+			case 3:
+				three = digit[digit.size()-4];
+ 				cout << ", " << three << " thousands";
 				break;
 			default:
 				error("No number entered");
 				break;
-
-
-
 		}
 			
 	}
@@ -65,7 +65,7 @@ int main()
 
 //	cout << ' ' << "is " << zero << " zeros " << one << " tens, ";
 
-	cout << '\n';
+	cout << ".\n";
 
 		//for(char x:digit)
 		//x -=nul;
