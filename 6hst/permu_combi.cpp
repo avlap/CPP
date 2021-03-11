@@ -2,7 +2,7 @@
 
 double factorial(double f) 
 {
-	int factorial = f;
+	double factorial = f;
 	for(int i = f -1; i >= 1; --i)
 		f *= i;
 	
@@ -12,7 +12,7 @@ double factorial(double f)
 }
 
 
-double permutation(int a, int b) 
+double permutation(double a, double b) 
 {
 	double fact_a = factorial(a);
 	double a_minus_b = (a-b);
