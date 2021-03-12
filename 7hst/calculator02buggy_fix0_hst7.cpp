@@ -23,6 +23,9 @@ const char quit = 'q';
 const char print = ';';
 const char number = '8';
 
+const string prompt = "> ";
+const string result = "= ";
+
 //------------------------------------------------------------------------------
 
 class Token{
@@ -191,7 +194,7 @@ int main()
 	//double val = 0;
 	
 	while (cin) {
-		cout << "> "; //print prompt hst7
+		cout << prompt; //print prompt hst7
 		Token t = ts.get();
 		while (t.kind == print) t=ts.get(); //eat ';'        // ';' for "print now"
 		if (t.kind == quit) { // 'q' for quit
@@ -199,7 +202,7 @@ int main()
 			return 0;
 		}
 		ts.putback(t);
-		cout << "= " << expression() << '\n';
+		cout << result << expression() << '\n';
 	}
 	keep_window_open();
 	return 0;
