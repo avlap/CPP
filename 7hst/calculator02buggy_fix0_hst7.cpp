@@ -81,8 +81,8 @@ Token Token_stream::get()
 	char ch;
 	cin >> ch;    // note that >> skips whitespace (space, newline, tab, etc.)
 	switch (ch) {
-		case ';':    // for "print"
-		case 'q':    // for "quit"
+		case print:    // for "print"
+		case quit:    // for "quit"
 		case '(': 
 		case ')': 
 		case '+': 
@@ -201,7 +201,6 @@ void calculate()
 		while (t.kind == print) t=ts.get(); //eat ';'        // ';' for "print now"
 		if (t.kind == quit) { // 'q' for quit
 			keep_window_open();
-			return 0;
 		}
 		ts.putback(t);
 		cout << result << expression() << '\n';
