@@ -19,6 +19,10 @@
 
 #include "../std_lib_facilities.h"
 
+const char quit = 'q';
+const char print = ';';
+const char number = '8';
+
 //------------------------------------------------------------------------------
 
 class Token{
@@ -73,7 +77,6 @@ Token Token_stream::get()
 
 	char ch;
 	cin >> ch;    // note that >> skips whitespace (space, newline, tab, etc.)
-
 	switch (ch) {
 		case ';':    // for "print"
 		case 'q':    // for "quit"
@@ -86,7 +89,7 @@ Token Token_stream::get()
 				cin.putback(ch);         // put digit back into the input stream
 				double val;
 				cin >> val;              // read a floating-point number
-				return Token('8', val);   // let '8' represent "a number"
+				return Token(number, val);   // let '8' represent "a number"
 			}
 		default:
 			error("Bad token");
@@ -106,7 +109,6 @@ double expression();    // declaration so that primary() can call expression()
 // deal with numbers and parentheses
 double primary()
 {
-	const char number = '8';
 	Token t = ts.get();
 	switch (t.kind) {
 		case '(':    // handle '(' expression ')'
@@ -187,11 +189,12 @@ int main()
 	try
 {
 	//double val = 0;
+	
 	while (cin) {
 		cout << "> "; //print prompt hst7
 		Token t = ts.get();
-		while (t.kind == ';') t=ts.get(); //eat ';'        // ';' for "print now"
-		if (t.kind == 'q') { // 'q' for quit
+		while (t.kind == print) t=ts.get(); //eat ';'        // ';' for "print now"
+		if (t.kind == quit) { // 'q' for quit
 			keep_window_open();
 			return 0;
 		}
