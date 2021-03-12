@@ -106,6 +106,7 @@ double expression();    // declaration so that primary() can call expression()
 // deal with numbers and parentheses
 double primary()
 {
+	const char number = '8';
 	Token t = ts.get();
 	switch (t.kind) {
 		case '(':    // handle '(' expression ')'
@@ -115,7 +116,7 @@ double primary()
 				if (t.kind != ')') error("')' expected");
 				return d;
 			}
-		case '8':            // we use '8' to represent a number
+		case number:            // we use '8' to represent a number
 			return t.value;  // return the number's value
 		case '-':
 			return -primary();
