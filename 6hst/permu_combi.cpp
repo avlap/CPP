@@ -15,7 +15,7 @@ double factorial(double f)
 double permutation(double a, double b) 
 {
 	double fact_a = factorial(a);
-	double a_minus_b = (a-b);
+	double a_minus_b = (a-b); //can't be <= 0?
 	double fact_a_minus_b = factorial(a_minus_b);
 	double outcome = fact_a/fact_a_minus_b;
 
@@ -42,6 +42,7 @@ void permu_or_combi()
 
 
 	cout << welcome; 
+	//should a > b?
 	cin >> a >> b;
 	cout << c_or_p;
 	cin >> input;
@@ -77,7 +78,5 @@ int main()
 	permu_or_combi();
 
 	return 0;
-
-
 
 }
