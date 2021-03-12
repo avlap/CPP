@@ -183,9 +183,8 @@ try
 {
 	double val = 0;
     while (cin) {
-		cout << ">"; //print prompt hst7
+		cout << "> "; //print prompt hst7
         Token t = ts.get();
-
         if (t.kind == 'q') break; // 'q' for quit
         if (t.kind == ';')        // ';' for "print now"
             cout << "=" << val << '\n';
@@ -197,12 +196,12 @@ try
 }
 catch (exception& e) {
     cerr << "error: " << e.what() << '\n';
-    keep_window_open();
+    keep_window_open("~~");
     return 1;
 }
 catch (...) {
     cerr << "Oops: unknown exception!\n";
-    keep_window_open();
+    keep_window_open("~~");
     return 2;
 }
 
