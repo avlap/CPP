@@ -187,12 +187,9 @@ double expression()
 }
 
 //------------------------------------------------------------------------------
-
-int main()
-	try
+//
+void calculate()
 {
-	//double val = 0;
-	
 	while (cin) {
 		cout << prompt; //print prompt hst7
 		Token t = ts.get();
@@ -204,6 +201,13 @@ int main()
 		ts.putback(t);
 		cout << result << expression() << '\n';
 	}
+}
+
+
+int main()
+	try
+{
+	calculate();
 	keep_window_open();
 	return 0;
 }
