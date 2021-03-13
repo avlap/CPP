@@ -37,6 +37,8 @@ const char print = ';';
 const char number = '8';
 const char name = 'a';
 
+//function get() part of Token_stream. Get 'gets' a new token from the token stream. The tokens are selected using case. The functions gives back a Token.
+//It first checks if the buffer has a token already, if so, it will remove it first.
 Token Token_stream::get()
 {
 	if (full) { full = false; return buffer; }
@@ -52,7 +54,7 @@ Token Token_stream::get()
 	case '%':
 	case ';':
 	case '=':
-		return Token(ch);
+		return Token(ch); //for all these cases, return char ch.
 	case '.':
 	case '0':
 	case '1':
@@ -64,19 +66,22 @@ Token Token_stream::get()
 	case '7':
 	case '8':
 	case '9':
-	{	cin.unget();
+	{	cin.unget(); //c input unget... putback. 
+		//Attempts to decrease the current location in the stream by one character, making the last character extracted from the stream once again available to be extracted 
+		//by input operations.
 	double val;
 	cin >> val;
-	return Token{number, val};
+	return Token{number, val}; //what is number val.. Number is a const to set kind to numbers. Val comes from cin. So this returns the Token and a specific kind of Token.
+								//Token(char ch, double val) :kind(ch), value(val) { }
 	}
 	default:
 		if (isalpha(ch)) {
 			string s;
 			s += ch;
-			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s = ch;
+			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 			cin.unget();
-			if (s == "let") return Token{let};
-			if (s == "quit") return Token{name};
+			if (s == let) return Token{let};
+			if (s == quit) return Token{name};
 			return Token{name, s};
 		}
 		error("Bad token");
