@@ -9,7 +9,7 @@
 
 #include "../include/std_lib_facilities.h"
 
-struct Token {
+class Token {
 	char kind;
 	double value;
 	string name;
@@ -81,16 +81,18 @@ Token Token_stream::get()
 			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 			cin.unget();
 			if (s == let) return Token{let};
-			if (s == quit) return Token{name};
+			//if (s == quit) return Token{name}; //???
 			return Token{name, s};
 		}
 		error("Bad token");
 	}
 }
 
+//function implemented to be able to remove tokens from stream after a error.
+//function searches for a specific character and returns when character is found. Why void then?
 void Token_stream::ignore(char c)
 {
-	if (full && c == buffer.kind) {
+	if (full && c == buffer.kind) { //buffer.kind? Is Token part of buffer?
 		full = false;
 		return;
 	}
@@ -107,7 +109,7 @@ struct Variable {
 	Variable(string n, double v) :name(n), value(v) { }
 };
 
-vector<Variable> names;
+vector<Variable> names; //strange place?
 
 double get_value(string s)
 {
