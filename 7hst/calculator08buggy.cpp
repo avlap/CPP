@@ -140,16 +140,25 @@ double get_value(string s)
 }
 
 
-
-
-void set_value(string s, double d) //make it possible to change value of defined names
+//void set_value(string s, double d) //make it possible to change value of defined names
+//{
+//	for (int i = 0; i <= names.size(); ++i)
+//		if (names[i].name == s) {
+//			names[i].value = d;
+//			return;
+//		}
+//	error("set: undefined name ", s);
+//}
+//
+void set_value(string s, double d)
 {
-	for (int i = 0; i <= names.size(); ++i)
-		if (names[i].name == s) {
-			names[i].value = d;
+	for(const Variable& v:var_table)
+		if(v.name==s) {
+			s.value =d;
 			return;
 		}
-	error("set: undefined name ", s);
+	error("set: undefined variable", s);
+
 }
 
 bool is_declared(string s) //check if it's not a duplicate name
