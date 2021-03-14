@@ -15,13 +15,13 @@
 //Now you're able to define your own types for the calculator, like '+' '-' etc.
 
 class Token {
-	char kind; //we need chars
-	double value; 
-	string name;
-
-	Token(char ch) :kind(ch), value(0) { } //Token type for chars only. Kind / value pair.
-	Token(char ch, double val) :kind(ch), value(val) { } //Token type for a char with a double value. Kind / value pair.
-	Token(char ch, string n) :kind(ch), name(n){} //Token type for a string of chars. Kind / name pair
+	public:
+		char kind; //we need chars
+		double value; 
+		string name;
+		Token(char ch) :kind(ch), value(0) { } //Token type for chars only. Kind / value pair.
+		Token(char ch, double val) :kind(ch), value(val) { } //Token type for a char with a double value. Kind / value pair.
+		Token(char ch, string n) :kind(ch), name(n){} //Token type for a string of chars. Kind / name pair
 };
 
 
@@ -29,18 +29,19 @@ class Token {
 //Token stream is needed, to putback tokens which aren't used right away.
 
 class Token_stream {
-	bool full; //we place one token at the time in the stream
-	Token buffer; //we store the token in the buffer
 	public:
-	Token_stream() :full(0), buffer(0) { } //full and buffer are false
+		bool full; //we place one token at the time in the stream
+		Token buffer; //we store the token in the buffer
 
-	Token get(); //function to read a token from cin
-	void unget(Token t) { buffer = t; full = true; } //putback token to the token stream, buffer = t and full is true.
+		Token_stream() :full(0), buffer(0) { } //full and buffer are false
 
-	void ignore(char); //ignore print to be able to clean up buffer after a error and not run into a second error.
+		Token get(); //function to read a token from cin
+		void unget(Token t) { buffer = t; full = true; } //putback token to the token stream, buffer = t and full is true.
+
+		void ignore(char); //ignore print to be able to clean up buffer after a error and not run into a second error.
 };
 
-const char let = 'L';
+const char let = 'L'; //let is the keyword we choose, which people have to use when defining a variable: let pi = 3.14... let var = ...
 const char quit = 'q'; //use quit to make reading code more easy
 const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
@@ -91,7 +92,7 @@ Token Token_stream::get()
 				s += ch; //add character to a string
 				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 				cin.unget(); //putback in newer versions of the book
-				if (s == let) return Token{let}; //let is used to define names. 
+				if (s == "let") return Token{let}; //let is used to define names. 
 				//if (s == quit) return Token{name}; //???
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
@@ -116,9 +117,10 @@ void Token_stream::ignore(char c)
 
 //access the value, given the name
 class Variable { //struct is a certain type of class? In newer versions this is class?
-	string name;
-	double value;
-	Variable(string n, double v) :name(n), value(v) { }
+	public:
+		string name;
+		double value;
+		Variable(string n, double v) :name(n), value(v) { }
 };
 
 vector<Variable> var_table; //strange place? a vector of Variables, called var_table. We store names in a vector.
@@ -152,9 +154,9 @@ double get_value(string s)
 //
 void set_value(string s, double d)
 {
-	for(const Variable& v:var_table)
+	for(Variable& v:var_table)
 		if(v.name==s) {
-			s.value =d;
+			v.value =d;
 			return;
 		}
 	error("set: undefined variable", s);
@@ -163,8 +165,8 @@ void set_value(string s, double d)
 
 bool is_declared(string s) //check if it's not a duplicate name
 {
-	for (int i = 0; i < names.size(); ++i)
-		if (names[i].name == s) return true;
+	for (int i = 0; i < var_table.size(); ++i)
+		if (var_table[i].name == s) return true;
 	return false;
 }
 
@@ -243,7 +245,7 @@ double declaration()
 	Token t2 = ts.get();
 	if (t2.kind != '=') error("= missing in declaration of ", name);
 	double d = expression();
-	names.push_back(Variable(name, d));
+	var_table.push_back(Variable(name, d));
 	return d;
 }
 
@@ -254,7 +256,7 @@ double statement()
 		case let:
 			return declaration();
 		default:
-			ts.unget(t);
+			ts.unget(t); 
 			return expression();
 	}
 }
