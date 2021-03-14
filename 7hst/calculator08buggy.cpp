@@ -114,7 +114,7 @@ void Token_stream::ignore(char c)
 		if (ch == c) return; //search for a specific character and return.
 }
 
-struct Variable { //struct is a certain type of class? In newer versions this is class?
+class Variable { //struct is a certain type of class? In newer versions this is class?
 	string name;
 	double value;
 	Variable(string n, double v) :name(n), value(v) { }
