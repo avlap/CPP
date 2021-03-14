@@ -114,20 +114,33 @@ void Token_stream::ignore(char c)
 		if (ch == c) return; //search for a specific character and return.
 }
 
+//access the value, given the name
 class Variable { //struct is a certain type of class? In newer versions this is class?
 	string name;
 	double value;
 	Variable(string n, double v) :name(n), value(v) { }
 };
 
-vector<Variable> names; //strange place? a vector of Variables, called names
+vector<Variable> var_table; //strange place? a vector of Variables, called var_table. We store names in a vector.
 
-double get_value(string s) //make a function, return a double, input is a string
+//double get_value(string s) //make a function, return a double, input is a string
+//{
+//	for (int i = 0; i < names.size(); ++i)
+//		if (names[i].name == s) return names[i].value; //make it possible to define names
+//	error("get: undefined name ", s);
+//}
+//
+double get_value(string s)
+	//return the value of the Variable named s
 {
-	for (int i = 0; i < names.size(); ++i)
-		if (names[i].name == s) return names[i].value; //make it possible to define names
-	error("get: undefined name ", s);
+	for(const Variable& v:var_table)
+		if(v.name==s) return v.value;
+	error("get: undefined variables",s);
+
 }
+
+
+
 
 void set_value(string s, double d) //make it possible to change value of defined names
 {
