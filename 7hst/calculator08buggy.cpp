@@ -89,12 +89,12 @@ Token Token_stream::get()
 			}
 		default:
 			if (isalpha(ch)) { //checks if alpha, not all characters are allowed for a name
-					string s;
-					s += ch;
-					while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
-					cin.putback(ch);
-					if(s==declkey) return Token{let};
-					return Token{name, s}; //define a name, return that name, which is string s.
+				string s;
+				s += ch;
+				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
+				cin.putback(ch);
+				if(s==declkey) return Token{let};
+				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
 	}
@@ -163,12 +163,22 @@ void set_value(string s, double d)
 
 }
 
-bool is_declared(string s) //check if it's not a duplicate name
+bool is_declared(string var)
+	//var is already in var_table?
 {
-	for (int i = 0; i < var_table.size(); ++i)
-		if (var_table[i].name == s) return true;
+	for(const Variable& v:var_table)
+		if(v.name==var) return true;
 	return false;
 }
+
+double define_name(string var, double val)
+	//ad {var, val} to var_table
+{
+	if(is_declared(var))error(var, "declared twice");
+	var_table.push_back(Variable{var, val});
+	return val;
+}
+
 
 Token_stream ts;
 
@@ -266,6 +276,8 @@ void clean_up_mess()
 	ts.ignore(print); //ignore print message. Why? To prevent running in another error.
 }
 
+
+
 const string prompt = "> ";
 const string result = "= ";
 
@@ -273,13 +285,13 @@ void calculate()
 {
 	while (cin) 
 		try {
-		cout << prompt;
-		Token t = ts.get();
-		while (t.kind == print) t = ts.get();
-		if (t.kind == quit) return;
-		ts.unget(t);
-		cout << result << statement() << '\n'; //endl is endline?
-	}
+			cout << prompt;
+			Token t = ts.get();
+			while (t.kind == print) t = ts.get();
+			if (t.kind == quit) return;
+			ts.unget(t);
+			cout << result << statement() << '\n'; //endl is endline?
+		}
 	catch (runtime_error& e) {
 		cerr << e.what() << '\n';
 		clean_up_mess();
@@ -289,6 +301,8 @@ void calculate()
 int main()
 
 	try {
+		define_name("k", 1000);
+
 		calculate();
 		return 0;
 	}
