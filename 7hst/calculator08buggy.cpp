@@ -32,12 +32,16 @@
  *      Term / Primary
  *      Term % Primary
  *
- * Primary:
+ * Function:
+ * 	    primary	
+ * 		Function( (Expression) )
+ * 		Function ( Primary)
+ *
+ *  * Primary:
  *      Number
  *      ( Expression )
  *      - Primary
- *      ? Primary
- *      Primary ^ Primary
+ *       Primary
  *
  * Number:
  *      floating-point-literal
@@ -93,6 +97,8 @@ Token Token_stream::get()
 	char ch;
 	cin >> ch;
 	switch (ch) {
+		case quit;
+		case print;
 		case '(':
 		case ')':
 		case '+':
