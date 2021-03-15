@@ -90,8 +90,12 @@ const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
 const char name = 'a';
 const string declkey = "let";
+
 const string declkey2 = "sr";
 const char sr = 'S';
+
+const char pow = 'P';
+const string declpowkey = "pow";
 
 //const char sqrt
 
@@ -114,6 +118,7 @@ Token Token_stream::get()
 		case '/':
 		case '%':
 		case '=':
+		case ',': //for power function
 			return Token(ch); //for all these cases, return chars as themselves.
 		case '.':
 		case '0':
@@ -141,6 +146,7 @@ Token Token_stream::get()
 				cin.putback(ch);
 				if(s==declkey) return Token{let};
 				if(s==declkey2) return Token{sr};
+				if(s==declpowkey) return Token{pow};
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
@@ -235,13 +241,27 @@ double primary()
 				if (d < 0) error("sqrt with a minus number is not possible");
 				double e = sqrt(d);
 				return e;
-				break;
+				break; //break needed here?
 				}
 			//return cout << "sqrt found" << '\n';
+		case 'P': //power
+				{
+					double d = primary();
+					t = ts.get();
+					if (t.kind != ',') error("',' expected"); //case comma?
+					int e = narrow_cast<int>(primary());
+					double f = pow(d, e);
+					return f;
+
+				}
 		default:
 			error("primary expected");
 	}
 }
+
+//narrow_cast<int>(left);
+//narrow_cast<int>(primary());
+//page 231
 
 double term()
 {
