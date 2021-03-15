@@ -84,12 +84,13 @@ class Token_stream {
 		void ignore(char); //ignore print to be able to clean up buffer after a error and not run into a second error.
 };
 
-const char let = 'L'; //let is the keyword we choose, which people have to use when defining a variable: let pi = 3.14... let var = ...
+const char # = 'L'; //let is the keyword we choose, which people have to use when defining a variable: let pi = 3.14... let var = ...
 const char quit = 'q'; //use quit to make reading code more easy
 const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
 const char name = 'a';
-const string declkey = "let";
+//const string declkey = "let";
+const char declkey = '#';
 
 const string declkey2 = "sr";
 const char sr = 'S';
@@ -144,7 +145,7 @@ Token Token_stream::get()
 				s += ch;
 				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 				cin.putback(ch);
-				if(s==declkey) return Token{let};
+				if(s==declkey) return Token{#};
 				if(s==declkey2) return Token{sr};
 				if(s==declpowkey) return Token{power};
 				return Token{name, s}; //define a name, return that name, which is string s.
@@ -249,7 +250,7 @@ double primary()
 					  if (t.kind != '(') error("'(' expected");
 					  double d=expression();
 					  t=ts.get();
-					  if (t.kind!=',') error("',' expected");
+					  if (t.kind !=',') error("',' expected");
 					  //double i=expression();
 					  int e = narrow_cast<int>(expression());
 					  t=ts.get();
