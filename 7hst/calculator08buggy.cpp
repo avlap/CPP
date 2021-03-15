@@ -46,6 +46,7 @@ const char quit = 'q'; //use quit to make reading code more easy
 const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
 const char name = 'a';
+const string declkey = "let";
 
 //function get() part of Token_stream. Get 'gets' a new token from cin. The tokens are selected using case. The functions gives back a Token.
 //It first checks if the buffer has a token already, if so, it will remove it first.
@@ -92,7 +93,7 @@ Token Token_stream::get()
 					s += ch;
 					while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 					cin.putback(ch);
-					if(s==decley) return Token{let};
+					if(s==declkey) return Token{let};
 					return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
@@ -270,16 +271,17 @@ const string result = "= ";
 
 void calculate()
 {
-	while (true) try {
+	while (cin) 
+		try {
 		cout << prompt;
 		Token t = ts.get();
 		while (t.kind == print) t = ts.get();
 		if (t.kind == quit) return;
 		ts.unget(t);
-		cout << result << statement() << endl; //endl is endline?
+		cout << result << statement() << '\n'; //endl is endline?
 	}
 	catch (runtime_error& e) {
-		cerr << e.what() << endl;
+		cerr << e.what() << '\n';
 		clean_up_mess();
 	}
 }
