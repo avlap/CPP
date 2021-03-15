@@ -88,8 +88,8 @@ const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
 const char name = 'a';
 const string declkey = "let";
-const string declkey2 = "sqrt";
-const char sqrt = 'S';
+const string declkey2 = "sr";
+const char sr = 'S';
 
 //const char sqrt
 
@@ -138,7 +138,7 @@ Token Token_stream::get()
 				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 				cin.putback(ch);
 				if(s==declkey) return Token{let};
-				if(s==declkey2) return Token{sqrt};
+				if(s==declkey2) return Token{sr};
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
