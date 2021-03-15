@@ -231,7 +231,7 @@ double primary()
 			return get_value(t.name);
 		case 'S':
 				{ 
-				double d = primary();
+				double d = primary(); //or expression() ??
 				if (d < 0) error("sqrt with a minus number is not possible");
 				double e = sqrt(d);
 				return e;
