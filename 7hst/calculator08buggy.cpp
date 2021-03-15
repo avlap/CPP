@@ -78,9 +78,6 @@ Token Token_stream::get()
 		case '8':
 		case '9':
 			{	cin.unget(); //c input unget... putback. 
-				//Attempts to decrease the current location in the stream by one character, making the last character extracted from the stream once again available to be extracted 
-				//by input operations.
-				//
 				//we read a digit, put it back in the stream and read it back in again as a double. This way we can read all the incoming digits as one number (123).
 				double val;
 				cin >> val;
@@ -125,13 +122,6 @@ class Variable { //struct is a certain type of class? In newer versions this is 
 
 vector<Variable> var_table; //strange place? a vector of Variables, called var_table. We store names in a vector.
 
-//double get_value(string s) //make a function, return a double, input is a string
-//{
-//	for (int i = 0; i < names.size(); ++i)
-//		if (names[i].name == s) return names[i].value; //make it possible to define names
-//	error("get: undefined name ", s);
-//}
-//
 double get_value(string s)
 	//return the value of the Variable named s
 {
@@ -141,17 +131,6 @@ double get_value(string s)
 
 }
 
-
-//void set_value(string s, double d) //make it possible to change value of defined names
-//{
-//	for (int i = 0; i <= names.size(); ++i)
-//		if (names[i].name == s) {
-//			names[i].value = d;
-//			return;
-//		}
-//	error("set: undefined name ", s);
-//}
-//
 void set_value(string s, double d)
 {
 	for(Variable& v:var_table)
