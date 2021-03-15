@@ -98,6 +98,8 @@ const char sr = 'S';
 const char power = 'P';
 const string declpowkey = "power";
 
+const string declkeyexit = "exit";
+
 //const char sqrt
 
 //function get() part of Token_stream. Get 'gets' a new token from cin. The tokens are selected using case. The functions gives back a Token.
@@ -149,6 +151,7 @@ Token Token_stream::get()
 				if(s==declkey) return Token{'#'};
 				if(s==declkey2) return Token{sr};
 				if(s==declpowkey) return Token{power};
+				if(s==declkeyexit) return Token{quit};
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
