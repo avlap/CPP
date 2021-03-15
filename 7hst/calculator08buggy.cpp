@@ -33,7 +33,7 @@
  *      Term % Primary
  *
  * ??
- * power(primary, index) //second primary must be an integer.. can't be a primary? There is a comma. There are square brackets. Can primary be a expression? Can power be a part of a expression? 
+ * power(primary, primary) //second primary must be an integer.. can't be a primary? There is a comma. There are square brackets. Can primary be a expression? Can power be a part of a expression? 
 
  *
  *  * Primary:
@@ -246,6 +246,8 @@ double primary()
 			//return cout << "sqrt found" << '\n';
 		case 'P': //power
 				{
+					//die haakjes zitten in de weg... worden gechecked in dezelfde functie.
+					ts.get();
 					if (t.kind != '(') error("'(' expected"); //case comma?
 					double d = primary();
 					t = ts.get();
