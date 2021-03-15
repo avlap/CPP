@@ -94,8 +94,8 @@ const string declkey = "let";
 const string declkey2 = "sr";
 const char sr = 'S';
 
-const char pow = 'P';
-const string declpowkey = "pow";
+const char power = 'P';
+const string declpowkey = "power";
 
 //const char sqrt
 
@@ -146,7 +146,7 @@ Token Token_stream::get()
 				cin.putback(ch);
 				if(s==declkey) return Token{let};
 				if(s==declkey2) return Token{sr};
-				if(s==declpowkey) return Token{pow};
+				if(s==declpowkey) return Token{power};
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
@@ -225,7 +225,7 @@ double primary()
 		case '(':
 			{	double d = expression();
 				t = ts.get();
-				if (t.kind != ')') error("'(' expected");
+				if (t.kind != ')') error("')' expected");
 				return d; //bugfix
 			}
 		case '-':
@@ -246,10 +246,13 @@ double primary()
 			//return cout << "sqrt found" << '\n';
 		case 'P': //power
 				{
+					if (t.kind != '(') error("'(' expected"); //case comma?
 					double d = primary();
 					t = ts.get();
 					if (t.kind != ',') error("',' expected"); //case comma?
 					int e = narrow_cast<int>(primary());
+					t = ts.get();
+					if (t.kind != ')') error("')' expected"); //case comma?
 					double f = pow(d, e);
 					return f;
 
