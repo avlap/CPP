@@ -230,7 +230,7 @@ double primary()
 			}
 		case '-':
 			return -primary();
-			//no break?
+			//no break?y
 		case number:
 			return t.value;
 		case name:
@@ -244,56 +244,40 @@ double primary()
 				break; //break needed here?
 			}
 			//return cout << "sqrt found" << '\n';
-
+		case 'P': {
+					  t=ts.get();
+					  if (t.kind != '(') error("'(' expected");
+					  double d=expression();
+					  t=ts.get();
+					  if (t.kind!=',') error("',' expected");
+					  //double i=expression();
+					  int e = narrow_cast<int>(expression());
+					  t=ts.get();
+					  if (t.kind != ')') error("')' expected");
+					  return pow(d,e);
+				  }
 		default:
-			error("primary expected");
+				  error("primary expected");
 	}
 }
 
-double secondary()
-{
-	double left = primary();
-	//double left = secondary();
-	while (true) {
-		Token t = ts.get();
-		switch (t.kind) {
-			case 'P': //power
-				{
-					//die haakjes zitten in de weg... worden gechecked in dezelfde functie.
-					ts.get();
-					if (t.kind != '(') error("'(' expected"); //case comma?
-					double d = primary();
-					t = ts.get();
-					if (t.kind != ',') error("',' expected"); //case comma?
-					int e = narrow_cast<int>(primary());
-					t = ts.get();
-					if (t.kind != ')') error("')' expected"); //case comma?
-					double f = pow(d, e);
-					return f;
-					break;
-				}
-			default:
-				ts.unget(t);
-				return left;
-		}
-	}
-}
+
 //narrow_cast<int>(left);
 //narrow_cast<int>(primary());
 //page 231
 
 double term()
 {
-	//double left = primary();
-	double left = secondary();
+	double left = primary();
+	//double left = secondary();
 	while (true) {
 		Token t = ts.get();
 		switch (t.kind) {
 			case '*':
-				left *= secondary();
+				left *= primary();
 				break;
 			case '/':
-				{	double d = secondary();
+				{	double d = primary();
 					if (d == 0) error("divide by zero");
 					left /= d;
 					break;
