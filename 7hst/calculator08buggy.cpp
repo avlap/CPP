@@ -84,13 +84,13 @@ class Token_stream {
 		void ignore(char); //ignore print to be able to clean up buffer after a error and not run into a second error.
 };
 
-const char # = 'L'; //let is the keyword we choose, which people have to use when defining a variable: let pi = 3.14... let var = ...
+//const char let = 'L'; //let is the keyword we choose, which people have to use when defining a variable: let pi = 3.14... let var = ...
 const char quit = 'q'; //use quit to make reading code more easy
 const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
 const char name = 'a';
 //const string declkey = "let";
-const char declkey = '#';
+const string declkey = "#";
 
 const string declkey2 = "sr";
 const char sr = 'S';
@@ -120,6 +120,7 @@ Token Token_stream::get()
 		case '%':
 		case '=':
 		case ',': //for power function
+		case '#':
 			return Token(ch); //for all these cases, return chars as themselves.
 		case '.':
 		case '0':
@@ -145,7 +146,7 @@ Token Token_stream::get()
 				s += ch;
 				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 				cin.putback(ch);
-				if(s==declkey) return Token{#};
+				if(s==declkey) return Token{'#'};
 				if(s==declkey2) return Token{sr};
 				if(s==declpowkey) return Token{power};
 				return Token{name, s}; //define a name, return that name, which is string s.
@@ -326,7 +327,7 @@ double statement()
 {
 	Token t = ts.get();
 	switch (t.kind) {
-		case let:
+		case '#':
 			return declaration();
 		default:
 			ts.unget(t); 
