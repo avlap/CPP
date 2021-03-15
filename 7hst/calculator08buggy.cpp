@@ -138,7 +138,7 @@ Token Token_stream::get()
 				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
 				cin.putback(ch);
 				if(s==declkey) return Token{let};
-				if(s==declkey2) return Token{sr};
+				if(s==declkey2) return Token{sqrt};
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
@@ -238,7 +238,7 @@ double secondary()
 	while(true) {
 		Token t = ts.get();
 		switch (t.kind) {
-			case 's':
+			case 'S':
 				{ 
 				double d = primary();
 				if (d < 0) error("sqrt with a minus number");
