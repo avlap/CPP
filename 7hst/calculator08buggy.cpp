@@ -232,8 +232,8 @@ double primary()
 				{ 
 				double d = primary();
 				//if (d < 0) error("sqrt with a minus number");
-				left = sqrt(d);
-				return left;
+				d = sqrt(d);
+				return d;
 				break;
 				}
 			//return cout << "sqrt found" << '\n';
