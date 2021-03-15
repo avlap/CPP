@@ -2,9 +2,13 @@
 
 double power(int x, int y)
 {
-	for(int i = y; y >=1; --y)
-		x *= x;
-	return x;
+	int r;
+	for(int i = y; y >=1; --y) {
+		r += (x * x);
+		cout << r << '\n';
+	}
+
+	return r;
 }
 
 int main()
