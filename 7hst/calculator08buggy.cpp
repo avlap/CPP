@@ -6,6 +6,47 @@
 
    We have inserted 3 bugs that the compiler will catch and 3 that it won't.
    */
+/* GRAMMAR
+ * =======
+ * Calculation:
+ *      Statement
+ *      Print
+ *      Quit
+ *      Calculation Statement
+ *
+ * Statement:
+ *      Declaration
+ *      Expression
+ * 
+ * Declaration:
+ *      "let" Name "=" Expression
+ *
+ * Expression:
+ *      Term
+ *      Expression + Term
+ *      Expression - Term
+ *
+ * Term:
+ *      Secondary
+ *      Term * Secondary
+ *      Term / Secondary
+ *      Term % Secondary
+ *
+ * Secondary:
+ *      Primary
+ *      Secondary ^ Primary
+ *
+ * Primary:
+ *      Number
+ *      ( Expression )
+ *      - Primary
+ *      ? Primary
+ *      Primary ^ Primary
+ *
+ * Number:
+ *      floating-point-literal
+ */
+
 
 #include "../include/std_lib_facilities.h"
 
