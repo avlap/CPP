@@ -88,13 +88,12 @@ Token Token_stream::get()
 			}
 		default:
 			if (isalpha(ch)) { //checks if alpha, not all characters are allowed for a name
-				string s;
-				s += ch; //add character to a string
-				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
-				cin.unget(); //putback in newer versions of the book
-				if (s == "let") return Token{let}; //let is used to define names. 
-				//if (s == quit) return Token{name}; //???
-				return Token{name, s}; //define a name, return that name, which is string s.
+					string s;
+					s += ch;
+					while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
+					cin.putback(ch);
+					if(s==decley) return Token{let};
+					return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
 	}
