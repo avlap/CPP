@@ -32,13 +32,18 @@
  *      Term / Primary
  *      Term % Primary
  *
+ * ??
+ * power(primary, index) //second primary must be an integer.. can't be a primary? There is a comma. There are square brackets. Can primary be a expression? Can power be a part of a expression? 
+
+ *
  *  * Primary:
  *      Number
  *      ( Expression )
  *      - Primary
  *       Primary
  *       sqrt(primary)
- *       power(primary, index)
+ *       ??
+ *       power(primary, primary) //second primary must be an integer. There is a comma. There are square brackets.
  *
  * Number:
  *      floating-point-literal
@@ -228,8 +233,8 @@ double primary()
 				{ 
 				double d = primary();
 				if (d < 0) error("sqrt with a minus number is not possible");
-				d = sqrt(d);
-				return d;
+				double e = sqrt(d);
+				return e;
 				break;
 				}
 			//return cout << "sqrt found" << '\n';
