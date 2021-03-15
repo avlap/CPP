@@ -229,44 +229,33 @@ double primary()
 		case name:
 			return get_value(t.name);
 		case 'S':
-			cout << "sqrt found" << '\n';
+				{ 
+				double d = primary();
+				//if (d < 0) error("sqrt with a minus number");
+				left = sqrt(d);
+				return left;
+				break;
+				}
+			//return cout << "sqrt found" << '\n';
 		default:
 			error("primary expected");
 	}
 }
 
-double secondary()
-{
-	double left = primary();
-	while(true) {
-		Token t = ts.get();
-		switch (t.kind) {
-			case 'S':
-				{ 
-				double d = primary();
-				if (d < 0) error("sqrt with a minus number");
-				left = sqrt(d);
-				break;
-				}
-			default:
-				ts.unget(t);
-				return left;
-		}
-	}
-}
+
 
 double term()
 {
-	//double left = primary();
-	double left = secondary();
+	double left = primary();
+	//double left = secondary();
 	while (true) {
 		Token t = ts.get();
 		switch (t.kind) {
 			case '*':
-				left *= secondary();
+				left *= primary();
 				break;
 			case '/':
-				{	double d = secondary();
+				{	double d = primary();
 					if (d == 0) error("divide by zero");
 					left /= d;
 					break;
