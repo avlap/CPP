@@ -109,7 +109,7 @@ Token Token_stream::get()
 	switch (ch) {
 		case quit:
 		case print:
-		//case sqrt:
+			//case sqrt:
 		case '(':
 		case ')':
 		case '+':
@@ -236,15 +236,28 @@ double primary()
 		case name:
 			return get_value(t.name);
 		case 'S':
-				{ 
+			{ 
 				double d = primary(); //or expression() ??
 				if (d < 0) error("sqrt with a minus number is not possible");
 				double e = sqrt(d);
 				return e;
 				break; //break needed here?
-				}
+			}
 			//return cout << "sqrt found" << '\n';
-		case 'P': //power
+
+		default:
+			error("primary expected");
+	}
+}
+
+double secondary()
+{
+	double left = primary();
+	//double left = secondary();
+	while (true) {
+		Token t = ts.get();
+		switch (t.kind) {
+			case 'P': //power
 				{
 					//die haakjes zitten in de weg... worden gechecked in dezelfde functie.
 					ts.get();
@@ -257,29 +270,30 @@ double primary()
 					if (t.kind != ')') error("')' expected"); //case comma?
 					double f = pow(d, e);
 					return f;
-
+					break;
 				}
-		default:
-			error("primary expected");
+			default:
+				ts.unget(t);
+				return left;
+		}
 	}
 }
-
 //narrow_cast<int>(left);
 //narrow_cast<int>(primary());
 //page 231
 
 double term()
 {
-	double left = primary();
-	//double left = secondary();
+	//double left = primary();
+	double left = secondary();
 	while (true) {
 		Token t = ts.get();
 		switch (t.kind) {
 			case '*':
-				left *= primary();
+				left *= secondary();
 				break;
 			case '/':
-				{	double d = primary();
+				{	double d = secondary();
 					if (d == 0) error("divide by zero");
 					left /= d;
 					break;
