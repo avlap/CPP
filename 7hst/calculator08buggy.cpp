@@ -228,6 +228,8 @@ double primary()
 			return t.value;
 		case name:
 			return get_value(t.name);
+		case 'S':
+			cout << "sqrt found" << '\n';
 		default:
 			error("primary expected");
 	}
@@ -241,9 +243,9 @@ double secondary()
 		switch (t.kind) {
 			case 'S':
 				{ 
-				//double d = primary();
-				//if (d < 0) error("sqrt with a minus number");
-				left = sqrt(left);
+				double d = primary();
+				if (d < 0) error("sqrt with a minus number");
+				left = sqrt(d);
 				break;
 				}
 			default:
