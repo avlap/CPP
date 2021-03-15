@@ -89,6 +89,8 @@ const char number = '8'; //we need to specify type of character, we do it with s
 const char name = 'a';
 const string declkey = "let";
 
+//const char sqrt
+
 //function get() part of Token_stream. Get 'gets' a new token from cin. The tokens are selected using case. The functions gives back a Token.
 //It first checks if the buffer has a token already, if so, it will remove it first.
 Token Token_stream::get()
@@ -99,6 +101,7 @@ Token Token_stream::get()
 	switch (ch) {
 		case quit:
 		case print:
+		//case sqrt:
 		case '(':
 		case ')':
 		case '+':
@@ -106,7 +109,6 @@ Token Token_stream::get()
 		case '*':
 		case '/':
 		case '%':
-		//case ';':
 		case '=':
 			return Token(ch); //for all these cases, return chars as themselves.
 		case '.':
@@ -227,17 +229,40 @@ double primary()
 	}
 }
 
-double term()
+double secondary()
 {
 	double left = primary();
+	while(true) {
+		Token t = ts.get();
+		switch (t.kind) {
+			case 's':
+				{ 
+				double d = primary();
+				if (d < 0) error("sqrt with a minus number");
+				left = sqrt(left);
+				break;
+				}
+			default:
+				ts.unget(t);
+				return left;
+		}
+	}
+
+
+}
+
+double term()
+{
+	//double left = primary();
+	double left = secondary();
 	while (true) {
 		Token t = ts.get();
 		switch (t.kind) {
 			case '*':
-				left *= primary();
+				left *= secondary();
 				break;
 			case '/':
-				{	double d = primary();
+				{	double d = secondary();
 					if (d == 0) error("divide by zero");
 					left /= d;
 					break;
@@ -297,8 +322,6 @@ void clean_up_mess()
 {
 	ts.ignore(print); //ignore print message. Why? To prevent running in another error.
 }
-
-
 
 const string prompt = "> ";
 const string result = "= ";
