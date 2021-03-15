@@ -32,16 +32,13 @@
  *      Term / Primary
  *      Term % Primary
  *
- * Function:
- * 	    primary	
- * 		Function( (Expression) )
- * 		Function ( Primary)
- *
  *  * Primary:
  *      Number
  *      ( Expression )
  *      - Primary
  *       Primary
+ *       sqrt(primary)
+ *       power(primary, index)
  *
  * Number:
  *      floating-point-literal
@@ -206,7 +203,6 @@ double define_name(string var, double val)
 	return val;
 }
 
-
 Token_stream ts;
 
 double expression();
@@ -241,8 +237,6 @@ double primary()
 			error("primary expected");
 	}
 }
-
-
 
 double term()
 {
@@ -337,7 +331,6 @@ void calculate()
 }
 
 int main()
-
 	try {
 		define_name("k", 1000);
 
