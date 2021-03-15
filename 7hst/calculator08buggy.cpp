@@ -27,14 +27,10 @@
  *      Expression - Term
  *
  * Term:
- *      Secondary
- *      Term * Secondary
- *      Term / Secondary
- *      Term % Secondary
- *
- * Secondary:
- *      Primary
- *      Secondary ^ Primary
+ *      Primary 
+ *      Term * Primary
+ *      Term / Primary
+ *      Term % Primary
  *
  * Primary:
  *      Number
