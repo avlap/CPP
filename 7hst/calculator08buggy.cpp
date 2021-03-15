@@ -219,6 +219,7 @@ double primary()
 			{	double d = expression();
 				t = ts.get();
 				if (t.kind != ')') error("'(' expected");
+				return d;
 			}
 		case '-':
 			return -primary();
@@ -240,8 +241,8 @@ double secondary()
 		switch (t.kind) {
 			case 'S':
 				{ 
-				double d = primary();
-				if (d < 0) error("sqrt with a minus number");
+				//double d = primary();
+				//if (d < 0) error("sqrt with a minus number");
 				left = sqrt(left);
 				break;
 				}
