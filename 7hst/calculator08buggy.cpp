@@ -143,10 +143,10 @@ Token Token_stream::get()
 				//Token(char ch, double val) :kind(ch), value(val) { }
 			}
 		default:
-			if (isalpha(ch)) { //checks if alpha, not all characters are allowed for a name
+			if (isalpha(ch) || '_') { //checks if alpha, not all characters are allowed for a name
 				string s;
 				s += ch;
-				while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
+				while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || '_')) s += ch;
 				cin.putback(ch);
 				if(s==declkey) return Token{'#'};
 				if(s==declkey2) return Token{sr};
