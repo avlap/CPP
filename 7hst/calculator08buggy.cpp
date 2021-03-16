@@ -84,13 +84,13 @@ class Token_stream {
 		void ignore(char); //ignore print to be able to clean up buffer after a error and not run into a second error.
 };
 
-//const char let = 'L'; //let is the keyword we choose, which people have to use when defining a variable: let pi = 3.14... let var = ...
+const char let = 'L'; //let is the keyword we choose, which people have to use when defining a variable: let pi = 3.14... let var = ...
 const char quit = 'q'; //use quit to make reading code more easy
 const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
 const char name = 'a';
 //const string declkey = "let";
-const string declkey = "#";
+const string declkey = "let";
 
 const string declkey2 = "sr";
 const char sr = 'S';
@@ -139,16 +139,16 @@ Token Token_stream::get()
 				//we read a digit, put it back in the stream and read it back in again as a double. This way we can read all the incoming digits as one number (123).
 				double val;
 				cin >> val;
-				return Token{number, val}; //what is number val.. Number is a const to set kind to numbers. Val comes from cin. So this returns the incoming number as double.
+				return Token{number, val}; //what is' number val.. Number is a const to set kind to numbers. Val comes from cin. So this returns the incoming number as double.
 				//Token(char ch, double val) :kind(ch), value(val) { }
 			}
 		default:
-			if (isalpha(ch) || '_') { //checks if alpha, not all characters are allowed for a name
+			if (isalpha(ch) || ch == '_') { //checks if alpha, not all characters are allowed for a name
 				string s;
 				s += ch;
-				while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || '_')) s += ch;
+				while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || ch == '_')) s += ch;
 				cin.putback(ch);
-				if(s==declkey) return Token{'#'};
+				if(s==declkey) return Token{let};
 				if(s==declkey2) return Token{sr};
 				if(s==declpowkey) return Token{power};
 				if(s==declkeyexit) return Token{quit};
@@ -330,7 +330,7 @@ double statement()
 {
 	Token t = ts.get();
 	switch (t.kind) {
-		case '#':
+		case let:
 			return declaration();
 		default:
 			ts.unget(t); 
