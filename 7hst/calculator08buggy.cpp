@@ -348,22 +348,6 @@ double statement()
 	switch (t.kind) {
 		case let: //case for declaration
 			return declaration();
-		case 'a': //case for name
-			{
-				if!(is_declared(t)) error(
-					blablabla
-				error
-			 check if name exists in var_table	
-				 if so, go on
-				 else (error)
-
-					 check if next token is '=';
-			 		 check for expression?
-			 		 change value to result expression;
-
-			}
-//			should come after a var; check if that var exists, change the value of that var to the next value;
-			
 		default:
 			ts.unget(t); 
 			return expression();
