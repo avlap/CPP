@@ -181,7 +181,10 @@ class Variable { //struct is a certain type of class? In newer versions this is 
 	public:
 		string name;
 		double value;
+		const double const_val; //const
+
 		Variable(string n, double v) :name(n), value(v) { }
+		Variable(string n, const double c) :name(n), const_value(c) { } //for const
 };
 
 vector<Variable> var_table; //strange place? a vector of Variables, called var_table. We store names in a vector.
@@ -198,205 +201,218 @@ double get_value(string s)
 void set_value(string s, double d)
 {
 	for(Variable& v:var_table)
-		if(v.name == s) {
+		if(v.const_value){
 			v.value = d;
-			return;
+			if(v.name == s) {
+				v.value = d;
+				return;
+			}
+			error("set: undefined variable", s);
+
 		}
-	error("set: undefined variable", s);
 
-}
-
-bool is_declared(string var)
-	//var is already in var_table?
-{
-	for(const Variable& v:var_table)
-		if(v.name==var) return true;
-	return false;
-}
-
-double define_name(string var, double val)
-	//ad {var, val} to var_table
-{
-	if(is_declared(var))error(var, "declared twice");
-	var_table.push_back(Variable{var, val});
-	return val;
-}
-
-Token_stream ts;
-
-double expression();
-
-double primary()
-{
-	Token t = ts.get();
-	switch (t.kind) {
-		case '(':
-			{	double d = expression();
-				t = ts.get();
-				if (t.kind != ')') error("')' expected");
-				return d; //bugfix
-			}
-		case '-':
-			return -primary();
-			//no break?y
-		case number:
-			return t.value;
-		case name: //here is checks for name.
-			{
-				Token t2 =ts.get(); //eats? putback? ts.unget(t);
-				if(t2.kind == '=') {
-					double d = expression(); 
-					set_value(t.name,d);
-				} else {
-					ts.unget(t2);
-				}
-				return get_value(t.name);
-			}
-		case 'S':
-			{ 
-				double d = primary(); //or expression() ??
-				if (d < 0) error("sqrt with a minus number is not possible");
-				double e = sqrt(d);
-				return e;
-				break; //break needed here?
-			}
-			//return cout << "sqrt found" << '\n';
-		case 'P': {
-					  t=ts.get();
-					  if (t.kind != '(') error("'(' expected");
-					  double d=expression();
-					  t=ts.get();
-					  if (t.kind !=',') error("',' expected");
-					  //double i=expression();
-					  int e = narrow_cast<int>(expression());
-					  t=ts.get();
-					  if (t.kind != ')') error("')' expected");
-					  return pow(d,e);
-				  }
-		default:
-				  error("primary expected");
+	bool is_declared(string var)
+		//var is already in var_table?
+	{
+		for(const Variable& v:var_table)
+			if(v.name==var) return true;
+		return false;
 	}
-}
 
+	double define_name(string var, double val)
+		//ad {var, val} to var_table
+	{
+		if(is_declared(var))error(var, "declared twice");
+		var_table.push_back(Variable{var, val});
+		return val;
+	}
 
-//narrow_cast<int>(left);
-//narrow_cast<int>(primary());
-//page 231
+	Token_stream ts;
 
-double term()
-{
-	double left = primary();
-	//double left = secondary();
-	while (true) {
+	double expression();
+
+	double primary()
+	{
 		Token t = ts.get();
 		switch (t.kind) {
-			case '*':
-				left *= primary();
-				break;
-			case '/':
-				{	double d = primary();
-					if (d == 0) error("divide by zero");
-					left /= d;
-					break;
+			case '(':
+				{	double d = expression();
+					t = ts.get();
+					if (t.kind != ')') error("')' expected");
+					return d; //bugfix
 				}
-			default:
-				ts.unget(t);
-				return left;
-		}
-	}
-}
-
-double expression()
-{
-	double left = term();
-	while (true) {
-		Token t = ts.get();
-		switch (t.kind) {
-			case '+':
-				left += term();
-				break;
 			case '-':
-				left -= term();
-				break;
+				return -primary();
+				//no break?y
+			case number:
+				return t.value;
+			case name: //here is checks for name.
+				{
+					Token t2 =ts.get(); //eats? putback? ts.unget(t);
+					if(t2.kind == '=') {
+						double d = expression(); 
+						set_value(t.name, d);
+					} else {
+						ts.unget(t2);
+					}
+					return get_value(t.name);
+				}
+			case 'S':
+				{ 
+					double d = primary(); //or expression() ??
+					if (d < 0) error("sqrt with a minus number is not possible");
+					double e = sqrt(d);
+					return e;
+					break; //break needed here?
+				}
+				//return cout << "sqrt found" << '\n';
+			case 'P': {
+						  t=ts.get();
+						  if (t.kind != '(') error("'(' expected");
+						  double d=expression();
+						  t=ts.get();
+						  if (t.kind !=',') error("',' expected");
+						  //double i=expression();
+						  int e = narrow_cast<int>(expression());
+						  t=ts.get();
+						  if (t.kind != ')') error("')' expected");
+						  return pow(d,e);
+					  }
 			default:
-				ts.unget(t);
-				return left;
+					  error("primary expected");
 		}
 	}
-}
 
-double declaration()
-{
-	Token t = ts.get();
-	if (t.kind != 'a') error("name expected in declaration");
-	string name = t.name;
-	if (is_declared(name)) error(name, " declared twice");
-	//or should I enter code here for '='?
-	Token t2 = ts.get();
-	if (t2.kind != '=') error("= missing in declaration of ", name);
-	double d = expression();
-	var_table.push_back(Variable(name, d));
-	return d;
-}
 
-//left is name;
+	//narrow_cast<int>(left);
+	//narrow_cast<int>(primary());
+	//page 231
 
-//so, we start we a statement and check if there is 'let'.
-double statement()
-{
-	Token t = ts.get();
-	switch (t.kind) {
-		case let: //case for declaration
-			return declaration();
-			//case name:
-			//	{
-			//	}
-		default:
-			ts.unget(t); 
-			return expression();
-	}
-}
-
-void clean_up_mess()
-{
-	ts.ignore(print); //ignore print message. Why? To prevent running in another error.
-}
-
-const string prompt = "> ";
-const string result = "= ";
-
-void calculate()
-{
-	while (cin) 
-		try {
-			cout << prompt;
+	double term()
+	{
+		double left = primary();
+		//double left = secondary();
+		while (true) {
 			Token t = ts.get();
-			while (t.kind == print) t = ts.get();
-			if (t.kind == quit) return;
-			ts.unget(t);
-			cout << result << statement() << '\n'; //endl is endline?
+			switch (t.kind) {
+				case '*':
+					left *= primary();
+					break;
+				case '/':
+					{	double d = primary();
+						if (d == 0) error("divide by zero");
+						left /= d;
+						break;
+					}
+				default:
+					ts.unget(t);
+					return left;
+			}
 		}
-	catch (runtime_error& e) {
-		cerr << e.what() << '\n';
-		clean_up_mess();
 	}
-}
 
-int main()
-	try {
-		define_name("k", 1000);
-		calculate();
-		return 0;
+	double expression()
+	{
+		double left = term();
+		while (true) {
+			Token t = ts.get();
+			switch (t.kind) {
+				case '+':
+					left += term();
+					break;
+				case '-':
+					left -= term();
+					break;
+				default:
+					ts.unget(t);
+					return left;
+			}
+		}
 	}
-catch (exception& e) {
-	cerr << "exception: " << e.what() << endl;
-	char c;
-	while (cin >> c && c != ';');
-	return 1;
-}
-catch (...) {
-	cerr << "exception\n";
-	char c;
-	while (cin >> c && c != ';');
-	return 2;
-}
+
+	double declaration()
+	{
+		Token t = ts.get();
+		if (t.kind != 'a' || t.kind != 'C') error("name or const expected in declaration"); //name or const
+		string name = t.name;
+		if (is_declared(name)) error(name, " declared twice");
+		//or should I enter code here for '='?
+		Token t2 = ts.get();
+		if(t2.kind == 'C'){
+			Token t3 = ts.get();
+			if (t3.kind != 'a') error("name expected in declaration"); //name or const
+			string name = t3.name;
+			if (is_declared(name)) error(name, " declared twice");
+			if (t3.kind != '=') error("= missing in declaration of ", name); //or const
+			const double d = expression();
+			var_table.push_back(Variable(name, d));
+			return d;
+		} else if (t2.kind != '=') error("= missing in declaration of ", name); //or const
+		else {
+			double d = expression();
+			var_table.push_back(Variable(name, d));
+			return d;
+		}
+	}
+
+	//left is name;
+
+	//so, we start we a statement and check if there is 'let'.
+	double statement()
+	{
+		Token t = ts.get();
+		switch (t.kind) {
+			case let: //case for declaration
+				return declaration();
+				//case name:
+				//	{
+				//	}
+			default:
+				ts.unget(t); 
+				return expression();
+		}
+	}
+
+	void clean_up_mess()
+	{
+		ts.ignore(print); //ignore print message. Why? To prevent running in another error.
+	}
+
+	const string prompt = "> ";
+	const string result = "= ";
+
+	void calculate()
+	{
+		while (cin) 
+			try {
+				cout << prompt;
+				Token t = ts.get();
+				while (t.kind == print) t = ts.get();
+				if (t.kind == quit) return;
+				ts.unget(t);
+				cout << result << statement() << '\n'; //endl is endline?
+			}
+		catch (runtime_error& e) {
+			cerr << e.what() << '\n';
+			clean_up_mess();
+		}
+	}
+
+	int main()
+		try {
+			define_name("k", 1000);
+			calculate();
+			return 0;
+		}
+	catch (exception& e) {
+		cerr << "exception: " << e.what() << endl;
+		char c;
+		while (cin >> c && c != ';');
+		return 1;
+	}
+	catch (...) {
+		cerr << "exception\n";
+		char c;
+		while (cin >> c && c != ';');
+		return 2;
+	}
