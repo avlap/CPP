@@ -100,6 +100,9 @@ const string declpowkey = "power";
 
 const string declkeyexit = "exit";
 
+const char constant = 'C';
+const string constkey = "constant";
+
 //const char sqrt
 
 //function get() part of Token_stream. Get 'gets' a new token from cin. The tokens are selected using case. The functions gives back a Token.
@@ -152,6 +155,7 @@ Token Token_stream::get()
 				if(s==declkey2) return Token{sr};
 				if(s==declpowkey) return Token{power};
 				if(s==declkeyexit) return Token{quit};
+				if(s==constkey) return Token{constant};
 				//if(s== a name in var_table) -> set value function
 				//			for(Variable& v:var_table)
 				//		if(v.name == s == v.name) 
@@ -336,8 +340,8 @@ double expression()
 double declaration()
 {
 	Token t = ts.get();
-	if (t.kind != 'a' || t.kind != 'C') error("name or const expected in declaration"); //name or const
-	string name = t.name;
+	if (t.kind != 'a' && t.kind != 'C') error("name or const expected in declaration"); //name or const
+	string name = t.name; //function is_const?
 	if (is_declared(name)) error(name, " declared twice");
 	//or should I enter code here for '='?
 	Token t2 = ts.get();
