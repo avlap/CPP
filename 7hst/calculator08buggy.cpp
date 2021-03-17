@@ -88,7 +88,7 @@ const char let = 'L'; //let is the keyword we choose, which people have to use w
 const char quit = 'q'; //use quit to make reading code more easy
 const char print = ';';
 const char number = '8'; //we need to specify type of character, we do it with setting '8'. It's a digit.
-const char name = 'a';
+const char name = 'a'; //for name declaration
 //const string declkey = "let";
 const string declkey = "let";
 
@@ -120,7 +120,7 @@ Token Token_stream::get()
 		case '*':
 		case '/':
 		case '%':
-		case '=':
+		case '=': //case '=' for the let function
 		case ',': //for power function
 		case '#':
 			return Token(ch); //for all these cases, return chars as themselves.
@@ -142,7 +142,7 @@ Token Token_stream::get()
 				return Token{number, val}; //what is' number val.. Number is a const to set kind to numbers. Val comes from cin. So this returns the incoming number as double.
 				//Token(char ch, double val) :kind(ch), value(val) { }
 			}
-		default:
+		default: //this checks for a name. Check if it already exists. Then you should check if the name is followed by a '=' sign. If so, rename it with the given value.
 			if (isalpha(ch) || ch == '_') { //checks if alpha, not all characters are allowed for a name
 				string s;
 				s += ch;
@@ -152,6 +152,10 @@ Token Token_stream::get()
 				if(s==declkey2) return Token{sr};
 				if(s==declpowkey) return Token{power};
 				if(s==declkeyexit) return Token{quit};
+
+				//if(s== a name in var_table) -> set value function
+//			for(Variable& v:var_table)
+//		if(v.name == s == v.name) 
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
@@ -195,8 +199,8 @@ double get_value(string s)
 void set_value(string s, double d)
 {
 	for(Variable& v:var_table)
-		if(v.name==s) {
-			v.value =d;
+		if(v.name == s) {
+			v.value = d;
 			return;
 		}
 	error("set: undefined variable", s);
@@ -238,8 +242,16 @@ double primary()
 			//no break?y
 		case number:
 			return t.value;
-		case name:
+		case name: //here is checks for name.
+			{
+				Token t2 =ts.get(); //eats? putback? ts.unget(t);
+				if(t2.kind == '=') {
+					double d = expression(); 
+					set_value(t.name,d);
+				}
+					
 			return get_value(t.name);
+			}
 		case 'S':
 			{ 
 				double d = primary(); //or expression() ??
@@ -319,6 +331,7 @@ double declaration()
 	if (t.kind != 'a') error("name expected in declaration");
 	string name = t.name;
 	if (is_declared(name)) error(name, " declared twice");
+	//or should I enter code here for '='?
 	Token t2 = ts.get();
 	if (t2.kind != '=') error("= missing in declaration of ", name);
 	double d = expression();
@@ -326,12 +339,31 @@ double declaration()
 	return d;
 }
 
+//left is name;
+
+//so, we start we a statement and check if there is 'let'.
 double statement()
 {
 	Token t = ts.get();
 	switch (t.kind) {
-		case let:
+		case let: //case for declaration
 			return declaration();
+		case 'a': //case for name
+			{
+				if!(is_declared(t)) error(
+					blablabla
+				error
+			 check if name exists in var_table	
+				 if so, go on
+				 else (error)
+
+					 check if next token is '=';
+			 		 check for expression?
+			 		 change value to result expression;
+
+			}
+//			should come after a var; check if that var exists, change the value of that var to the next value;
+			
 		default:
 			ts.unget(t); 
 			return expression();
@@ -366,7 +398,6 @@ void calculate()
 int main()
 	try {
 		define_name("k", 1000);
-
 		calculate();
 		return 0;
 	}
