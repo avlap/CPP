@@ -178,13 +178,16 @@ void Token_stream::ignore(char c)
 
 //access the value, given the name
 class Variable { //struct is a certain type of class? In newer versions this is class?
-	public:
+	public: 
 		string name;
 		double value;
-		const double const_val; //const
+		//const double const_val; //const
+		bool const_val;
 
 		Variable(string n, double v) :name(n), value(v) { }
-		Variable(string n, const double c) :name(n), const_value(c) { } //for const
+		//Variable(string n, const double c) :name(n), const_val(c) { } //for const
+		Variable(string n, double v, bool c) :name(n), const_val(c) { } //for const
+
 };
 
 vector<Variable> var_table; //strange place? a vector of Variables, called var_table. We store names in a vector.
@@ -201,8 +204,6 @@ double get_value(string s)
 void set_value(string s, double d)
 {
 	for(Variable& v:var_table)
-		if(v.const_value){
-			v.value = d;
 			if(v.name == s) {
 				v.value = d;
 				return;
