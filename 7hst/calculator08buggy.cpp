@@ -204,7 +204,7 @@ double get_value(string s)
 void set_value(string s, double d)
 {
 	for(Variable& v:var_table) { 
-		if(v.const_var) error("can't change a const variable");
+		if(v.const_val) error("can't change a const variable");
 		if(v.name == s) {
 			v.value = d;
 			return;
