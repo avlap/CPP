@@ -152,10 +152,9 @@ Token Token_stream::get()
 				if(s==declkey2) return Token{sr};
 				if(s==declpowkey) return Token{power};
 				if(s==declkeyexit) return Token{quit};
-
 				//if(s== a name in var_table) -> set value function
-//			for(Variable& v:var_table)
-//		if(v.name == s == v.name) 
+				//			for(Variable& v:var_table)
+				//		if(v.name == s == v.name) 
 				return Token{name, s}; //define a name, return that name, which is string s.
 			}
 			error("Bad token");
@@ -248,9 +247,9 @@ double primary()
 				if(t2.kind == '=') {
 					double d = expression(); 
 					set_value(t.name,d);
+					ts.unget(t2);
 				}
-					
-			return get_value(t.name);
+				return get_value(t.name);
 			}
 		case 'S':
 			{ 
@@ -348,6 +347,9 @@ double statement()
 	switch (t.kind) {
 		case let: //case for declaration
 			return declaration();
+		//case name:
+		//	{
+		//	}
 		default:
 			ts.unget(t); 
 			return expression();
