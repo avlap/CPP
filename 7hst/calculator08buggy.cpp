@@ -247,6 +247,7 @@ double primary()
 				if(t2.kind == '=') {
 					double d = expression(); 
 					set_value(t.name,d);
+				} else {
 					ts.unget(t2);
 				}
 				return get_value(t.name);
@@ -347,9 +348,9 @@ double statement()
 	switch (t.kind) {
 		case let: //case for declaration
 			return declaration();
-		//case name:
-		//	{
-		//	}
+			//case name:
+			//	{
+			//	}
 		default:
 			ts.unget(t); 
 			return expression();
