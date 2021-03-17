@@ -346,7 +346,7 @@ void set_value(string s, double d)
 			if (is_declared(name)) error(name, " declared twice");
 			if (t3.kind != '=') error("= missing in declaration of ", name); //or const
 			const double d = expression();
-			var_table.push_back(Variable(name, d));
+			var_table.push_back(Variable(name, d, true));
 			return d;
 		} else if (t2.kind != '=') error("= missing in declaration of ", name); //or const
 		else {
