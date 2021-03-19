@@ -3,7 +3,7 @@
 
 void print_foo()
 {
-	cout << "foo: " << foo << '\n';
+  cout << "FOOOO..." << '\n';	
 
 }
 
