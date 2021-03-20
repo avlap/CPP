@@ -31,7 +31,7 @@ int main()
 	X::print();
 	using namespace Y;
 	var = 9;
-	print()
+	print();
 	{
 		using Z::var;
 		using Z::print;
