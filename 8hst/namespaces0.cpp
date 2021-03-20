@@ -6,7 +6,6 @@ namespace X {
 	void print() {
 		cout << "var: " << var << '\n';
 	}
-
 }
 
 namespace Y {
