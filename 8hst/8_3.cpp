@@ -25,12 +25,6 @@ vector<int> fibonacci(const int& x, const int& y, vector<int>& v, const int& n)
 	}
 
 	return v;
-
-
-//	for(int x:v)
-//		cout << x << ", ";
-// cout << '\n';
-
 }
 
 int main ()
@@ -38,9 +32,9 @@ int main ()
 	//const vector<int>v = {0, 2, 3, 4};
 	//
 	vector<int> v; 
-	int x = 10;
-	int y = 2;
-	int n = 40;
+	const int x = 10;
+	const int y = 2;
+	const int n = 40;
 	v = fibonacci(x, y, v, n);
 	
 	const string s = "Fibonacci serie:";	
