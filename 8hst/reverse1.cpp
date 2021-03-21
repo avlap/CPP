@@ -17,7 +17,7 @@ void reverse0(const vector<int>& v)
 
 }
 
-void reverse1(vector<int> v)
+void reverse1(vector<int>& v)
 {
 
 	//hint swap
@@ -31,12 +31,17 @@ void reverse1(vector<int> v)
 	int temp;
 	const int size = v.size()-1;
 
-	for(int i=0; i < v.size(); ++i) {
-		temp = v[i];
-		v[i] = v[size -i];
-		v[size -i] = temp;
-		cout << v[i] << ", " << v[size -i] << '\n';
-	}
+	vector<int> b = v;
+
+	//size = 5, i max is 4 0 tot 4
+
+	for(int i=0; i < v.size(); ++i)
+		swap(v[i], v[size -i]); //dit klopt niet.. op een gegeven moment is v[0] al ingevuld ...
+		//temp = v[i];
+		//v[i] = v[size -i];
+		//v[size -i] = temp;
+		//cout << v[i] << ", " << v[size -i] << '\n';
+	//}
 	// 1 : 5
 	// 2 : 4
 	// 3 : 3
