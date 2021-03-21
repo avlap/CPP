@@ -3,7 +3,9 @@
 void read_names()
 {
 	string name0, name1, name2, name3, name4;
+	double age0, age1, age2, age3, age4;
 	vector<string> names;
+	vector<double>ages;
 
 	"Please enter 5 names: \n";
 	///while(cin) {
@@ -17,12 +19,27 @@ void read_names()
 	names.push_back(name4);
 
 
-	cout << "names size: " << names.size() << '\n';
 
-	if(!(names.size() == 5)) error("Please enter 5 names");
+	cout << "Enter the age of the persons: \n";
 
-	for(string x:names)
-		cout << x << '\n';
+	cin >> age0 >> age1 >> age2 >> age3 >> age4;
+
+	ages.push_back(age0);
+	ages.push_back(age1);
+	ages.push_back(age2);
+	ages.push_back(age3);
+	ages.push_back(age4);
+
+	for(int i=0; i < ages.size(); ++i)
+		cout << names[i] << ':' << ages[i] << '\n';
+
+ 
+	
+
+	//if(!(names.size() == 5)) error("Please enter 5 names");
+
+	//for(string x:names)
+	//	cout << x << '\n';
 	
 	//for(string tmp_name; cin >> tmp_name;)
 	//	name.push_back(tmp_name);
