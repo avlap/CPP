@@ -7,18 +7,18 @@ void read_names()
 	vector<string> names;
 	vector<double>ages;
 
+	vector<string>names_orig;
+	vector<double>ages_orig;
+
 	"Please enter 5 names: \n";
 	///while(cin) {
-		cin >> name0 >> name1 >> name2 >> name3 >> name4;
-
+	cin >> name0 >> name1 >> name2 >> name3 >> name4;
 
 	names.push_back(name0);
 	names.push_back(name1);
 	names.push_back(name2);
 	names.push_back(name3);
 	names.push_back(name4);
-
-
 
 	cout << "Enter the age of the persons: \n";
 
@@ -30,17 +30,30 @@ void read_names()
 	ages.push_back(age3);
 	ages.push_back(age4);
 
+//	for(int i=0; i < ages.size(); ++i)
+//		cout << names[i] << ':' << ages[i] << '\n';
+
+	names_orig = names;		
+	ages_orig = ages;
+
+	sort(names.begin(), names.end());
+
+	for(int i =0; i < names.size(); ++i) {
+		for(int j=0; j < names.size(); ++j) {
+			if(names_orig[j] == names[i]) ages[i] = ages_orig[j];
+		}
+	}
+
+
 	for(int i=0; i < ages.size(); ++i)
 		cout << names[i] << ':' << ages[i] << '\n';
 
- 
-	
 
 	//if(!(names.size() == 5)) error("Please enter 5 names");
 
 	//for(string x:names)
 	//	cout << x << '\n';
-	
+
 	//for(string tmp_name; cin >> tmp_name;)
 	//	name.push_back(tmp_name);
 
@@ -50,8 +63,6 @@ void read_names()
 int main()
 {
 	read_names();
-
-
 }
 
 
