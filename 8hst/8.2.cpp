@@ -6,10 +6,7 @@ void print(const string s, vector<int> v)
 
 	for(int i=0; i < v.size(); ++i) 
 		v[i] = i;
-	
 
-	//for(int x : v);
-	//
 	for(int x:v)	
 		cout << v[x] << ", ";
 
