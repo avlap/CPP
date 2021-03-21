@@ -19,7 +19,7 @@ vector<int> fibonacci(const int& x, const int& y, vector<int>& v, const int& n)
 	int z;
 	v.push_back(x);
 	v.push_back(y);
-	for(int i=1; i <= n; ++i) {
+	for(int i=1; i < n; ++i) {
 		z = v[i] + v[i-1];
 		v.push_back(z);
 	}
@@ -30,7 +30,6 @@ vector<int> fibonacci(const int& x, const int& y, vector<int>& v, const int& n)
 int main ()
 {
 	//const vector<int>v = {0, 2, 3, 4};
-	//
 	vector<int> v; 
 	const int x = 10;
 	const int y = 2;
@@ -41,5 +40,4 @@ int main ()
 	print(s, v);
 
 	return 0;
-
 }
