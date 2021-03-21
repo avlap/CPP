@@ -29,16 +29,21 @@ void reverse1(vector<int> v)
 	//v[size -1] = v[0];
 	//v[0] = v[size -1];
 	int temp;
+	const int size = v.size()-1;
 
 	for(int i=0; i < v.size(); ++i) {
-		int size = v.size()-1;
-		temp = v[size -i];
-		v[size -i] = v[i];
-		v[i] = temp;
+		temp = v[i];
+		v[i] = v[size -i];
+		v[size -i] = temp;
+		cout << v[i] << ", " << v[size -i] << '\n';
 	}
+	// 1 : 5
+	// 2 : 4
+	// 3 : 3
+	// 4 
 
-	for(int x:v)
-		cout << x << ", ";
+	for(int i=0; i < v.size(); ++i)
+		cout << v[i] << ", ";
 
 	cout << '\n';
 
@@ -47,9 +52,9 @@ void reverse1(vector<int> v)
 
 int main()
 {
-	const vector<int> v = {1,2,3,4,5};
+	vector<int> v = {1,2,3,4,5};
 
-	reverse0(v);
+	reverse1(v);
 
 }
 
