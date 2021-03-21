@@ -2,7 +2,7 @@
 
 //function reverse order in a vector
 //leaving the original vector unchanged
-vector<int> reverse(vector<int> v)
+void reverse(vector<int> v)
 {
 
 vector<int> v_rev;
