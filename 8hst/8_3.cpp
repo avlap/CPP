@@ -13,7 +13,7 @@ void print(const string s, vector<int> v)
 	cout << '\n';
 }
 
-void fibonacci(const int& x, const int& y, vector<int>& v, const int& n)
+vector<int> fibonacci(const int& x, const int& y, vector<int>& v, const int& n)
 {
 	//fibonacci, each element is the sum of the precious numbers
 	int z;
@@ -24,11 +24,12 @@ void fibonacci(const int& x, const int& y, vector<int>& v, const int& n)
 		v.push_back(z);
 	}
 
+	return v;
 
-	for(int x:v)
-		cout << x << ", ";
 
-	cout << '\n';
+//	for(int x:v)
+//		cout << x << ", ";
+// cout << '\n';
 
 }
 
@@ -37,12 +38,13 @@ int main ()
 	//const vector<int>v = {0, 2, 3, 4};
 	//
 	vector<int> v; 
-	int x = 1;
+	int x = 10;
 	int y = 2;
-	int n = 10;
-	fibonacci(x, y, v, n);
-	//const string s = "label:";	
-	//print(s, v);
+	int n = 40;
+	v = fibonacci(x, y, v, n);
+	
+	const string s = "Fibonacci serie:";	
+	print(s, v);
 
 	return 0;
 
