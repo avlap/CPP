@@ -11,7 +11,7 @@ struct Minmax {
 
 };
 
-Minmax maxv(vector<double> v)
+Minmax maxv(vector<double>& v)
 {
 	Minmax m;
 	sort(v);
@@ -19,12 +19,9 @@ Minmax maxv(vector<double> v)
 	m.max = v[v.size() -1];
 	m.min = v[0];
 
-	//cout << max << '\n';
-	
 	return m;
 
 }
-
 
 int main()
 {
@@ -36,6 +33,5 @@ int main()
 	Minmax m = maxv(v);
 	cout << "Max is: " << m.max << '\n';
 	cout << "Min is: " << m.min << '\n';
-	
 
 }
