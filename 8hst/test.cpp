@@ -17,8 +17,10 @@ int main ()
 	Minmax a;
 
 	a.max = 10;
+	a.min = 2.3;
 
 	cout << "a.max: " << a.max << '\n';
+	cout << "a.min: " << a.min << '\n';
 
 }
 
