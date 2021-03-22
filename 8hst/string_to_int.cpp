@@ -25,7 +25,6 @@ vector<string> makestring()
 	for(int z:s)
 		cout << z << '\n';
 
-
 }
 
 void num_char_in_string(vector<string> v)
@@ -35,14 +34,7 @@ void num_char_in_string(vector<string> v)
 	string x = v[0];
 	char y;
 
-		
-
-
-
-
 }
-
-
 
 int main ()
 {
