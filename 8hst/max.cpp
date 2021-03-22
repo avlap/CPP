@@ -15,7 +15,10 @@ void maxv(vector<double>& v)
 
 int main()
 {
-	vector<double> v = {0, 3, 8, 2};
+	vector<double> v;
+	//= {0, 3, 8, 2};
+	for(double temp; cin>>temp;)
+		v.push_back(temp);
 
 	maxv(v);
 
