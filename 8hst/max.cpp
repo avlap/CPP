@@ -2,13 +2,15 @@
 
 //function that returns the largest element of a vector argument
 //
-void maxv(vector<double>& v)
+double maxv(vector<double>& v)
 {
 	sort(v);
 
 	double max = v[v.size() -1];
 
-	cout << max << '\n';
+	//cout << max << '\n';
+	
+	return max;
 
 }
 
@@ -20,6 +22,8 @@ int main()
 	for(double temp; cin>>temp;)
 		v.push_back(temp);
 
-	maxv(v);
+	double max = maxv(v);
+	cout << "Max is: " << max << '\n';
+	
 
 }
