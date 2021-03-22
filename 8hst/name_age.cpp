@@ -2,11 +2,7 @@
 
 void read_names()
 {
-	//string name0, name1, name2, name3, name4;
-	//string name;
-	//double age0, age1, age2, age3, age4;
-//	double age;
-	
+		
 	vector<string> names;
 	vector<double>ages;
 
@@ -20,7 +16,7 @@ void read_names()
 		names.push_back(temp);
 	}
 
-	int length = names.size();
+	const int length = names.size();
 
 	cout << "Please enter " << length << " ages: \n";
 
