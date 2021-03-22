@@ -22,7 +22,7 @@ int main()
 	for(double temp; cin>>temp;)
 		v.push_back(temp);
 
-	double max = maxv(v);
+	const double max = maxv(v);
 	cout << "Max is: " << max << '\n';
 	
 
