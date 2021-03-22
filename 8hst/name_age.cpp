@@ -2,33 +2,30 @@
 
 void read_names()
 {
-	string name0, name1, name2, name3, name4;
-	double age0, age1, age2, age3, age4;
+	//string name0, name1, name2, name3, name4;
+	//string name;
+	//double age0, age1, age2, age3, age4;
+//	double age;
+	
 	vector<string> names;
 	vector<double>ages;
 
 	vector<string>names_orig;
 	vector<double>ages_orig;
 
-	"Please enter 5 names: \n";
+	cout << "Please enter names: \n";
 	///while(cin) {
-	cin >> name0 >> name1 >> name2 >> name3 >> name4;
+	for(string temp; cin>>temp;)
+		names.push_back(temp);
 
-	names.push_back(name0);
-	names.push_back(name1);
-	names.push_back(name2);
-	names.push_back(name3);
-	names.push_back(name4);
+	int length = names.size();
 
-	cout << "Enter the age of the persons: \n";
+	cout << "Please enter " << length << " names: \n";
 
-	cin >> age0 >> age1 >> age2 >> age3 >> age4;
+	for(double temp; cin>>temp;)
+		ages.push_back(temp);
 
-	ages.push_back(age0);
-	ages.push_back(age1);
-	ages.push_back(age2);
-	ages.push_back(age3);
-	ages.push_back(age4);
+	if(names.size() != ages.size()) error("Amount of age numbers doesn't match, names");
 
 	names_orig = names;		
 	ages_orig = ages;
@@ -43,6 +40,9 @@ void read_names()
 
 	for(int i=0; i < ages.size(); ++i)
 		cout << names[i] << ':' << ages[i] << '\n';
+
+
+
 }
 
 
