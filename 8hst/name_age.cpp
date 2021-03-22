@@ -30,9 +30,6 @@ void read_names()
 	ages.push_back(age3);
 	ages.push_back(age4);
 
-//	for(int i=0; i < ages.size(); ++i)
-//		cout << names[i] << ':' << ages[i] << '\n';
-
 	names_orig = names;		
 	ages_orig = ages;
 
@@ -44,19 +41,8 @@ void read_names()
 		}
 	}
 
-
 	for(int i=0; i < ages.size(); ++i)
 		cout << names[i] << ':' << ages[i] << '\n';
-
-
-	//if(!(names.size() == 5)) error("Please enter 5 names");
-
-	//for(string x:names)
-	//	cout << x << '\n';
-
-	//for(string tmp_name; cin >> tmp_name;)
-	//	name.push_back(tmp_name);
-
 }
 
 
