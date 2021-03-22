@@ -10,15 +10,20 @@ vector<string> makestring()
 {
 
 	vector<string>v;
+	vector<int>s;
 
 	for(string temp; cin>> temp;){
 	    int x = temp.size();	
-		cout << x << '\n';
+		//cout << x << '\n';
 		v.push_back(temp);
+		s.push_back(x);
 	}
 
 	for(string x:v)
 		cout << x << '\n';
+
+	for(int z:s)
+		cout << z << '\n';
 
 
 }
