@@ -15,12 +15,14 @@ void read_names()
 
 	cout << "Please enter names: \n";
 	///while(cin) {
-	for(string temp; cin>>temp;)
+	for(string temp; cin>>temp;){
+		if(temp == ";") break;
 		names.push_back(temp);
+	}
 
 	int length = names.size();
 
-	cout << "Please enter " << length << " names: \n";
+	cout << "Please enter " << length << " ages: \n";
 
 	for(double temp; cin>>temp;)
 		ages.push_back(temp);
@@ -40,9 +42,6 @@ void read_names()
 
 	for(int i=0; i < ages.size(); ++i)
 		cout << names[i] << ':' << ages[i] << '\n';
-
-
-
 }
 
 
