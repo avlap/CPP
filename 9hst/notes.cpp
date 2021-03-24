@@ -47,4 +47,12 @@ bool Date::is_valid()
 	if(m<1||12<m) return false;
 }
 
-
+void f(int x, int y)
+	try{
+		Date dxy {2004, x,y};
+		cout << dxy << '\n';
+		dxy.add_day(2);
+	}
+catch(Date::Invalid) {
+	error("Invalid date");
+}
