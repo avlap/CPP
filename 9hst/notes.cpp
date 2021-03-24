@@ -4,14 +4,14 @@
 //	int d;
 //};
 class Date{
-public:
-	Date(int y, int m, int d);
-	void add_day(int n);
-	int month() {return m;}
-	int day() {return d;}
-	int year() {return y;}
-private:
-	int y,m,d;
+	public:
+		Date(int y, int m, int d);
+		void add_day(int n);
+		int month() {return m;}
+		int day() {return d;}
+		int year() {return y;}
+	private:
+		int y,m,d;
 };
 
 
@@ -34,7 +34,7 @@ class Date{
 		bool is_valid();
 };
 
-		
+
 Date::Date(int yy, int mm, int dd) //constructor of a object
 	:y{yy},m{mm},d{dd} //initialize members
 {
@@ -56,3 +56,7 @@ void f(int x, int y)
 catch(Date::Invalid) {
 	error("Invalid date");
 }
+
+enum class Month {
+	jan=1, feb, mar, apr, may, jun, jul, aug, sept, oct, nov, dec
+};
