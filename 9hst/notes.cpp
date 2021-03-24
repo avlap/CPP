@@ -17,6 +17,7 @@ private:
 Date::Date(int yy, int mm, int dd) //constructor of a object
 	:y{yy},m{mm},d{dd} //initialize members
 {
+	if(!is_valid()) throw Invalid{};
 
 }
 
@@ -31,7 +32,7 @@ void Date::add_day(int n)
 
 class Date{
 	public: 
-		class Invalid {};
+		class Invalid{};
 		Date(int y, int m, int d);
 	private:
 		int y, int m, int d;
