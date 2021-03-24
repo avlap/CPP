@@ -15,7 +15,7 @@ private:
 };
 
 Date::Date(int yy, int mm, int dd) //constructor of a object
-	:y{yy},m{mm},d{dd}
+	:y{yy},m{mm},d{dd} //initialize members
 {
 
 }
@@ -24,6 +24,20 @@ void Date::add_day(int n)
 {
 
 }
+
+//////////////////////////////////////////////
+
+//simple Date (prevent invalid dates)
+
+class Date{
+	public: 
+		class Invalid {};
+		Date(int y, int m, int d);
+	private:
+		int y, int m, int d;
+		bool is_valid();
+};
+
 		
 
 
