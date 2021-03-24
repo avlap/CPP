@@ -13,11 +13,21 @@ public:
 private:
 	int y,m,d;
 };
+
+Date::Date(int yy, int mm, int dd) //constructor of a object
+	:y{yy},m{mm},d{dd}
+{
+
+}
+
+void Date::add_day(int n)
+{
+
+}
 		
 
 
 //helper functions
-//
 void init_day(Date& dd, int y, int m, int d)
 {
 	//chec that (y,m,d) is a valid date
