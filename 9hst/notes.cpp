@@ -39,7 +39,6 @@ Date::Date(int yy, int mm, int dd) //constructor of a object
 	:y{yy},m{mm},d{dd} //initialize members
 {
 	if(!is_valid()) throw Invalid{};
-
 }
 
 bool Date::is_valid()
@@ -60,3 +59,17 @@ catch(Date::Invalid) {
 enum class Month {
 	jan=1, feb, mar, apr, may, jun, jul, aug, sept, oct, nov, dec
 };
+
+enum class Day {
+	monday, tuesday, wednesday, thursday, friday, saturday, sunday
+};
+
+Month m = Month::feb;
+
+Month operator++(Month& m) //prefix increment operator
+{
+	m = (m==Month::Dec) ? Month::Jan : Month(int(m)+1); //wrap around
+
+	return m;
+}
+
