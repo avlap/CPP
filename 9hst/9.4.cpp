@@ -33,6 +33,6 @@ int main()
 	//tomorrow.y = today.y;
 	//tomorrow.m = today.m;
 
-	cout << today << '\n';
+	cout << today.y << '\n';
 
 }
