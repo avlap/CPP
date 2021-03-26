@@ -7,13 +7,32 @@ struct Date {
 
 };
 
+void init_day(Date& dd, int y, int m, int d)
+{
+}
+
+void add_day(Date& dd, int n)
+{
+	dd.d += n;
+
+
+}
+
 int main()
 {
-	Date d;
-	d.y = {1978};
-	d.m = {6};
-	d.d = {25};
+	Date today;
+	//Date tomorrow;
 
-	cout << d.d << '-'<< d.m << '-' << d.y << '\n';
+	init_day(today, 1987, 6, 25);
+
+	//today.y = {1978};
+	//today.m = {6};
+	//today.d = {25};
+
+	//tomorrow.d = add_day(today, 1);
+	//tomorrow.y = today.y;
+	//tomorrow.m = today.m;
+
+	cout << today << '\n';
 
 }
