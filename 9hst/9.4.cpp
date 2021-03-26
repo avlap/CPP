@@ -1,22 +1,27 @@
 #include "../include/std_lib_facilities.h"
 
-struct Date{
-	int y, m, d;
-	Date(int y, int m, int d);
-	//void add_day(int n);
+class Date{
+	public: 
 	
+	Date(int y, int m, int d);
+	void add_day(Date& dd, int n);
+
+	private:
+	int y, m, d;
 };
 
 Date::Date(int yy, int mm, int dd)
 	:y{yy},m{mm},d{dd}
 {
+	//constructor
 }
 
 //void init_day(Date& dd, int y, int m, int d)
+void Date::add_day(Date& dd, int n)
+{
+	dd.d += n;
 
-
-
-//void add_day(Date& dd, int n)
+}
 //
 //void f()
 //{
@@ -42,6 +47,9 @@ int main()
 {
 	//f();
 	Date today{1978,6,25};
+	Date tomorrow;
+
+	add_day(today, 1);
 
 	cout << today.y << '\n';
 
