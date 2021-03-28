@@ -23,11 +23,14 @@ void Name_pairs::read_names()
 void Name_pairs::read_ages()
 {
 	cout << "Enter ages: \n";
-	for(int i=0; i<name.size(); ++i) {
-		cout << name[i] << ": \n";
+	//for(int i=0; i<name.size(); ++i) {
+	//	cout << name[i] << ": \n";
+	for(string x:name) {
+		cout << x << ": \n";
 		for(double d; cin>>d;)
 			age.push_back(d);
 	}
+	
 }
 
 void Name_pairs::print()
