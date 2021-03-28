@@ -49,8 +49,6 @@ void Name_pairs::sort_now()
 			if(name[j] == name_orig[i]) age[j] = age_orig[i];
 		}
 	}
-
-
 }
 
 void Name_pairs::print()
