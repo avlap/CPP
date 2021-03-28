@@ -14,18 +14,21 @@ class Name_pairs {
 void Name_pairs::read_names()
 {
 	cout << "Names: \n";
-	for(string tmp; cin>>tmp;)
+	for(string tmp; cin>>tmp;){
+		if(tmp=="q") break;
 		name.push_back(tmp);
+	}
 }
 
 
 void Name_pairs::read_ages()
 {
-	for(string x:name) {
-		cout << x << ":" << '\n';
+	cout << "Enter ages: \n";
+	//for(int i=0; i < name.size(); ++i) {
+	//	cout << name[i] << ":" << '\n';
 		for(double d; cin>>d;) 
 			age.push_back(d);
-	}
+	//}
 }
 
 void Name_pairs::print()
@@ -41,7 +44,7 @@ int main ()
 	Name_pairs np;	
 	np.read_names();
 	np.read_ages();
-	//np.print();
+	np.print();
 	//np.name = {"dirk"};
 	//np.print();
 	//np.age = {18};
