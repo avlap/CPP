@@ -7,7 +7,7 @@ class Name_pairs {
 
 		void read_names();
 		void read_ages();
-		void print();
+		//void print();
 		void sort_now();
 	private:
 
@@ -53,12 +53,13 @@ void Name_pairs::sort_now()
 	}
 }
 
-void Name_pairs::print()
+//void Name_pairs::print()
+iostream& operator<<(ostream& os, Name_pairs np)
 {
 	//for(string x:name)
 	//		cout << x << '\n';
-	for(int i=0; i < name.size(); ++i)
-		cout << name[i] << '\t' << age[i] << '\n';
+	for(int i=0; i < np.name.size(); ++i)
+		return os << np.name[i] << '\t' << np.age[i] << '\n';
 }
 
 int main () 
@@ -67,7 +68,7 @@ int main ()
 	np.read_names();
 	np.read_ages();
 	np.sort_now();
-	np.print();
+	print(np);
 }
 
 
