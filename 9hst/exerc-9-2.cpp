@@ -5,17 +5,21 @@ class Name_pairs {
 	vector<string> name;
 	vector<double> age;
 	
-	void read_names(Name_pairs& np);
+	void read_names();
 	//void read_ages();
 	void print();
 	//void sort();
 
 };
 
-void Name_pairs::read_names(Name_pairs& np)
+void Name_pairs::read_names()
 {
+	cout << "Names: \n";
 	for(string tmp; cin>>tmp;)
-		np.name.push_back(tmp);
+		name.push_back(tmp);
+
+	for(string x:name)
+		cout << x << '\n';
 
 }
 
@@ -34,8 +38,9 @@ void f()
 int main () 
 {
 	Name_pairs np;	
-	np.name = {"dirk"};
-	np.print();
+	np.read_names();
+	//np.name = {"dirk"};
+	//np.print();
 	//np.age = {18};
 	//cout << np.name[0] << '\t' << np.age[0] << '\n';
 	
