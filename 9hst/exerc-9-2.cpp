@@ -39,8 +39,16 @@ void Name_pairs::sort_now()
 	//sort names
 	//if names_orig == names_new -> ages_orig = ages_new
 	vector<string>name_new = name;
+	vector<double>age_new = age;
 	//sort(name_new);
 	sort(name_new.begin(), name_new.end());
+
+
+	for(int i =0; i < name.size(); ++i) {
+		for(int j=0; j < name.size(); ++j) {
+			if(name[j] == name_new[i]) age[i] = age_new[j];
+		}
+	}
 
 }
 
