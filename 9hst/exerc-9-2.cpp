@@ -20,6 +20,8 @@ void Name_pairs::read_names()
 
 void Name_pairs::print()
 {
+	for(string x:name)
+		cout << x << '\n';
 }
 
 
