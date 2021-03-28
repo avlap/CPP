@@ -38,17 +38,18 @@ void Name_pairs::sort_now()
 	//copy names
 	//sort names
 	//if names_orig == names_new -> ages_orig = ages_new
-	vector<string>name_new = name;
-	vector<double>age_new = age;
+	vector<string>name_orig = name;
+	vector<double>age_orig = age;
 	//sort(name_new);
-	sort(name_new.begin(), name_new.end());
+	sort(name.begin(), name.end());
 
 
 	for(int i =0; i < name.size(); ++i) {
 		for(int j=0; j < name.size(); ++j) {
-			if(name[j] == name_new[i]) age[i] = age_new[j];
+			if(name[j] == name_orig[i]) age[j] = age_orig[i];
 		}
 	}
+
 
 }
 
@@ -65,6 +66,7 @@ int main ()
 	Name_pairs np;	
 	np.read_names();
 	np.read_ages();
+	np.sort_now();
 	np.print();
 }
 
