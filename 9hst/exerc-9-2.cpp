@@ -17,15 +17,12 @@ void Name_pairs::read_names()
 	cout << "Names: \n";
 	for(string tmp; cin>>tmp;)
 		name.push_back(tmp);
-
-	for(string x:name)
-		cout << x << '\n';
-
 }
 
 void Name_pairs::print()
 {
-	cout << "hallo! \n";
+for(string x:name)
+		cout << x << '\n';
 }
 
 void f()
@@ -39,6 +36,7 @@ int main ()
 {
 	Name_pairs np;	
 	np.read_names();
+	np.print();
 	//np.name = {"dirk"};
 	//np.print();
 	//np.age = {18};
