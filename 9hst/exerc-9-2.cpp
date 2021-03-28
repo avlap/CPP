@@ -3,7 +3,7 @@
 class Name_pairs {
 	public:
 	vector<string> name;
-	//vector<double> age;
+	vector<double> age;
 	
 	//void read_names(Name_pairs& np, string name);
 	//void read_ages();
@@ -19,7 +19,8 @@ int main ()
 {
 	Name_pairs np;
 	np.name = {"dirk"};
-	cout << np.name[0] << '\n';
+	np.age = {18};
+	cout << np.name[0] << '\t' << np.age[0] << '\n';
 	
 }
 
