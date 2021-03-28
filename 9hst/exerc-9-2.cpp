@@ -2,13 +2,13 @@
 
 class Name_pairs {
 	public:
-	vector<string> name;
-	vector<double> age;
-	
-	void read_names();
-	void read_ages();
-	void print();
-	//void sort();
+		vector<string> name;
+		vector<double> age;
+
+		void read_names();
+		void read_ages();
+		void print();
+		//void sort();
 };
 
 void Name_pairs::read_names()
@@ -24,17 +24,19 @@ void Name_pairs::read_names()
 void Name_pairs::read_ages()
 {
 	cout << "Enter ages: \n";
-	//for(int i=0; i < name.size(); ++i) {
-	//	cout << name[i] << ":" << '\n';
+	for(string x:name)
+		cout << x << ", ";
+
+	cout << '\n';
+
 		for(double d; cin>>d;) 
 			age.push_back(d);
-	//}
 }
 
 void Name_pairs::print()
 {
-//for(string x:name)
-//		cout << x << '\n';
+	//for(string x:name)
+	//		cout << x << '\n';
 	for(double x:age)
 		cout << x << '\n';
 }
@@ -49,7 +51,7 @@ int main ()
 	//np.print();
 	//np.age = {18};
 	//cout << np.name[0] << '\t' << np.age[0] << '\n';
-	
+
 }
 
 
