@@ -8,7 +8,7 @@ class Name_pairs {
 		void read_names();
 		void read_ages();
 		void print();
-		//void sort();
+		void sort_now();
 };
 
 void Name_pairs::read_names()
@@ -30,7 +30,17 @@ void Name_pairs::read_ages()
 
 	for(double d; cin>>d;)
 		age.push_back(d);
+}
 
+void Name_pairs::sort_now()
+{
+	//copy age
+	//copy names
+	//sort names
+	//if names_orig == names_new -> ages_orig = ages_new
+	vector<string>name_new = name;
+	//sort(name_new);
+	sort(name_new.begin(), name_new.end());
 
 }
 
