@@ -20,7 +20,6 @@ void Name_pairs::read_names()
 	}
 }
 
-
 void Name_pairs::read_ages()
 {
 	cout << "Enter ages: \n";
@@ -29,16 +28,16 @@ void Name_pairs::read_ages()
 
 	cout << '\n';
 
-		for(double d; cin>>d;) 
-			age.push_back(d);
+	for(double d; cin>>d;) 
+		age.push_back(d);
 }
 
 void Name_pairs::print()
 {
 	//for(string x:name)
 	//		cout << x << '\n';
-	for(double x:age)
-		cout << x << '\n';
+	for(int i =0; i < name.size(); ++i)
+		cout << name[i] << '\t' << age[i] << '\n';
 }
 
 int main () 
@@ -50,8 +49,6 @@ int main ()
 	//np.name = {"dirk"};
 	//np.print();
 	//np.age = {18};
-	//cout << np.name[0] << '\t' << np.age[0] << '\n';
-
 }
 
 
