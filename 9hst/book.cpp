@@ -10,7 +10,8 @@ class Book {
 		void check_in();
 		void check_out();
 		void set_title();
-
+		void print_isbn() {cout << isbn() << '\n';}
+;
 
 		string new_title(string n);
 		string author() {return a;}
@@ -66,7 +67,8 @@ void Book::is_checked()
 int main()
 {
 	Book b("Ik ga leven");
-	cout << b.isbn() << '\n';
+	b.print_isbn();
+	//cout << b.isbn() << '\n';
 	//b.i="mooi niet";
 	//string t = "Ik ga leven";
 	//b.new_title(t);
