@@ -4,6 +4,7 @@ class Book {
 	//isbn, title, author, copyright-date. checked in or out,.
 	//
 	public:
+		Book(string i);
 		bool checked = false;
 		void is_checked();
 		void check_in();
@@ -19,6 +20,11 @@ class Book {
 		string a;
 		string i;
 };
+
+Book::Book(string ii)
+	:i{ii}
+{
+}
 
 void set_title()
 {
@@ -58,9 +64,10 @@ void Book::is_checked()
 
 int main()
 {
-	Book b;
-	string t = "Ik ga leven";
-	b.new_title(t);
+	Book b("Ik ga leven");
+	//b.i="mooi niet";
+	//string t = "Ik ga leven";
+	//b.new_title(t);
 	b.is_checked();
 	b.check_in();
 	b.is_checked();
