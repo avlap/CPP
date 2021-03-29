@@ -38,10 +38,13 @@ bool Book::is_isbn_valid()
 {
 	//isbn should be a string
 	//n-n-n-x, where n is integer and x is a digit or a letter
-	if(!isdigit(i[0])); return false;	
+	for(int j=0; j<=4; j+=2)
+	if(!isdigit(i[j])); return false;	
 	
 	for(int j = 1; j < i.length(); j+=2)
 		if(i[j] != '-') return false;
+
+	if(!isdigit(i[i.length() -1]) || !isalpha(i[i.length() -1])); return false;
 
 }
 
