@@ -5,7 +5,7 @@ class Book {
 	public:
 		Book(string i);
 		class Invalid{};
-		
+
 		void is_checked() { cout << "checked: " << checked << '\n'; }
 		void check_in() { checked = true; }
 		void check_out() { checked = false; }
@@ -14,7 +14,7 @@ class Book {
 		string author() { return a; }
 		string isbn() { return i; }
 	private:
-	//	string t;
+		//	string t;
 		string a;
 		string i;
 		bool checked = false;
@@ -53,19 +53,19 @@ bool Book::is_isbn_valid()
 }
 
 int main()
-try{
-	Book b("0-0-0-0"); //n-n-n-x,
-	b.print_isbn();
-	//cout << b.isbn() << '\n';
-	//b.i="mooi niet";
-	//string t = "Ik ga leven";
-	//b.new_title(t);
-	b.is_checked();
-	b.check_in();
-	b.is_checked();
-	b.check_out();
-	b.is_checked();
-}
+	try{
+		Book b("0-0-0-0"); //n-n-n-x,
+		b.print_isbn();
+		//cout << b.isbn() << '\n';
+		//b.i="mooi niet";
+		//string t = "Ik ga leven";
+		//b.new_title(t);
+		b.is_checked();
+		b.check_in();
+		b.is_checked();
+		b.check_out();
+		b.is_checked();
+	}
 catch(Book::Invalid) {
 	error("Invalid isbn");
 }
