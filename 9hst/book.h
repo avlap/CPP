@@ -18,15 +18,5 @@ class Book {
 };
 
 
-bool Book::check_in()
-{
-	checked = true;
-	return checked;
+bool Book::check_in();
 
-}
-
-
-int main()
-{
-
-}

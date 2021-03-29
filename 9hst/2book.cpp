@@ -53,6 +53,12 @@ bool Book::is_isbn_valid()
 	return true;
 }
 
+bool operator==(Book& a, Book& b)
+{
+	return a.isbn()==b.isbn();
+
+}
+
 int main()
 	try{
 		Book b("0-0-0-0"); //n-n-n-x,
