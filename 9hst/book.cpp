@@ -26,6 +26,7 @@ Book::Book(string ii)
 {
 }
 
+
 void set_title()
 {
 
@@ -65,6 +66,7 @@ void Book::is_checked()
 int main()
 {
 	Book b("Ik ga leven");
+	cout << b.isbn() << '\n';
 	//b.i="mooi niet";
 	//string t = "Ik ga leven";
 	//b.new_title(t);
