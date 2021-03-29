@@ -56,13 +56,16 @@ bool Book::is_isbn_valid()
 bool operator==(Book& a, Book& b)
 {
 	return a.isbn()==b.isbn();
-
 }
 
 bool operator!=(Book& a, Book& b)
 {
 	return a.isbn()!=b.isbn();
+}
 
+ostream& operator<<(ostream& os, Book& a)
+{
+	return os << "ISBN: " << a.isbn() << '\n';
 }
 
 int main()
@@ -71,10 +74,12 @@ int main()
 		Book b("0-0-0-n");
 		if(a!=b)  
 			cout << "a != b" << '\n';
-		 else if(a==b)
+		else if(a==b)
 			cout << "a == b" << '\n';
 
-		b.print_isbn();
+		//b.print_isbn();
+		cout << a;
+		cout << b;
 		//cout << b.isbn() << '\n';
 		//b.i="mooi niet";
 		//string t = "Ik ga leven";
