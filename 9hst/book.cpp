@@ -2,8 +2,6 @@
 
 class Book {
 	//isbn, title, author, copyright-date. checked in or out,.
-	//
-	//is valid function to check isbn?
 	public:
 		Book(string i);
 		class Invalid{};
@@ -13,14 +11,14 @@ class Book {
 		void check_out() { checked = false; }
 		void print_isbn() { cout << isbn() << '\n'; }
 
-				
 		string author() { return a; }
 		string isbn() { return i; }
 	private:
-		string t;
+	//	string t;
 		string a;
 		string i;
 		bool checked = false;
+
 		bool is_isbn_valid();
 
 };
@@ -54,10 +52,8 @@ bool Book::is_isbn_valid()
 	return true;
 }
 
-
-
 int main()
-{
+try{
 	Book b("0-0-0-0"); //n-n-n-x,
 	b.print_isbn();
 	//cout << b.isbn() << '\n';
@@ -69,5 +65,8 @@ int main()
 	b.is_checked();
 	b.check_out();
 	b.is_checked();
+}
+catch(Book::Invalid) {
+	error("Invalid isbn");
 }
 
