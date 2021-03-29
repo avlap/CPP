@@ -10,14 +10,14 @@ class Book {
 		void is_checked();
 		void check_in();
 		void check_out();
-//		void set_title();
+		//		void set_title();
 		void print_isbn() { cout << isbn() << '\n'; }
 
 		bool is_isbn_valid();
 		class Invalid{};
 
 
-//		string new_title(string n);
+		//		string new_title(string n);
 		string author() { return a; }
 		string isbn() { return i; }
 	private:
@@ -31,20 +31,35 @@ Book::Book(string ii)
 {
 	//check for valid
 	if(!is_isbn_valid()) throw Invalid{};
-	
+
 }
 
 bool Book::is_isbn_valid()
 {
 	//isbn should be a string
 	//n-n-n-x, where n is integer and x is a digit or a letter
-	for(int j=0; j<=4; j+=2)
-	if(!isdigit(i[j])); return false;	
-	
-	for(int j = 1; j < i.length(); j+=2)
-		if(i[j] != '-') return false;
+	//	for(int j=0; j<=4; j+=2) 
+	//for(char x:i) {
+	for(int j=0; j<=4; j+=2) {
+		if(!isdigit(i[j])) return false;//error("error 1"); 
+	}
 
-	if(!isdigit(i[i.length() -1]) || !isalpha(i[i.length() -1])); return false;
+	for(int j = 1; j <= 5; j+=2) {
+		if(i[j] != '-') error("snd loop"); // return false; 
+	}
+
+	//cout << i[j] << '\n';
+
+
+	//if(i[j] != '-') error("snd loop"); // return false; 
+
+	if(isdigit(i[i.length() -1]) || isalpha(i[i.length() -1])) {
+	}
+	else { error("third loop"); //return false;
+	}
+	//	cout
+
+	return true;
 
 }
 
@@ -72,7 +87,7 @@ void Book::is_checked()
 
 int main()
 {
-	Book b("Ik ga leven");
+	Book b("0-0-0-a"); //n-n-n-x,
 	b.print_isbn();
 	//cout << b.isbn() << '\n';
 	//b.i="mooi niet";
