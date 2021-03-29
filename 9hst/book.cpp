@@ -6,24 +6,23 @@ class Book {
 	//is valid function to check isbn?
 	public:
 		Book(string i);
-		bool checked = false;
+		class Invalid{};
+		
 		void is_checked();
-		void check_in();
-		void check_out();
-		//		void set_title();
+		void check_in() { checked = true; }
+		void check_out() { checked = false; }
 		void print_isbn() { cout << isbn() << '\n'; }
 
 		bool is_isbn_valid();
-		class Invalid{};
-
-
-		//		string new_title(string n);
+		
 		string author() { return a; }
 		string isbn() { return i; }
 	private:
 		string t;
 		string a;
 		string i;
+		bool checked = false;
+
 };
 
 Book::Book(string ii)
@@ -38,38 +37,23 @@ bool Book::is_isbn_valid()
 {
 	//isbn should be a string
 	//n-n-n-x, where n is integer and x is a digit or a letter
-	//	for(int j=0; j<=4; j+=2) 
-	//for(char x:i) {
 	for(int j=0; j<=4; j+=2) {
-		if(!isdigit(i[j])) return false;//error("error 1"); 
+		if(!isdigit(i[j])) return false; 
 	}
 
 	for(int j = 1; j <= 5; j+=2) {
-		if(i[j] != '-') return false; //error("snd loop"); // return false; 
+		if(i[j] != '-') return false; 
 	}
 
 	if(isdigit(i[i.length() -1]) || isalpha(i[i.length() -1])) {
 		//do nothing
 	} else { 
-		return false; //error("third loop"); 
+		return false; 
 	}
 
 	return true;
 }
 
-
-void Book::check_in()
-{
-	checked = true;
-	//return checked;
-}
-
-void Book::check_out()
-{
-
-	checked = false;
-	//return checked;
-}
 void Book::is_checked()
 {
 	//return checked;
@@ -81,7 +65,7 @@ void Book::is_checked()
 
 int main()
 {
-	Book b("a-0-0-a"); //n-n-n-x,
+	Book b("0-0-0-0"); //n-n-n-x,
 	b.print_isbn();
 	//cout << b.isbn() << '\n';
 	//b.i="mooi niet";
