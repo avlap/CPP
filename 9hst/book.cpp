@@ -45,22 +45,16 @@ bool Book::is_isbn_valid()
 	}
 
 	for(int j = 1; j <= 5; j+=2) {
-		if(i[j] != '-') error("snd loop"); // return false; 
+		if(i[j] != '-') return false; //error("snd loop"); // return false; 
 	}
-
-	//cout << i[j] << '\n';
-
-
-	//if(i[j] != '-') error("snd loop"); // return false; 
 
 	if(isdigit(i[i.length() -1]) || isalpha(i[i.length() -1])) {
+		//do nothing
+	} else { 
+		return false; //error("third loop"); 
 	}
-	else { error("third loop"); //return false;
-	}
-	//	cout
 
 	return true;
-
 }
 
 
@@ -87,7 +81,7 @@ void Book::is_checked()
 
 int main()
 {
-	Book b("0-0-0-a"); //n-n-n-x,
+	Book b("a-0-0-a"); //n-n-n-x,
 	b.print_isbn();
 	//cout << b.isbn() << '\n';
 	//b.i="mooi niet";
