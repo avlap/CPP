@@ -3,19 +3,23 @@
 class Book {
 	//isbn, title, author, copyright-date. checked in or out,.
 	//
+	//is valid function to check isbn?
 	public:
 		Book(string i);
 		bool checked = false;
 		void is_checked();
 		void check_in();
 		void check_out();
-		void set_title();
-		void print_isbn() {cout << isbn() << '\n';}
-;
+//		void set_title();
+		void print_isbn() { cout << isbn() << '\n'; }
 
-		string new_title(string n);
-		string author() {return a;}
-		string isbn() {return i;}
+		bool is_isbn_valid();
+		class Invalid{};
+
+
+//		string new_title(string n);
+		string author() { return a; }
+		string isbn() { return i; }
 	private:
 		string t;
 		string a;
@@ -25,20 +29,19 @@ class Book {
 Book::Book(string ii)
 	:i{ii}
 {
+	//check for valid
+	if(!is_isbn_valid()) throw Invalid{};
+	
 }
 
-
-void set_title()
+bool Book::is_isbn_valid()
 {
-
-}
-
-string Book::new_title(string n)
-{
-	t = n;
-	return t;
-
-	//cout << new_title(t) << '\n';
+	//isbn should be a string
+	//n-n-n-x, where n is integer and x is a digit or a letter
+	if(!isdigit(i[0])); return false;	
+	
+	for(int j = 1; j < i.length(); j+=2)
+		if(i[j] != '-') return false;
 
 }
 
