@@ -2,6 +2,10 @@
 
 namespace Library {
 
+enum class Genre {
+	fiction, nonfiction, thriller, children
+};
+
 class Book {
 	//isbn, title, author, copyright-date. checked in or out,.
 	public:
