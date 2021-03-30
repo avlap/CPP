@@ -1,5 +1,7 @@
 #include "../include/std_lib_facilities.h"
 
+namespace Library {
+
 class Book {
 	//isbn, title, author, copyright-date. checked in or out,.
 	public:
@@ -68,9 +70,13 @@ ostream& operator<<(ostream& os, Book& a)
 	return os << "ISBN: " << a.isbn() << '\n';
 }
 
+} //Library
+
+using namespace Library; 
+
 int main()
 	try{
-		Book a("0-0-0-0"); //n-n-n-x,
+				Book a("0-0-0-0"); //n-n-n-x,
 		Book b("0-0-0-n");
 		if(a!=b)  
 			cout << "a != b" << '\n';
