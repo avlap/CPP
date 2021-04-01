@@ -28,7 +28,7 @@ void print_point_file(const vector<Point>& p, string name)
 	//cout << "please enter name output file: \n";
 	//cin >> oname;
 	ofstream ost{name}; //ost write to a file named oname
-//	if (!ost) error("can't open output file ", oname);
+	//	if (!ost) error("can't open output file ", oname);
 	for(Point z:p)
 		ost << z.x << '\t' << z.y << '\n';
 }
@@ -46,7 +46,7 @@ void read_file(vector<Point>& pp, string name)
 
 void compare_vector(vector<Point> p, vector<Point> pp)
 {
-	
+
 	//if(p.x == pp.x) cout << "TRUE \n";
 	//cout << p
 
@@ -61,10 +61,8 @@ void compare_vector(vector<Point> p, vector<Point> pp)
 int main()
 {
 
-	vector<int>een = {0, 0, 0, 0};
-	vector<int>twee = {0, 0, 0, 0};
-
 	string s = "out_file";
+	
 	vector<Point>original_points;
 	vector<Point>processed_points;
 
