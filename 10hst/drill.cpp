@@ -22,6 +22,7 @@ void print_point_cout(const vector<Point>& p)
 }
 
 void print_point_file(const vector<Point>& p, string name)
+	//print vector Point to file
 {
 	//string name;
 	//cout << "please enter name output file: \n";
@@ -32,12 +33,27 @@ void print_point_file(const vector<Point>& p, string name)
 		ost << z.x << '\t' << z.y << '\n';
 }
 
+void read_file(vector<Point>& pp, string name)
+{
+	//string iname;
+	//cin >> iname;
+	int x, y;
+	ifstream ist {name};
+	while(ist >> x >> y) 
+		pp.push_back(Point{x, y});
+
+}
+
 int main()
 {
 	string s = "out_file";
 	vector<Point>original_points;
+	vector<Point>processed_points;
 
 	fill_point(original_points);
 	//print_point_cout(original_points);
 	print_point_file(original_points, s);
+	read_file(processed_points, s); 
+	print_point_cout(processed_points);
+
 }
