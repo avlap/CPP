@@ -52,7 +52,7 @@ void compare_vector(vector<Point> p, vector<Point> pp)
 
 	//if(p == pp) cout << "Moi!\n";
 	for(int i=0; i < p.size(); ++i)
-		if(p[i].x != pp[i].x) cout << "Error!\n";
+		if(p[i].x != pp[i].x || p[i].y != pp[i].y) cout << "Something is wrong!\n";
 
 }
 
