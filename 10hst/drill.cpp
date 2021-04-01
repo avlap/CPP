@@ -44,8 +44,26 @@ void read_file(vector<Point>& pp, string name)
 
 }
 
+void compare_vector(vector<Point> p, vector<Point> pp)
+{
+	
+	//if(p.x == pp.x) cout << "TRUE \n";
+	//cout << p
+
+	//if(p == pp) cout << "Moi!\n";
+	for(int i=0; i < p.size(); ++i)
+		if(p[i].x != pp[i].x) cout << "Error!\n";
+
+}
+
+
+
 int main()
 {
+
+	vector<int>een = {0, 0, 0, 0};
+	vector<int>twee = {0, 0, 0, 0};
+
 	string s = "out_file";
 	vector<Point>original_points;
 	vector<Point>processed_points;
@@ -55,5 +73,7 @@ int main()
 	print_point_file(original_points, s);
 	read_file(processed_points, s); 
 	print_point_cout(processed_points);
+
+	compare_vector(original_points, processed_points);
 
 }
