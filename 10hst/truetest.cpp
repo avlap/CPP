@@ -3,14 +3,17 @@
 
 int main ()
 {
+	vector<int>numbers;
 
 	while(true) {
-		int n, d;
-		cin >>n >> d;
+		int n;
+		for(int tmp; cin >> tmp;)
+			numbers.push_back(tmp);
 		if(!cin) break;
 	}
 
-	cout << "Done!\n";
+	for(int x:numbers)
+		cout << x << '\n';
 
 
 }
