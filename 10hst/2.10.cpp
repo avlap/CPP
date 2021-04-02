@@ -44,7 +44,7 @@ istream& operator>>(istream& is, Reading& r)
 	char ch1, ch2;
 	int h;
 	double t;
-	is>>h>ch1>>t>>ch2;
+	is >> h >> ch1 >> t >> ch2;
 	if(!is||ch1!=','||ch2!=')') error("bad reading");
 	r.hour = h;
 	r.temperature = t;
@@ -67,14 +67,33 @@ void calculate_mean(const vector<Reading>& r)
 
 int main()
 {
+	//open input file
 
 	//string oname_raw = "raw_temps";
-	string oname_new = "new_temps";
+	string iname = "raw_temps";
+
+	ifstream ifs {iname};
+	if(!ifs) error("Can't open input file", iname);
+
+	ifs.exceptions(ifs.exceptions()|ios_base::badbit);
+
+	//open output file
+	string oname = "new_temps";
+	ofstream ofs {oname};
+	if(!ofs) error("can't open output file", oname);
 
 	//vector<Reading>readings;
 	vector<Reading>rr;
+	while(true) {
+		Reading r;
+		if(!(ifs>>r)) break;
+		rr.push_back(r);
+	}
+
 	//is >> rr;
 	//make_temps(readings);
-	write_to_file_raw(readings, oname_new);
+	//read readings
+	
+	write_to_file_raw(rr, oname);
 
 }
