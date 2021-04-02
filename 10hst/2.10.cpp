@@ -32,21 +32,22 @@ void write_to_file_raw(const vector<Reading>& r, const string& t)
 
 }
 
-istream& operator>>(istream& is, vector<Reading>& rr)
-//read Readings from file
-//page 365
+istream& operator>>(istream& is, Reading& r)
 {
-	int h;
-	double t;
-	char ch0, ch1, ch2;
-	is>>ch0>>h>>ch1>>t>>ch2;
-	if(!is) return is;
-	if(ch0!='('||ch1!=','||ch2!=')') {
+	char ch0;
+	if(is>>ch0 && ch0!='(') {
+		is.unget();
 		is.clear(ios_base::failbit);
 		return is;
 	}
 
-	rr.push_back(Reading{h,t});
+	char ch1, ch2;
+	int h;
+	double t;
+	is>>h>ch1>>t>>ch2;
+	if(!is||ch1!=','||ch2!=')') error("bad reading");
+	r.hour = h;
+	r.temperature = t;
 	return is;
 }
 
