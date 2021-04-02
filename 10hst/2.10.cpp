@@ -41,11 +41,11 @@ istream& operator>>(istream& is, Reading& r)
 		return is;
 	}
 
-	char ch1, ch2;
+	char ch1;
 	int h;
 	int t;
-	is >> h >> ch1 >> t >> ch2;
-	if(!is||ch1!=','||ch2!=')') error("bad reading");
+	is >> h >> t >> ch1;
+	if(!is||ch1!=')') error("bad reading");
 	r.hour = h;
 	r.temperature = t;
 	return is;
