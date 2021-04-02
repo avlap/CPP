@@ -5,10 +5,12 @@ int main ()
 {
 
 	while(true) {
-		for(int i=0; i < 100; ++i)
-			cout << i << '\n';
+		int n, d;
+		cin >>n >> d;
+		if(!cin) break;
 	}
 
-	cout << "DONE!\n";
+	cout << "Done!\n";
+
 
 }
