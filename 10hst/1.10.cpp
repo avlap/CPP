@@ -32,18 +32,22 @@ int calculate_sum(const vector<int>& v)
 	for(int x:v) sum += x;
 
 	return sum;
+}
 
+void print_sum(const int& s)
+{
+	cout << "Sum: " << s << '\n';
 }
 
 int main()
 {
 	int sum;
 	vector<int>numbers;
-	string iname = "integers";
+	const string iname = "integers";
 
 	ifstream ist {iname};
 	fill_vector(ist, numbers, '|');
 	//print_vector(numbers);
 	sum = calculate_sum(numbers);
-	cout << "Sum: " << sum << '\n';
+	print_sum(sum);
 }
