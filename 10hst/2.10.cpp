@@ -10,21 +10,21 @@ struct Reading {
 
 };
 
-void write_temps(vector<Reading>& r)
+void make_temps(vector<Reading>& r)
 {
 	for(int i =0; i <= 50; ++i) {
 		double t = rand() % 100;
-		readings.pushback(Reading{i, t});
+		r.push_back(Reading{i, t});
 	}
 
 }
 
 //write to file
-void write_to_file(const vector<Reading>& r, const string t&)
+void write_to_file(const vector<Reading>& r, const string& t)
 {
 	
-	ostream ost {t};
-	if(!ost) error("can't open outputfile ", oname);
+	ofstream ost {t};
+	if(!ost) error("can't open outputfile ", t);
 
 	for(int i=0; i <r.size(); ++i) 
 		ost << '(' << r[i].hour << ','
@@ -37,6 +37,7 @@ int main()
 {
 	string oname = "temps";
 	vector<Reading>readings;
+	make_temps(readings);
 	write_to_file(readings, oname);
 
 }
