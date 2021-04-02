@@ -5,7 +5,7 @@
 //50 readings
 struct Reading {
 	int hour; //0-23
-	double temperature;
+	int temperature;
 
 };
 
@@ -13,7 +13,7 @@ void make_temps(vector<Reading>& r)
 {
 	for(int i =0; i <= 50; ++i) {
 		int h = rand() % 24;
-		double t = rand() % 45; //gives integers, 0 - 45 C?
+		int t = rand() % 45; //gives integers, 0 - 45 C?
 		r.push_back(Reading{h, t});
 	}
 
@@ -43,7 +43,7 @@ istream& operator>>(istream& is, Reading& r)
 
 	char ch1, ch2;
 	int h;
-	double t;
+	int t;
 	is >> h >> ch1 >> t >> ch2;
 	if(!is||ch1!=','||ch2!=')') error("bad reading");
 	r.hour = h;
@@ -54,11 +54,11 @@ istream& operator>>(istream& is, Reading& r)
 
 void calculate_mean(const vector<Reading>& r)
 {
-	double sum;
+	int sum;
 	for(Reading x:r)
 		sum += x.temperature;
 
-	double mean = sum/r.size();
+	int mean = sum/r.size();
 
 	cout << "Mean: " << mean << '\n';
 }
@@ -79,8 +79,8 @@ int main()
 
 	//open output file
 	string oname = "new_temps";
-	ofstream ofs {oname};
-	if(!ofs) error("can't open output file", oname);
+	//ofstream ofs {oname};
+	//if(!ofs) error("can't open output file", oname);
 
 	//vector<Reading>readings;
 	vector<Reading>rr;
