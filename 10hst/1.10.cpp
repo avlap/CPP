@@ -30,10 +30,19 @@ void fill_vector(istream& ist, vector<int>& v, char terminator)
 
 }
 
+void print_vector(const vector<int>& v)
+{
+	for(int x:v)
+		cout << x << '\n';
+
+}
+
 int main()
 {
-		vector<int>numbers;
-
-	fill_vector(integers, numbers, '|');
+	vector<int>numbers;
+	string iname = "integers";
+	ifstream ist {iname};
+	fill_vector(ist, numbers, '|');
+	print_vector(numbers);
 
 }
