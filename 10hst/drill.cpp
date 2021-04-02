@@ -41,22 +41,13 @@ void read_file(vector<Point>& pp, string name)
 	ifstream ist {name};
 	while(ist >> x >> y) 
 		pp.push_back(Point{x, y});
-
 }
 
 void compare_vector(vector<Point> p, vector<Point> pp)
 {
-
-	//if(p.x == pp.x) cout << "TRUE \n";
-	//cout << p
-
-	//if(p == pp) cout << "Moi!\n";
 	for(int i=0; i < p.size(); ++i)
 		if(p[i].x != pp[i].x || p[i].y != pp[i].y) cout << "Something is wrong!\n";
-
 }
-
-
 
 int main()
 {
