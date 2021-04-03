@@ -45,7 +45,7 @@ istream& operator>>(istream& is, Reading& r)
 	int h;
 	int t;
 	is >> h >> t >> ch1;
-	if(ch1!= ')') error("bad reading");
+	if(!is||ch1!= ')') error("bad reading");
 	r.hour = h;
 	r.temperature = t;
 	return is;
@@ -70,13 +70,14 @@ int main()
 	//open input file
 
 	//string oname_raw = "raw_temps";
+
 	string iname = "raw_temps";
 
 	ifstream ifs {iname};
 	if(!ifs) error("Can't open input file", iname);
-
 	ifs.exceptions(ifs.exceptions()|ios_base::badbit);
 
+	
 	//open output file
 	string oname = "new_temps";
 	//ofstream ofs {oname};
