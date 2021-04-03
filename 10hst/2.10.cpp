@@ -45,7 +45,7 @@ istream& operator>>(istream& is, Reading& r)
 	int h;
 	int t;
 	is >> h >> t >> ch1;
-	if(!is) error("bad reading");
+	if(ch1!= ')') error("bad reading");
 	r.hour = h;
 	r.temperature = t;
 	return is;
