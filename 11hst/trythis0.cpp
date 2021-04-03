@@ -6,9 +6,19 @@ void print_column()
 
 }
 
+void print_number(const double& nr)
+{
+	cout << nr << '\t' 
+		<< fixed << nr << '\t'
+		<< scientific << nr << '\t'
+		<< defaultfloat << nr << "\t\n";
+
+}
+
 int main()
 {
-
+	double number {1234.879866};
+	print_number(number);
 	print_column();
 //	cout << "moi" << '\n';
 
