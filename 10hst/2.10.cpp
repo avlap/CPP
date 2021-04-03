@@ -34,17 +34,17 @@ void write_to_file_raw(const vector<Reading>& r, const string& t)
 
 istream& operator>>(istream& is, Reading& r)
 {
-	//char ch0;
-	//if(is>>ch0 && ch0!='(') {
-	//	is.unget();
-	//	is.clear(ios_base::failbit);
-	//	return is;
-	//}
+	char ch0;
+	if(is>>ch0 && ch0!='(') {
+		is.unget();
+		is.clear(ios_base::failbit);
+		return is;
+	}
 
-	char ch0, ch1;
+	char ch1;
 	int h;
 	int t;
-	is >> ch0 >>h >> t >> ch1;
+	is >> h >> t >> ch1;
 	//if(!is||ch1!=')') error("bad reading");
 	r.hour = h;
 	r.temperature = t;
