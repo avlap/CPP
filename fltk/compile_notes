@@ -1,0 +1,1 @@
+g++  fltk_test.cpp -lfltk -o trial
