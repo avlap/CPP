@@ -6,6 +6,14 @@
 #include <FL/Fl_Round_Button.H>
 #include <FL/Fl_Radio_Round_Button.H>
 
+void xyz_draw(int x, int y, int w, int h, Fl_Color c) {
+  fl_color(c);
+  fl_rectf(x, y, w, h);
+  fl_color(FL_BLACK);
+  fl_rect(x, y, w, h);
+}
+
+
 int main(int argc, char **argv)
 {
 	int x1 = 60; //width of the topbar buttons
@@ -20,6 +28,11 @@ int main(int argc, char **argv)
 	Fl_Button *button1 = new Fl_Button(x1,0,x1,h1,"Refresh");
 	Fl_Button *button2 = new Fl_Button(x1*2,0,x1,h1,"Open");
 	Fl_Button *button3 = new Fl_Button(x1*3,0,x1,h1,"Close");
+	Fl_Button *button4 = new Fl_Button(x1*3,0,x1,h1,"Close");
+
+	button4->color(0xff000000);
+
+	xyz_draw(10, 40, 80, 30, FL_CYAN);
 
 //	button->type(FL_RADIO_BUTTON);
 //	button->set();
