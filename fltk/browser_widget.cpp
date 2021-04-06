@@ -7,12 +7,19 @@ void browser_cb(Fl_Widget *w) {
 	//retrieve selected item from browser
 	int index = b->value();
 	//add text to browser using the retrieved index number
-	if ( index == 1 ) {
-		b->add("You selected line1");
-	} else if ( index == 2) {
-		b->add("You selected line2");
-	} else if ( index == 3 ) {
-		b->add("You selected line3");
+	switch(index) {
+		case 1: 
+			b->add("You selected line1");
+			break;
+		case 2:
+			b->add("You selected line2");
+			break;
+		case 3:
+			b->add("You selected line3");
+			break;
+		default:
+			b->add("Did you select anything, something looks odd");
+			break;
 	}
 }
 
