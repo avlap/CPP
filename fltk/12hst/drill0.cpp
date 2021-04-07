@@ -38,6 +38,9 @@ int main()
 	win.attach(r);
 
 	Text t {Point{150,150}, "Hello, graphical world!"};
+//	t.set_font(Font::times_bold);
+	t.set_font_size(20);
+	
 	win.attach(t);
 
 	r.set_fill_color(Color::yellow);
