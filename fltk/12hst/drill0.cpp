@@ -34,12 +34,14 @@ int main()
 	poly.set_style(Line_style::dash);
 	win.attach(poly);
 
-
 	Rectangle r {Point{200,200},100,50};
 	win.attach(r);
 
+	Text t {Point{150,150}, "Hello, graphical world!"};
+	win.attach(t);
+
 	r.set_fill_color(Color::yellow);
-	poly.set_style(Line_style(Line_style::dash,8));
+	poly.set_style(Line_style(Line_style::dash,4));
 //	poly_rect.set_style(Line_style(Line_style::dash,2));
 //	poly_rect.set_fill_color(Color::green);
 
