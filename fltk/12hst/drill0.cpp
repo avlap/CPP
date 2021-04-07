@@ -47,6 +47,10 @@ int main()
 	poly.set_style(Line_style(Line_style::dash,4));
 //	poly_rect.set_style(Line_style(Line_style::dash,2));
 //	poly_rect.set_fill_color(Color::green);
+//
+
+	Image ii {Point{100,500}, "cuba.jpg"};
+	win.attach(ii);
 
 	win.set_label("Canvas #7");
 	//	win.set_label("Canvas #4");
