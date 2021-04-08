@@ -1,13 +1,6 @@
 #include "Simple_window.h"
 #include "Graph.h"
 
-struct Lines : Shape {
-	Lines() {}
-	Lines(initializer_list<pair<Point,Point>>lst);
-
-	void draw_lines() const;
-	void add(Point p1, Point p2);
-};
 
 int main()
 {
@@ -20,7 +13,7 @@ int main()
 
 	int x_size = win.x_max();
 
-	cout << xsize << '\n';
+	cout << xsize << t'\n';
 
 
 	Lines x;
