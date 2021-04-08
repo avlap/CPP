@@ -35,9 +35,13 @@ int main()
 
 	for(int i=0; i<(x_size-x_grid); i+=x_grid) {
 		vr.push_back(new Rectangle(Point{i, i}, Point{x_grid +i, y_grid + i}));
-		vr[vr.size()-1].set_fill_color(Color::yellow);
+		vr[vr.size()-1].set_fill_color(Color::red);
 		win.attach(vr[vr.size()-1]);
 		}
+	
+	Image bird (Point{0,y_grid*2}, "cuba_200.jpg");
+
+	win.attach(bird);
 
 	win.wait_for_button();
 
