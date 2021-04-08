@@ -21,7 +21,9 @@ int main()
 
 	Lines grid;
 	for(int x=x_grid;x <(x_size-x_grid); x+=x_grid)
-		grid.add(Point{x,0},Point{x,y_size});
+		grid.add(Point{x,0},Point{x,x_size});
+	for(int y=y_grid;y<(y_size-y_grid);y+=y_grid)
+		grid.add(Point{0,y},Point{x_size,y});
 
 	win.attach(grid);
 
