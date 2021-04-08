@@ -12,11 +12,18 @@ int main()
 	Simple_window win {tl,1000,800,"Canvas"};
 
 	int x_size = win.x_max();
+	int y_size = win.y_max();
+	int x_grid = 100;
+	int y_grid = 100;
 
-	cout << xsize << t'\n';
+//	cout << x_size << '\n';
 
 
-	Lines x;
+	Lines grid;
+	for(int x=x_grid;x <(x_size-x_grid); x+=x_grid)
+		grid.add(Point{x,0},Point{x,y_size});
+
+	win.attach(grid);
 
 	
 	win.wait_for_button();
