@@ -21,20 +21,53 @@ struct Circle : Shape { //Circle has Shape as base
 
 */
 
-struct Ellipse : Shape {
+/*
+void fl_arc(int	x, int y, int w, int h, double a1, double a2 )
+	 
+*/
+//can we use functions of Ellipse? Just a other constructer and additions?
+struct Arc : Shape {
+	Arc(Point p, int w, int h, double a1, double a2); //center, max and min distance from center. Degrees for a1 and a2. A2 should be larger then a1 (function to check?);
 
+	//copy from Ellipse class
+	void draw_lines() const;
 
+	Point center() const;
+//	Point focus1() const;
+//	Point focus2() const;
 
+	void set_major(int ww)
+	{
+		set_point(0,Point{center().x-ww,center().y-h); //maintain the center, copied
+
+		w = ww;
+	}
+
+	int major() const { return w; }
+
+	void set_minor(int hh)
+	{
+		set_point(0,Point{center().x-w,center().y-hh}); //maintain te center copied
+
+		h = hh;
+	}
+
+	int degrees_a() const { return a1; }
+	int degrees_b() const { return a2; }
+
+	//void operator>=a2_larger_a1 //pseudocode
+
+	private:
+		int w;
+		int h;
+		double a1;
+		double a2;
 };
 
-struct Arc : Ellipse {
-	using Ellipse::Ellipse;
-
-	void draw_arc() const;
-};
-
-void Arc::draw_ar()
+void Arc::draw_arc() const
 {
+	if(color().visibility())
+		fl.arc(Point(0).x,Point(0).y,w,h,a1,a2);
 
 }
 
