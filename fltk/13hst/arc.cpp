@@ -76,6 +76,12 @@ void draw_arc() const
 struct Arc : Shape {
 	Arc(int x, int y, int w, int h, double a, double b);
 
+bool is_valid() 
+{
+	if(b>a) return;
+}
+	
+
 
 //	void draw_lines() const;
 void draw_lines() const
@@ -94,8 +100,7 @@ void draw_lines() const
 Arc::Arc(int xx, int yy, int ww, int hh, double aa, double bb)
 	:x{xx},y{yy},w{ww},h{hh},a{aa},b{bb}
 {
-	if(b<a)
-		error("a larger then b");
+	if(b<a) error("a larger then b");
 }
 
 
