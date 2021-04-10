@@ -1,3 +1,4 @@
+//#include "fltk.h"
 #include "Simple_window.h"
 #include "Graph.h"
 
@@ -30,7 +31,13 @@ struct Arc : Shape {
 	Arc(Point p, int w, int h, double a1, double a2); //center, max and min distance from center. Degrees for a1 and a2. A2 should be larger then a1 (function to check?);
 
 	//copy from Ellipse class
-	void draw_lines() const;
+	//void draw_lines() const;
+void draw_arc() const
+{
+	if(color().visibility())
+		fl_arc(point(0).x,point(0).y,w,h,a1,a2);
+
+}
 
 	Point center() const;
 //	Point focus1() const;
@@ -38,7 +45,7 @@ struct Arc : Shape {
 
 	void set_major(int ww)
 	{
-		set_point(0,Point{center().x-ww,center().y-h); //maintain the center, copied
+		set_point(0,Point{center().x-ww,center().y-h}); //maintain the center, copied
 
 		w = ww;
 	}
@@ -64,12 +71,8 @@ struct Arc : Shape {
 		double a2;
 };
 
-void Arc::draw_arc() const
-{
-	if(color().visibility())
-		fl.arc(Point(0).x,Point(0).y,w,h,a1,a2);
 
-}
+
 
 
 int main()
@@ -81,9 +84,9 @@ int main()
 
 	Simple_window win {tl,600,400,"Canvas"};
 
-	Circle c1 {Point{100,200},50};
+	Arc a1 {Point{100,200},50,60,100.0,220.0};
 
-	win.attach(c1);
+	win.attach(a1);
 
 
 
