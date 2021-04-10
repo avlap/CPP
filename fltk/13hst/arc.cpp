@@ -76,17 +76,17 @@ void draw_arc() const
 struct Arc : Shape {
 	Arc(Point p, int w, int h, double a, double b);
 
+
 //	void draw_lines() const;
-Point center() const { return p; }
+//Point center() const { return p; }
 
 void draw_lines() const
 {
 	if(color().visibility())
-		fl_arc(p.x, p.y,w,h,a,b);
+		fl_arc(point(0).x, point(0).y,w,h,a,b);
 }
 
 	private:
-	Point p;
 	int x, y;
 	int w;
 	int h;
@@ -98,6 +98,7 @@ Arc::Arc(Point p, int ww, int hh, double aa, double bb)
 	:w{ww},h{hh},a{aa},b{bb}
 {
 	if(b<a) error("a larger then b");
+	add(p);
 }
 
 
