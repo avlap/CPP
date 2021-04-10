@@ -27,6 +27,7 @@ void fl_arc(int	x, int y, int w, int h, double a1, double a2 )
 	 
 */
 //can we use functions of Ellipse? Just a other constructer and additions?
+/*
 struct Arc : Shape {
 	Arc(Point p, int w, int h, double a1, double a2); //center, max and min distance from center. Degrees for a1 and a2. A2 should be larger then a1 (function to check?);
 
@@ -70,6 +71,29 @@ void draw_arc() const
 		double a1;
 		double a2;
 };
+*/
+//copy from Ellipse
+struct Arc : Shape {
+	Arc(int x, int y, int w, int h, double a, double b);
+
+//	void draw_lines() const;
+void draw_lines() const
+{
+	if(color().visibility())
+		fl_arc(x,y,w,h,a,b);
+}
+//	private:
+	int x, y;
+	int w;
+	int h;
+	double a;
+	double b;
+};
+
+Arc::Arc(int xx, int yy, int ww, int hh, double aa, double bb)
+	:x{xx},y{yy},w{ww},h{hh},a{aa},b{bb}
+{
+}
 
 
 
@@ -84,7 +108,7 @@ int main()
 
 	Simple_window win {tl,600,400,"Canvas"};
 
-	Arc a1 {Point{100,200},50,60,100.0,220.0};
+	Arc a1 {100,200,50,60,0.0,360.0};
 
 	win.attach(a1);
 
