@@ -77,15 +77,16 @@ struct Arc : Shape {
 	Arc(Point p, int w, int h, double a, double b);
 
 //	void draw_lines() const;
-Point center() const { return {point(0).x, point(0).y}; }
+//Point center() const { return {point(0).x, point(0).y}; }
 
 void draw_lines() const
 {
 	if(color().visibility())
-		fl_arc(point(0).x,point(0).y,w,h,a,b);
+		fl_arc(p.x, p.y,w,h,a,b);
 }
 
 	private:
+	Point p;
 	int x, y;
 	int w;
 	int h;
