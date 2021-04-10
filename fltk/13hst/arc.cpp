@@ -75,6 +75,8 @@ void draw_arc() const
 //copy from Ellipse
 struct Arc : Shape {
 	Arc(Point p, int w, int h, double a, double b);
+	Arc(int x, int y, int w, int h, double a, double b);
+
 
 
 //	void draw_lines() const;
@@ -101,6 +103,12 @@ Arc::Arc(Point p, int ww, int hh, double aa, double bb)
 	add(p);
 }
 
+Arc::Arc(int xx, int yy, int ww, int hh, double aa, double bb)
+	:x{xx},y{yy},w{ww},h{hh},a{aa},b{bb}
+{
+	if(b<a) error("a larger then b");
+}
+
 
 int main()
 {
@@ -112,9 +120,11 @@ int main()
 	Simple_window win {tl,600,400,"Canvas"};
 
 	Arc a1 {Point{200,220},50,60,0.0,333.0};
+	//Arc a2 {300, 100, 70, 80, 22.0, 229.0};
+	Arc a2 {200,220,50,60,0.0,333.0};
 
 	win.attach(a1);
-
+	win.attach(a2);
 
 
 
