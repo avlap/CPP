@@ -90,12 +90,10 @@ void draw_lines() const
 	double b;
 };
 
-/*
 Arc::Arc(int xx, int yy, int ww, int hh, double aa, double bb)
 	:x{xx},y{yy},w{ww},h{hh},a{aa},b{bb}
 {
 }
-*/
 
 
 
