@@ -77,7 +77,7 @@ struct Arc : Shape {
 	Arc(Point p, int w, int h, double a, double b);
 
 //	void draw_lines() const;
-Point center() const;
+Point center() const { return {point(0).x, point(0).y}; }
 
 void draw_lines() const
 {
@@ -109,7 +109,7 @@ int main()
 
 	Simple_window win {tl,600,400,"Canvas"};
 
-	Arc a1 {Point{100,200},50,60,0.0,333};
+	Arc a1 {Point{100,120},50,60,0.0,333.0};
 
 	win.attach(a1);
 
