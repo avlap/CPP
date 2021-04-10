@@ -103,12 +103,14 @@ Arc::Arc(Point p, int ww, int hh, double aa, double bb)
 	add(p);
 }
 
+/*
 Arc::Arc(int xx, int yy, int ww, int hh, double aa, double bb)
 	:x{xx},y{yy},w{ww},h{hh},a{aa},b{bb}
 {
 	if(b<a) error("a larger then b");
 }
 
+*/
 
 int main()
 {
