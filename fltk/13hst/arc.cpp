@@ -76,6 +76,7 @@ void draw_arc() const
 struct Arc : Shape {
 	Arc(int x, int y, int w, int h, double a, double b);
 
+
 //	void draw_lines() const;
 void draw_lines() const
 {
@@ -93,6 +94,8 @@ void draw_lines() const
 Arc::Arc(int xx, int yy, int ww, int hh, double aa, double bb)
 	:x{xx},y{yy},w{ww},h{hh},a{aa},b{bb}
 {
+	if(b<a)
+		error("a larger then b");
 }
 
 
@@ -108,7 +111,7 @@ int main()
 
 	Simple_window win {tl,600,400,"Canvas"};
 
-	Arc a1 {100,200,50,60,0.0,360.0};
+	Arc a1 {100,200,50,60,300,0.0};
 
 	win.attach(a1);
 
