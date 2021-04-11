@@ -85,7 +85,7 @@ struct Arc : Shape {
 void draw_lines() const
 {
 	if(color().visibility())
-		fl_arc(point(0).x, point(0).y,w,h,a,b);
+		fl_arc(x,y,w,h,a,b);
 }
 
 	private:
@@ -96,21 +96,21 @@ void draw_lines() const
 	double b;
 };
 
-Arc::Arc(Point p, int ww, int hh, double aa, double bb)
-	:w{ww},h{hh},a{aa},b{bb}
-{
-	if(b<a) error("a larger then b");
-	add(p);
-}
-
-/*
 Arc::Arc(int xx, int yy, int ww, int hh, double aa, double bb)
 	:x{xx},y{yy},w{ww},h{hh},a{aa},b{bb}
 {
 	if(b<a) error("a larger then b");
 }
 
-*/
+Arc::Arc(Point p, int ww, int hh, double aa, double bb)
+	:x{p.x},y{p.y},w{ww},h{hh},a{aa},b{bb}
+{
+	if(b<a) error("a larger then b");
+	add(p);
+}
+
+
+
 
 int main()
 {
@@ -123,7 +123,7 @@ int main()
 
 	Arc a1 {Point{200,220},50,60,0.0,333.0};
 	//Arc a2 {300, 100, 70, 80, 22.0, 229.0};
-	Arc a2 {200,220,50,60,0.0,333.0};
+	Arc a2 {100,220,50,60,0.0,333.0};
 
 	win.attach(a1);
 	win.attach(a2);
