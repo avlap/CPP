@@ -3,7 +3,7 @@
 
 //arrow, line with a arrow head
 //how to create the arrow head?
-//triangle? with one line invisible?
+//triangle? with one line invisible? -> open polyline
 //The length is a percentage of the length of the line, which is the distance between the points. 
 //How to determine the direction of the arrow? Comes later. That's determined by the first point? x, y comparison with the second point?
 
@@ -34,6 +34,7 @@ void Arrow::draw_lines() const
 
 }
 */
+
 int main()
 {
 
@@ -46,8 +47,13 @@ int main()
 
 	Arrow a0 {Point{100,100}, Point{200,100}};
 	//Line l {Point{100,100},Point{200,100}};
+	//
+	Open_polyline op ={ 
+		{100,100}, {150,200}, {250,250},{300,200}
+	};
 	
 	win.attach(a0);
+	win.attach(op);
 	
 	win.wait_for_button();
 
