@@ -3,16 +3,17 @@
 Point print_point(const Rectangle& r)
 {
 	//cout << "Point{" << r.point(0).x << ',' << r.point(0).y << "}\n";
-
 	Point p {r.point(0).x + 50, r.point(0).y + 50};
-	
-	return p;
 
+//	if(r.point(0).x > 20) error("groter dan 0");
+
+	return p;
 }
 
 int main()
+	try
 {
-	using namespace Graph_lib;
+		using namespace Graph_lib;
 
 	Point tl{100,100};
 
@@ -22,9 +23,8 @@ int main()
 
 	Point p;
 
-
 	p = print_point(r);
-//	cout << p.point(0).x << '\n';
+	//	cout << p.point(0).x << '\n';
 	Rectangle r1 {p, 200, 100};
 
 	win.attach(r);
@@ -32,8 +32,12 @@ int main()
 
 	win.wait_for_button();
 
-
-
-
 }
-
+catch(exception& e) {
+	// some error reporting
+	return 1;
+}
+catch(...) {
+	// some more error reporting
+	return 2;
+}
