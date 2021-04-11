@@ -1,9 +1,12 @@
 #include "Simple_window.h"
 #include "Graph.h"
-void print_point(const Rectangle& r)
+Point print_point(const Rectangle& r)
 {
-	cout << r.point(0).x << '\n';
+	//cout << "Point{" << r.point(0).x << ',' << r.point(0).y << "}\n";
+
+	Point p {r.point(0).x + 50, r.point(0).y + 50};
 	
+	return p;
 
 }
 
@@ -17,9 +20,15 @@ int main()
 
 	Rectangle r {Point{150,100}, 200, 100};
 
-	print_point(r);
+	Point p;
+
+
+	p = print_point(r);
+//	cout << p.point(0).x << '\n';
+	Rectangle r1 {p, 200, 100};
 
 	win.attach(r);
+	win.attach(r1);
 
 	win.wait_for_button();
 
