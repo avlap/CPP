@@ -2,6 +2,10 @@
 #include "Graph.h"
 
 //arrow, line with a arrow head
+//how to create the arrow head?
+//triangle? with one line invisible?
+//The length is a percentage of the length of the line, which is the distance between the points. 
+//How to determine the direction of the arrow? Comes later. That's determined by the first point? x, y comparison with the second point?
 
 struct Arrow : Shape {
 //	Arrow(Line l);
