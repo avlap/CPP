@@ -35,7 +35,10 @@ Arc::Arc(Point p, int ww, int hh, double aa, double bb)
 //box, 4 lines, 4 arcs.
 //Try to make a box, with one full arc first
 
-//struct Box : Shape
+struct Box : Shape {
+
+
+};
 
 int main()
 {
@@ -47,9 +50,9 @@ int main()
 
 	Simple_window win {tl,600,400,"Canvas"};
 
-	Rectangle rect0 {bx,50,60};
+	Rectangle rect0 {bx,70,80};
 
-	Arc a1 {bx,50,60,0.0,333.0};
+	Arc a1 {bx,70,80,0.0,333.0};
 	//Arc a2 {300, 100, 70, 80, 22.0, 229.0};
 	//Arc a2 {100,220,50,60,0.0,333.0};
 
