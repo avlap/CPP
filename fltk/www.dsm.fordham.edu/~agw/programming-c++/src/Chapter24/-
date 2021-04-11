@@ -1,0 +1,100 @@
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.2.1.o -c chapter.24.2.1.cpp
+g++ -o chapter.24.2.1  chapter.24.2.1.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.2.o -c chapter.24.2.cpp
+chapter.24.2.cpp: In function 'void f(int, double)':
+chapter.24.2.cpp:47:10: warning: unused variable 'c' [-Wunused-variable]
+     char c = i;      // yes: chars really are very small integers
+          ^
+chapter.24.2.cpp:48:11: warning: unused variable 's' [-Wunused-variable]
+     short s = i;     // beware: a large int may not fit in a short
+           ^
+chapter.24.2.cpp:50:10: warning: unused variable 'lg' [-Wunused-variable]
+     long lg = i*i;   // beware: a long may not be any larger than an int
+          ^~
+chapter.24.2.cpp:51:11: warning: variable 'fps' set but not used [-Wunused-but-set-variable]
+     float fps = fpd; // beware: a large double may not fit in a float
+           ^~~
+g++ -o chapter.24.2  chapter.24.2.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.4.o -c chapter.24.4.cpp
+chapter.24.4.cpp: In function 'int main()':
+chapter.24.4.cpp:11:9: warning: variable 'ai' set but not used [-Wunused-but-set-variable]
+     int ai[4];        // 1 dimensional array
+         ^~
+chapter.24.4.cpp:12:12: warning: variable 'ad' set but not used [-Wunused-but-set-variable]
+     double ad[3][4];  // 2 dimensional array
+            ^~
+chapter.24.4.cpp:13:10: warning: variable 'ac' set but not used [-Wunused-but-set-variable]
+     char ac[3][4][5]; // 3 dimensional array
+          ^~
+g++ -o chapter.24.4  chapter.24.4.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.5.1.o -c chapter.24.5.1.cpp
+g++ -o chapter.24.5.1  chapter.24.5.1.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.5.2.o -c chapter.24.5.2.cpp
+chapter.24.5.2.cpp: In function 'int main()':
+chapter.24.5.2.cpp:39:10: warning: unused variable 'p' [-Wunused-variable]
+     int* p = a.data();            // extract data as a pointer to an array
+          ^
+chapter.24.5.2.cpp:72:9: warning: unused variable 'r' [-Wunused-variable]
+     int r = dot_product(a3,a);               // dot product
+         ^
+In file included from chapter.24.5.2.cpp:7:0:
+Matrix.h: In instantiation of 'Numeric_lib::Matrix<T, 1>::Matrix(const Numeric_lib::Matrix<T, 1>&, F) [with F = int (*)(int) throw (); T = int]':
+Matrix.h:721:68:   required from 'A Numeric_lib::apply(F, A) [with F = int (*)(int) throw (); A = Numeric_lib::Matrix<int, 1>]'
+chapter.24.5.2.cpp:59:32:   required from here
+Matrix.h:232:23: warning: mangled name for 'Numeric_lib::Matrix<T, 1>::Matrix(const Numeric_lib::Matrix<T, 1>&, F) [with F = int (*)(int) throw (); T = int]' will change in C++17 because the exception specification is part of a function type [-Wnoexcept-type]
+     template<class F> Matrix(const Matrix& a, F f) : Matrix_base<T>(a.size()), d1(a.d1)
+                       ^~~~~~
+Matrix.h:232:23: warning: mangled name for 'Numeric_lib::Matrix<T, 1>::Matrix(const Numeric_lib::Matrix<T, 1>&, F) [with F = int (*)(int) throw (); T = int]' will change in C++17 because the exception specification is part of a function type [-Wnoexcept-type]
+Matrix.h: At global scope:
+Matrix.h:232:23: warning: mangled name for 'Numeric_lib::Matrix<T, 1>::Matrix(const Numeric_lib::Matrix<T, 1>&, F) [with F = int (*)(int) throw (); T = int]' will change in C++17 because the exception specification is part of a function type [-Wnoexcept-type]
+In file included from chapter.24.5.2.cpp:7:0:
+Matrix.h:721:41: warning: mangled name for 'A Numeric_lib::apply(F, A) [with F = int (*)(int) throw (); A = Numeric_lib::Matrix<int, 1>]' will change in C++17 because the exception specification is part of a function type [-Wnoexcept-type]
+ template<class F, class A>            A apply(F f, A x)        { A res(x,f);   return xfer(res); }
+                                         ^~~~~
+g++ -o chapter.24.5.2  chapter.24.5.2.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.5.3.o -c chapter.24.5.3.cpp
+chapter.24.5.3.cpp: In function 'int main()':
+chapter.24.5.3.cpp:51:9: warning: unused variable 's' [-Wunused-variable]
+     int s  = a.size();    // number of elements
+         ^
+chapter.24.5.3.cpp:52:9: warning: unused variable 'd1' [-Wunused-variable]
+     int d1 = a.dim1();    // number of elements in a row
+         ^~
+chapter.24.5.3.cpp:53:9: warning: unused variable 'd2' [-Wunused-variable]
+     int d2 = a.dim2();    // number of elements in a column
+         ^~
+chapter.24.5.3.cpp:54:10: warning: unused variable 'p' [-Wunused-variable]
+     int* p = a.data();    // extract data as a pointer to a C-style array
+          ^
+g++ -o chapter.24.5.3  chapter.24.5.3.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.5.4.o -c chapter.24.5.4.cpp
+g++ -o chapter.24.5.4  chapter.24.5.4.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.5.5.o -c chapter.24.5.5.cpp
+chapter.24.5.5.cpp: In function 'int main()':
+chapter.24.5.5.cpp:29:10: warning: unused variable 'p' [-Wunused-variable]
+     int* p = a.data(); // extract data as a pointer to a C-style array
+          ^
+g++ -o chapter.24.5.5  chapter.24.5.5.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.6.1.o -c chapter.24.6.1.cpp
+g++ -o chapter.24.6.1  chapter.24.6.1.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.6.2.o -c chapter.24.6.2.cpp
+g++ -o chapter.24.6.2  chapter.24.6.2.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.6.3.o -c chapter.24.6.3.cpp
+g++ -o chapter.24.6.3  chapter.24.6.3.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.7.o -c chapter.24.7.cpp
+g++ -o chapter.24.7  chapter.24.7.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.8.o -c chapter.24.8.cpp
+chapter.24.8.cpp: In function 'int main()':
+chapter.24.8.cpp:21:12: warning: unused variable 's2' [-Wunused-variable]
+     double s2 = sqrt(-1.0);
+            ^~
+g++ -o chapter.24.8  chapter.24.8.o 
+g++ -std=c++14 -Wall -Wno-sign-compare    -o chapter.24.9.o -c chapter.24.9.cpp
+chapter.24.9.cpp: In function 'void f(dcmplx, std::vector<std::complex<double> >&)':
+chapter.24.9.cpp:41:12: warning: variable 'z3' set but not used [-Wunused-but-set-variable]
+     dcmplx z3 = z2*9.0+vc[3];
+            ^~
+chapter.24.9.cpp:42:13: warning: variable 'sum' set but not used [-Wunused-but-set-variable]
+     dcmplx  sum = accumulate(vc.begin(), vc.end(), dcmplx());
+             ^~~
+g++ -o chapter.24.9  chapter.24.9.o 

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~agw/programming-c++/src/Chapter03</title>
+ </head>
+ <body>
+<h1>Index of /~agw/programming-c++/src/Chapter03</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=D">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/~agw/programming-c++/src/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="Makefile">Makefile</a></td><td align="right">2019-12-04 15:27  </td><td align="right">4.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="build.bat">build.bat</a></td><td align="right">2019-12-04 15:27  </td><td align="right">2.9K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="chapter.3.1.a.in">chapter.3.1.a.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  6 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.1.b.in">chapter.3.1.b.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  6 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.1.cpp">chapter.3.1.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">673 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.1.in">chapter.3.1.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  6 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.2.cpp">chapter.3.2.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">855 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.3-first.cpp">chapter.3.3-first.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">667 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.3-first.in">chapter.3.3-first.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  7 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.3-second.cpp">chapter.3.3-second.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">789 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.3-second.in">chapter.3.3-second.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  8 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.3-third.cpp">chapter.3.3-third.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">559 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.3-third.in">chapter.3.3-third.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right"> 14 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4-compare.cpp">chapter.3.4-compare.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">774 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4-compare.in">chapter.3.4-compare.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right"> 11 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4-concatenate.cpp">chapter.3.4-concatenate.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">660 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4-concatenate.in">chapter.3.4-concatenate.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  8 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4-floats.cpp">chapter.3.4-floats.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">807 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4-floats.in">chapter.3.4-floats.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  9 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4.cpp">chapter.3.4.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">789 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.4.in">chapter.3.4.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">  6 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.5.1.cpp">chapter.3.5.1.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">669 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.5.1.in">chapter.3.5.1.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">135 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.5.cpp">chapter.3.5.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">1.4K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.6.1.cpp">chapter.3.6.1.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">727 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.6.1.in">chapter.3.6.1.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right">135 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.7.cpp">chapter.3.7.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">754 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.8.cpp">chapter.3.8.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">484 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.9.1.cpp">chapter.3.9.1.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">690 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.9.2-second.cpp">chapter.3.9.2-second.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.9.2-second.in">chapter.3.9.2-second.in</a></td><td align="right">2019-12-04 15:27  </td><td align="right"> 61 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.9.2.cpp">chapter.3.9.2.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">613 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.xbm" alt="[   ]"></td><td><a href="chapter.3.9.cpp">chapter.3.9.cpp</a></td><td align="right">2019-12-04 15:27  </td><td align="right">565 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="std_lib_facilities.h">std_lib_facilities.h</a></td><td align="right">2019-12-04 15:27  </td><td align="right">6.4K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.46 (Fedora) Server at www.dsm.fordham.edu Port 443</address>
+</body></html>
