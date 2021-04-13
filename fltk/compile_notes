@@ -1,1 +1,2 @@
 g++  fltk_test.cpp -lfltk -o trial
+g++ -w -Wall -std=c++11 Graph.cpp GUI.cpp Window.cpp drill0.cpp -lfltk_images -lfltk -lX11 -o fltk
