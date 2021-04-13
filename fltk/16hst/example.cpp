@@ -55,9 +55,9 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 			attach(next_y);
 			attach(xy_out);
 			xy_out.put("no point");
-			color_menu.attach(new Button{Point{0,0},0,0,"red", cb_red});
-			color_menu.attach(new Button{Point{0,0},0,0,"blue", cb_blue});
-			color_menu.attach(new Button{Point{0,0},0,0,"black", cb_black});
+			color_menu.attach(new Button{Point{0,0},0,0,"red", [](Address, Address pw) {reference_to<Lines_window>(pw).red_pressed();}});
+			color_menu.attach(new Button{Point{0,0},0,0,"blue", [](Address, Address pw) {reference_to<Lines_window>(pw).blue_pressed();}});
+			color_menu.attach(new Button{Point{0,0},0,0,"black", [](Address, Address pw) {reference_to<Lines_window>(pw).black_pressed();}});
 			attach(color_menu);
 			color_menu.hide();
 			attach(menu_button);
