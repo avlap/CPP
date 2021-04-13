@@ -4,31 +4,37 @@
 
 struct Lines_window : Graph_lib::Window {
 	Lines_window(Point xy, int w, int h, const string& title);
-	Open_polyline lines;
-
-	//add menu
-	Menu color_menu;
-
-	static void cb_red(Address, Address); //callback
-	static void cb_blue(Address, Address); 
-	static void cb_black(Address, Address); 
-
-	//the actions 
-	void red_pressed() { change(Color::red); }
-	void blue_pressed() { change(Color::blue); }
-	void black_pressed() { change(Color::black); }
-
-	void change(Color c) { lines.set_color(c); }
 
 private:
+	Open_polyline lines;
+
 	Button next_button; //add (next_x next_y) to lines
 	Button quit_button;
 	In_box next_x;
 	In_box next_y;
 	Out_box xy_out;
+	Menu color_menu; //menu
+	Button menu_button;
 
+	void change(Color c) { lines.set_color(c); }
+
+	void hide_menu() { color_menu.hide(); menu_button.show(); }
+
+	//the actions 
+	void red_pressed() { change(Color::red); }
+	void blue_pressed() { change(Color::blue); }
+	void black_pressed() { change(Color::black); }
+	void menu_pressed() { menu_button.hide(); color_menu.show(); }
 	void next();
 	void quit();
+
+	static void cb_red(Address, Address); //callback
+	static void cb_blue(Address, Address); 
+	static void cb_black(Address, Address); 
+	static void cb_menu(Address, Address); 
+	static void cb_next(Address, Address); 
+	static void cb_quit(Address, Address); 
+
 };
 
 //Lines_window constructor, with lambdas
@@ -39,7 +45,7 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 	next_x{Point{x_max()-310, 0}, 50, 20, "Next x:"},
 	next_y{Point{x_max()-210, 0}, 50, 20, "next y:"},
 	xy_out{Point{100, 0}, 100, 20, "current (x,y):"},
-	color_menu{Point{x.max()-70, 40},70, 40}, 70, 20, Menu::vertical,"color"} // menu
+	color_menu{Point{x_max()-70, 40}, 70, 20, Menu::vertical,"color"} // menu
 		{
 			attach(next_button);
 			attach(quit_button);
@@ -51,9 +57,6 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 			color_menu.attach(new Button{Point{0,0},0,0,"blue", cb_blue});
 			color_menu.attach(new Button{Point{0,0},0,0,"black", cb_black});
 			attach(color_menu);
-
-
-
 		}
 
 void Lines_window::quit()
