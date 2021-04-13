@@ -46,18 +46,23 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 	next_y{Point{x_max()-210, 0}, 50, 20, "next y:"},
 	xy_out{Point{100, 0}, 100, 20, "current (x,y):"},
 	color_menu{Point{x_max()-70, 40}, 70, 20, Menu::vertical,"color"} // menu
+	menu_button{Point{x_max()-80,30},80 20, "color menu", cb_menu}
 		{
 			attach(next_button);
 			attach(quit_button);
 			attach(next_x);
 			attach(next_y);
 			attach(xy_out);
-			attach(lines); //lines?? -> Open_polyline
+			xy_out.put("no point");
 			color_menu.attach(new Button{Point{0,0},0,0,"red", cb_red});
 			color_menu.attach(new Button{Point{0,0},0,0,"blue", cb_blue});
 			color_menu.attach(new Button{Point{0,0},0,0,"black", cb_black});
 			attach(color_menu);
-		}
+			color_menu.hide();
+			attach(menu_button);
+			attach(lines); //lines?? -> Open_polyline
+
+	}
 
 void Lines_window::quit()
 {
