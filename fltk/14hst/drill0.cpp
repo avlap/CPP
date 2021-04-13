@@ -18,12 +18,9 @@ B1::B1(Point p1, Point p2)
 	add(p1);
 	add(p2);
 }
-/*
-void B1::draw_lines() const
-{
-	Line(p1, p2);
-}
-*/
+
+
+
 int main()
 {
 	Point tl{100,100};
