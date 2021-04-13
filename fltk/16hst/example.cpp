@@ -1,5 +1,6 @@
 #include "Simple_window.h"
 #include "Graph.h"
+#include "GUI.h"
 
 struct Lines_window : Window {
 	Lines_window(Point xy, int w, int h, const string& title);
@@ -54,7 +55,19 @@ void Lines_window::next()
 }
 
 int main()
-{
+try {
+	Lines_window win {Point{100,100},600,400,"lines"};
+	return gui_main();
+}
+catch(exception& e) {
+	cerr << "exception: " << e.what() << '\n';
+	return 1;
+}
+catch (...) {
+	cerr << "some exception\n";
+	return 2;
+}
+
 
 }
 
