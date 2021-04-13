@@ -21,9 +21,9 @@ private:
 	void hide_menu() { color_menu.hide(); menu_button.show(); }
 
 	//the actions 
-	void red_pressed() { change(Color::red); }
-	void blue_pressed() { change(Color::blue); }
-	void black_pressed() { change(Color::black); }
+	void red_pressed() { change(Color::red); hide_menu();}
+	void blue_pressed() { change(Color::blue); hide_menu(); }
+	void black_pressed() { change(Color::black); hide_menu(); }
 	void menu_pressed() { menu_button.hide(); color_menu.show(); }
 	void next();
 	void quit();
@@ -45,8 +45,9 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 	next_x{Point{x_max()-310, 0}, 50, 20, "Next x:"},
 	next_y{Point{x_max()-210, 0}, 50, 20, "next y:"},
 	xy_out{Point{100, 0}, 100, 20, "current (x,y):"},
-	color_menu{Point{x_max()-70, 40}, 70, 20, Menu::vertical,"color"} // menu
-	menu_button{Point{x_max()-80,30},80 20, "color menu", cb_menu}
+	color_menu{Point{x_max()-70, 40}, 70, 20, Menu::vertical,"color"}, // menu
+//	menu_button{Point{x_max()-80,30},80, 20, "color menu", cb_menu}
+ 	menu_button{Point{x_max()-80,30},80, 20, "color menu", [](Address, Address pw) {reference_to<Lines_window>(pw).menu_pressed();}}
 		{
 			attach(next_button);
 			attach(quit_button);
