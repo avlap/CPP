@@ -2,7 +2,7 @@
 #include "Graph.h"
 #include "GUI.h"
 
-struct Lines_window : Window {
+struct Lines_window : Graph_lib::Window {
 	Lines_window(Point xy, int w, int h, const string& title);
 	Open_polyline lines;
 private:
@@ -20,10 +20,10 @@ private:
 Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 	:Window{xy,w,h,title},
 	next_button{Point{x_max()-150, 0}, 70, 20, "Next point", [](Address, Address pw) {reference_to<Lines_window>(pw).next();}},
-	quit_button{Point{x_max()-70,0}, 70, 20, "Quit", [](Address, Address pw) {reference_to<Lines_window>(pw).quit();}},
-	next_x{Point{x_max()-310,0}, 50, 20, "Next x:"},
-	next_y{Point{x_max()-210,0},50,20,"next y:"},
-	xy_out{Point{100,0}, 100, 20. "current (x,y):"}
+	quit_button{Point{x_max()-70, 0}, 70, 20, "Quit", [](Address, Address pw) {reference_to<Lines_window>(pw).quit();}},
+	next_x{Point{x_max()-310, 0}, 50, 20, "Next x:"},
+	next_y{Point{x_max()-210, 0}, 50, 20, "next y:"},
+	xy_out{Point{100, 0}, 100, 20, "current (x,y):"}
 		{
 			attach(next_button);
 			attach(quit_button);
@@ -47,7 +47,7 @@ void Lines_window::next()
 	lines.add(Point{x,y});
 
 	//update current position readout
-	ostringsttream ss;
+	ostringstream ss;
 	ss << '(' << x << ',' << y << ')';
 	xy_out.put(ss.str());
 
@@ -69,5 +69,5 @@ catch (...) {
 }
 
 
-}
+
 
