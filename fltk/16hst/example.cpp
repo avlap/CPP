@@ -45,6 +45,11 @@ private:
 	static void cb_next(Address, Address); 
 	static void cb_quit(Address, Address); 
 
+	static void cb_solid(Address, Address); //callback
+	static void cb_dash(Address, Address); 
+	static void cb_dot(Address, Address);
+	static void cb_linestyle_menu(Address, Address);
+
 
 
 
@@ -60,7 +65,10 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 	xy_out{Point{100, 0}, 100, 20, "current (x,y):"},
 	color_menu{Point{x_max()-70, 40}, 70, 20, Menu::vertical,"color"}, // menu
 //	menu_button{Point{x_max()-80,30},80, 20, "color menu", cb_menu}
- 	menu_button{Point{x_max()-80,30},80, 20, "color menu", [](Address, Address pw) {reference_to<Lines_window>(pw).menu_pressed();}}
+ 	menu_button{Point{x_max()-80, 30}, 80, 20, "color menu", [](Address, Address pw) {reference_to<Lines_window>(pw).menu_pressed();}}
+	linestyle_menu{x_min(), 40}, 70, 20, Menu::vertical, "linestyle"},
+	linestyle_menu_button{x_min(), 30}, 80, 20,"linestyle", [](Address, Address pw) {reference_to<Lines_window>(pw).linestyle_menu_pressed();}}
+
 		{
 			attach(next_button);
 			attach(quit_button);
@@ -74,6 +82,12 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 			attach(color_menu);
 			color_menu.hide();
 			attach(menu_button);
+			linestyle_menu.attach(new Button{Point{0,0},0,0,"solid", [](Address, Address pw) {reference_to<Lines_window>(pw).solid_pressed();}});
+			linestyle_menu.attach(new Button{Point{0,0},0,0,"dash", [](Address, Address pw) {reference_to<Lines_window>(pw).dash_pressed();}});
+			linestyle_menu.attach(new Button{Point{0,0},0,0,"dot", [](Address, Address pw) {reference_to<Lines_window>(pw).dot_pressed();}});
+			attach(linestyle_menu);
+			linestyle_menu.hide();
+			attach(linestyle_menu_button);
 			attach(lines); //lines?? -> Open_polyline
 
 	}
