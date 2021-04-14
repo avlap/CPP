@@ -3,7 +3,7 @@
 #include "GUI.h"
 
 struct My_window : Graph_lib::Window {
-	Lines_window(Point xy, int w, int h, const string& title);
+	My_window(Point xy, int w, int h, const string& title);
 
 private:
 //	Open_polyline lines;
@@ -25,8 +25,8 @@ private:
 //Lines_window constructor, with lambdas
 My_window::My_window(Point xy, int w, int h, const string& title)
 	:Window{xy,w,h,title},
-	next_button{Point{x_max()-150, 0}, 70, 20, "Next point", [](Address, Address pw) {reference_to<Lines_window>(pw).next();}},
-	quit_button{Point{x_max()-50, 0}, 70, 20, "Quit", [](Address, Address pw) {reference_to<Lines_window>(pw).quit();}},
+	next_button{Point{x_max()-150, 0}, 70, 20, "Next point", [](Address, Address pw) {reference_to<My_window>(pw).next();}},
+	quit_button{Point{x_max()-50, 0}, 70, 20, "Quit", [](Address, Address pw) {reference_to<My_window>(pw).quit();}}
 		{
 			attach(next_button);
 			attach(quit_button);
