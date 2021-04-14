@@ -50,9 +50,6 @@ private:
 	static void cb_dot(Address, Address);
 	static void cb_style_menu(Address, Address);
 
-
-
-
 };
 
 //Lines_window constructor, with lambdas
