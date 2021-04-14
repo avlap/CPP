@@ -19,13 +19,10 @@ private:
 	Button linestyle_menu_button; //linestyle button
 
 	void change(Color c) { lines.set_color(c); }
-//pseudo	void change(Linesyle ls) { set line style; } 
+	void change_linestyle(Linesyle ls) { lines.set_style(ls); } 
 
 	void hide_menu() { color_menu.hide(); menu_button.show(); }
-
-	//linestyle menu
-	void hide_linesstyle_menu() { linestyle_menu.hide(); linestyle_menu_button.show(); }
-	void hide_linestyle_menu()
+	void hide_linesstyle_menu() { linestyle_menu.hide(); linestyle_menu_button.show(); } //linestyle menu
 
 	//the actions 
 	void red_pressed() { change(Color::red); hide_menu(); }
@@ -33,6 +30,11 @@ private:
 	void black_pressed() { change(Color::black); hide_menu(); }
 	void menu_pressed() { menu_button.hide(); color_menu.show(); }
 	//linestyle actions
+	void solid_pressed() { change_linestyle(solid); hide_linestyle_menu(); }
+	void dash_pressed() { change_linestyle(dash); hide_linestyle_menu(); }
+	void dot_pressed() { change_linestyle(dot); hide_linestyle_menu(); }
+	void linestyle_menu_pressed() { linestyle_menu_button.hide(); linestyle_menu.show(); }
+
 	void next();
 	void quit();
 
