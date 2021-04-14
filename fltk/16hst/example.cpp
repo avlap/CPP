@@ -65,9 +65,9 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 	xy_out{Point{100, 0}, 100, 20, "current (x,y):"},
 	color_menu{Point{x_max()-70, 40}, 70, 20, Menu::vertical,"color"}, // menu
 //	menu_button{Point{x_max()-80,30},80, 20, "color menu", cb_menu}
- 	menu_button{Point{x_max()-80, 30}, 80, 20, "color menu", [](Address, Address pw) {reference_to<Lines_window>(pw).menu_pressed();}},
-	style_menu{Point{x_max()-80, 40}, 70, 20, Menu::vertical, "linestyle"},
-	style_menu_button{Point{x_max()-80, 70}, 80, 20,"linestyle", [](Address, Address pw) {reference_to<Lines_window>(pw).style_menu_pressed();}}
+ 	menu_button{Point{x_max()-70, 30}, 80, 20, "color menu", [](Address, Address pw) {reference_to<Lines_window>(pw).menu_pressed();}},
+	style_menu{Point{0, 40}, 70, 20, Menu::vertical, "linestyle"},
+	style_menu_button{Point{0, 30}, 80, 20,"linestyle", [](Address, Address pw) {reference_to<Lines_window>(pw).style_menu_pressed();}}
 		{
 			attach(next_button);
 			attach(quit_button);
