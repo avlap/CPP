@@ -5,10 +5,10 @@ using namespace std;
 int main()
 {
 
-	int x;
-	int y;
-	x = y = 999;
-	cout << x << '\t' << y << '\n';
+	string a;	
+	cin >> a;
+	for(char x:a)
+		cout << x << '\n';
 
 	return 0;
 
