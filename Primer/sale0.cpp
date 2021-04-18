@@ -13,5 +13,7 @@ int main()
 
 	cout << item1 + item2 << '\n';
 
+	cout << item1.isbn() << '\n';
+
 	return 0;
 }
