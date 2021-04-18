@@ -6,9 +6,10 @@ int main()
 {
 
 	string a;	
-	cin >> a;
+	while(getline(cin, a)) {
 	for(char x:a)
 		cout << x << '\n';
+		}
 
 	return 0;
 
