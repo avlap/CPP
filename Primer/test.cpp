@@ -5,8 +5,10 @@ using namespace std;
 int main()
 {
 
-	for(int i = 0; i <= 10; ++i) 
-		cout << i << '\n';
+	int x;
+	int y;
+	x = y = 999;
+	cout << x << '\t' << y << '\n';
 
 	return 0;
 
