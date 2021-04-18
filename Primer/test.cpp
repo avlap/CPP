@@ -4,13 +4,9 @@ using namespace std;
 
 int main()
 {
-	//int sum = 50;
-	int i = 10;	
-	while(i >= 0) {
-		cout << i << '\n'; 
-		--i;
-	}
 
+	for(int i = 0; i <= 10; ++i) 
+		cout << i << '\n';
 
 	return 0;
 
