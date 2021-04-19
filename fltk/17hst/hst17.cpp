@@ -11,7 +11,7 @@ void sizes(char ch, int i, int* p)
 int main()
 {
 	char c = 'c';
-	int i = 8;
+	int i = 1;
 	int* p = &i;
 	sizes(c, i, p);
 }

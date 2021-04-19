@@ -6,10 +6,13 @@ int main()
 {
 
 	string a;	
-	while(getline(cin, a)) {
-	for(char x:a)
-		cout << x << '\n';
-		}
+
+	cin >> a;
+
+	for(char& x:a) 
+		x = toupper(x);
+
+	cout << a << '\n';
 
 	return 0;
 
